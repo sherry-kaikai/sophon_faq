@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3.3.2. SE5、SE7使用问题 &mdash; SOPHON and SDK FAQ master
+ 文档</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="../../_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/translations.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <script src="../../_static/js/qrious.js"></script>
+    <script src="../../_static/js/nav.js"></script>
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="3.3.3. SE9使用问题" href="SE9_faq.html" />
+    <link rel="prev" title="3.3.1. 刷机问题" href="soc_firmware_update.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> SOPHON and SDK FAQ
+          </a>
+              <div class="version">
+                master
+
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../0_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../1_basic_concept.html">2. 基础概念常见问题</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../3_device_usages.html">3. 设备使用常见问题</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../environment.html">3.1. 环境配置常见问题</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../common_commands.html">3.2. 设备版本、状态、bmodel模型信息如何获取？</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../devices_SOC.html">3.3. 智算盒子（模组）常见问题</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="soc_firmware_update.html">3.3.1. 刷机问题</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">3.3.2. SE5、SE7使用问题</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#se5">3.3.2.1. SE5支持的外围设备有哪些？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#se5micro-usb">3.3.2.2. SE5维护窗里的Micro-USB如何使用，如何通过串口进入系统？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#se7">3.3.2.3. SE7 如何通过串口进入系统？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#se9">3.3.2.4. SE9 如何通过串口进入系统？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#soc">3.3.2.5. 若系统故障，无法进入SoC的操作系统，该如何升级或恢复固件？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pythonsail">3.3.2.6. 如何在Python中使用SAIL？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#se5openvpn">3.3.2.7. SE5安装openVPN？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#se5se7ip">3.3.2.8. 如何通过串口查询SE5、SE7的IP地址</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">3.3.2.9. SE5经常自动重启，大约十几分钟到二十分钟左右重启一次？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#se5ubuntu">3.3.2.10. SE5是否可以刷Ubuntu系统？有没有版本要求？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#se5-apt">3.3.2.11. SE5盒子磁盘仍然有空间，但使用apt安装软件时或进行其他操作时，都会提示系统磁盘空间不足？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#se5se7se9ip">3.3.2.12. SE5、SE7、SE9盒子如何修改IP？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">3.3.2.13. SE5盒子如何扩展存储空间？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">3.3.2.14. 如何实现扩展硬盘的开机自动挂载？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">3.3.2.15. 关于内核版本以及增加内核模块？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#se5-lsmod-br-netfilter">3.3.2.16. SE5盒子中使用卡刷后，使用lsmod查看内核模块，比之前多了br_netfilter，它的作用是什么？和之前没有的盒子有什么区别？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#k8s-plugin">3.3.2.17. k8s plugin 在哪里下载？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#socpythonopencv-sophon-opencv">3.3.2.18. SoC中python如何使用OpenCV？导入sophon-opencv？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ffmpeg-vpu">3.3.2.19. 使用ffmpeg命令时报错，找不到vpu驱动怎么办？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#hdmi">3.3.2.20. 使用hdmi连接显示器，过一会儿不显示黑屏的问题</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">3.3.2.21. SoC查看内存使用情况？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id7">3.3.2.22. SE5盒子的配置方法</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="SE9_faq.html">3.3.3. SE9使用问题</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bm1684_soc_mode_faq.html">3.3.4. BSP问题</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../devices_PCIE.html">3.4. 智算卡常见问题</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../devices_server.html">3.5. 智算服务器常见问题</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../forum_page.html">3.6. 论坛资料</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../4_converter_quantization.html">4. 模型转换及量化常见问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../5_multimedia.html">5. 多媒体用户常见问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../6_program_optimization.html">6. 程序开发常见问题</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">SOPHON and SDK FAQ</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../3_device_usages.html"><span class="section-number">3. </span>设备使用常见问题</a> &raquo;</li>
+          <li><a href="../devices_SOC.html"><span class="section-number">3.3. </span>智算盒子（模组）常见问题</a> &raquo;</li>
+      <li><span class="section-number">3.3.2. </span>SE5、SE7使用问题</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="../../_sources/devices/SOC/SE5_SE7_faq.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">返回文档中心</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="se5se7">
+<h1><a class="toc-backref" href="#id8" role="doc-backlink"><span class="section-number">3.3.2. </span>SE5、SE7使用问题</a><a class="headerlink" href="#se5se7" title="此标题的永久链接">¶</a></h1>
+<nav class="contents" id="id1">
+<p class="topic-title">目录</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#se5se7" id="id8">SE5、SE7使用问题</a></p>
+<ul>
+<li><p><a class="reference internal" href="#se5" id="id9">SE5支持的外围设备有哪些？</a></p></li>
+<li><p><a class="reference internal" href="#se5micro-usb" id="id10">SE5维护窗里的Micro-USB如何使用，如何通过串口进入系统？</a></p></li>
+<li><p><a class="reference internal" href="#se7" id="id11">SE7 如何通过串口进入系统？</a></p></li>
+<li><p><a class="reference internal" href="#se9" id="id12">SE9 如何通过串口进入系统？</a></p></li>
+<li><p><a class="reference internal" href="#soc" id="id13">若系统故障，无法进入SoC的操作系统，该如何升级或恢复固件？</a></p></li>
+<li><p><a class="reference internal" href="#pythonsail" id="id14">如何在Python中使用SAIL？</a></p></li>
+<li><p><a class="reference internal" href="#se5openvpn" id="id15">SE5安装openVPN？</a></p></li>
+<li><p><a class="reference internal" href="#se5se7ip" id="id16">如何通过串口查询SE5、SE7的IP地址</a></p></li>
+<li><p><a class="reference internal" href="#id2" id="id17">SE5经常自动重启，大约十几分钟到二十分钟左右重启一次？</a></p></li>
+<li><p><a class="reference internal" href="#se5ubuntu" id="id18">SE5是否可以刷Ubuntu系统？有没有版本要求？</a></p></li>
+<li><p><a class="reference internal" href="#se5-apt" id="id19">SE5盒子磁盘仍然有空间，但使用apt安装软件时或进行其他操作时，都会提示系统磁盘空间不足？</a></p></li>
+<li><p><a class="reference internal" href="#se5se7se9ip" id="id20">SE5、SE7、SE9盒子如何修改IP？</a></p></li>
+<li><p><a class="reference internal" href="#id3" id="id21">SE5盒子如何扩展存储空间？</a></p></li>
+<li><p><a class="reference internal" href="#id4" id="id22">如何实现扩展硬盘的开机自动挂载？</a></p></li>
+<li><p><a class="reference internal" href="#id5" id="id23">关于内核版本以及增加内核模块？</a></p></li>
+<li><p><a class="reference internal" href="#se5-lsmod-br-netfilter" id="id24">SE5盒子中使用卡刷后，使用lsmod查看内核模块，比之前多了br_netfilter，它的作用是什么？和之前没有的盒子有什么区别？</a></p></li>
+<li><p><a class="reference internal" href="#k8s-plugin" id="id25">k8s plugin 在哪里下载？</a></p></li>
+<li><p><a class="reference internal" href="#socpythonopencv-sophon-opencv" id="id26">SoC中python如何使用OpenCV？导入sophon-opencv？</a></p></li>
+<li><p><a class="reference internal" href="#ffmpeg-vpu" id="id27">使用ffmpeg命令时报错，找不到vpu驱动怎么办？</a></p></li>
+<li><p><a class="reference internal" href="#hdmi" id="id28">使用hdmi连接显示器，过一会儿不显示黑屏的问题</a></p></li>
+<li><p><a class="reference internal" href="#id6" id="id29">SoC查看内存使用情况？</a></p></li>
+<li><p><a class="reference internal" href="#id7" id="id30">SE5盒子的配置方法</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+<section id="se5">
+<h2><a class="toc-backref" href="#id9" role="doc-backlink"><span class="section-number">3.3.2.1. </span>SE5支持的外围设备有哪些？</a><a class="headerlink" href="#se5" title="此标题的永久链接">¶</a></h2>
+<p>答：请参考产品手册，或联系技术支持人员。
+.. TODO</p>
+</section>
+<section id="se5micro-usb">
+<h2><a class="toc-backref" href="#id10" role="doc-backlink"><span class="section-number">3.3.2.2. </span>SE5维护窗里的Micro-USB如何使用，如何通过串口进入系统？</a><a class="headerlink" href="#se5micro-usb" title="此标题的永久链接">¶</a></h2>
+<ol class="arabic">
+<li><p>将 Mcro-USB 线与电脑连接：</p>
+<img alt="../../_images/soc_se5_micro_usb_line.png" src="../../_images/soc_se5_micro_usb_line.png" />
+<img alt="../../_images/soc_se5_micro_usb_board.png" src="../../_images/soc_se5_micro_usb_board.png" />
+</li>
+<li><p>从 <a class="reference external" href="https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers">https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers</a> 下载cp2102的驱动，安装后就有串口显示：</p>
+<img alt="../../_images/soc_se5_micro_usb_cp2102_driver_com4.png" src="../../_images/soc_se5_micro_usb_cp2102_driver_com4.png" />
+</li>
+<li><p>配置com口属性，115200, 8-N-1：</p>
+<img alt="../../_images/soc_se5_micro_usb_com_property.png" src="../../_images/soc_se5_micro_usb_com_property.png" />
+</li>
+<li><p>下载teraterm软件， 选择连接 comX(本例com4), 点击OK：</p>
+<img alt="../../_images/soc_se5_micro_usb_teraterm_comX_ok.png" src="../../_images/soc_se5_micro_usb_teraterm_comX_ok.png" />
+</li>
+<li><p>在Setup—Terminal，将Speed改为115200：</p>
+<img alt="../../_images/soc_se5_micro_usb_setup_terminal_speed_115200.png" src="../../_images/soc_se5_micro_usb_setup_terminal_speed_115200.png" />
+</li>
+<li><p>SE5开机运行就会显示：</p>
+<img alt="../../_images/soc_se5_micro_usb_se5_run_display.png" src="../../_images/soc_se5_micro_usb_se5_run_display.png" />
+</li>
+</ol>
+</section>
+<section id="se7">
+<h2><a class="toc-backref" href="#id11" role="doc-backlink"><span class="section-number">3.3.2.3. </span>SE7 如何通过串口进入系统？</a><a class="headerlink" href="#se7" title="此标题的永久链接">¶</a></h2>
+<p><a class="reference external" href="https://developer.sophgo.com/thread/548.html">https://developer.sophgo.com/thread/548.html</a></p>
+</section>
+<section id="se9">
+<h2><a class="toc-backref" href="#id12" role="doc-backlink"><span class="section-number">3.3.2.4. </span>SE9 如何通过串口进入系统？</a><a class="headerlink" href="#se9" title="此标题的永久链接">¶</a></h2>
+</section>
+<section id="soc">
+<h2><a class="toc-backref" href="#id13" role="doc-backlink"><span class="section-number">3.3.2.5. </span>若系统故障，无法进入SoC的操作系统，该如何升级或恢复固件？</a><a class="headerlink" href="#soc" title="此标题的永久链接">¶</a></h2>
+<ol class="arabic simple">
+<li><p>应当使用SD卡刷的方式重新刷机。若SD卡刷机不成功，或仍旧无法进入系统。请尝试使用 SE5,SE7 紧急修复启动包： <a class="reference external" href="https://developer.sophgo.com/thread/586.html">https://developer.sophgo.com/thread/586.html</a></p></li>
+</ol>
+</section>
+<section id="pythonsail">
+<h2><a class="toc-backref" href="#id14" role="doc-backlink"><span class="section-number">3.3.2.6. </span>如何在Python中使用SAIL？</a><a class="headerlink" href="#pythonsail" title="此标题的永久链接">¶</a></h2>
+<p>方法1. 使用sail包中编译好的whl文件，路径在 sophon-sail/python_wheels/&lt;arch&gt;/libsophon-&lt;0.x.x&gt;_sophonmw-&lt;0.x.x&gt;/py3x 文件夹中。
+需要选择当前/opt/sophon下的libsophon和sophon-opencv(sophon-ffmpeg)的版本。</p>
+<p>方法2. 按照《SOPHON-SAIL用户手册》重新交叉编译sail的whl包，并安装。</p>
+</section>
+<section id="se5openvpn">
+<h2><a class="toc-backref" href="#id15" role="doc-backlink"><span class="section-number">3.3.2.7. </span>SE5安装openVPN？</a><a class="headerlink" href="#se5openvpn" title="此标题的永久链接">¶</a></h2>
+<p>答：只需要打开CONFIG_TUN，直接修改文件https://gitee.com/sophon-ai/bsp-sdk/blob/master/linux-linaro-stable/arch/arm64/configs/bitmain_bm1684_asic_defconfig，
+确认最后一行CONFIG_TUN=y，再按照 <a class="reference external" href="https://sophon-file.sophon.cn/sophon-prod-s3/drive/22/08/22/16/sm5-sof-doc_zh.pdf">sm5手册</a> 的第6章重新编译kernel。不需要用make menuoconfig去找。</p>
+</section>
+<section id="se5se7ip">
+<h2><a class="toc-backref" href="#id16" role="doc-backlink"><span class="section-number">3.3.2.8. </span>如何通过串口查询SE5、SE7的IP地址</a><a class="headerlink" href="#se5se7ip" title="此标题的永久链接">¶</a></h2>
+<p>答：1、宿主机为Linux时：使用Ubuntu连上SE5、SE7串口之后，在Terminal输入命令ping bm1684.local可以查看到盒子IP。</p>
+<p>2、宿主机为Windows时：通过串口工具(推荐teraterm、mobaxterm、windterm等软件)，需要安装驱动程序（直接在网上找CP210x驱动），安装好驱动之后，使用串口工具连接登录 linaro/linaro，然后使用ip addr show命令查看IP。</p>
+</section>
+<section id="id2">
+<h2><a class="toc-backref" href="#id17" role="doc-backlink"><span class="section-number">3.3.2.9. </span>SE5经常自动重启，大约十几分钟到二十分钟左右重启一次？</a><a class="headerlink" href="#id2" title="此标题的永久链接">¶</a></h2>
+<p>答：
+#. 如果仍然有问题看下硬盘各分区的使用情况，之前遇到过有些分区快满的时候，就会重启。</p>
+</section>
+<section id="se5ubuntu">
+<h2><a class="toc-backref" href="#id18" role="doc-backlink"><span class="section-number">3.3.2.10. </span>SE5是否可以刷Ubuntu系统？有没有版本要求？</a><a class="headerlink" href="#se5ubuntu" title="此标题的永久链接">¶</a></h2>
+<p>答：</p>
+<ol class="arabic simple">
+<li><p>客户没法自己随便安装系统，只能用我们发布的刷机包。目前我们使用ubuntu版本。</p></li>
+<li><p>或者可以自行定制刷机包。</p></li>
+</ol>
+</section>
+<section id="se5-apt">
+<h2><a class="toc-backref" href="#id19" role="doc-backlink"><span class="section-number">3.3.2.11. </span>SE5盒子磁盘仍然有空间，但使用apt安装软件时或进行其他操作时，都会提示系统磁盘空间不足？</a><a class="headerlink" href="#se5-apt" title="此标题的永久链接">¶</a></h2>
+<img alt="../../_images/soc_df_h.png" src="../../_images/soc_df_h.png" />
+<img alt="../../_images/soc_failed_to_fetch.png" src="../../_images/soc_failed_to_fetch.png" />
+<p>答：通常这是由于node节点满了导致的，请使用`df -i`查看Inodes节点是否被用完，当磁盘中存在大量的小文件时，就容易发生这样的问题。可以使用扩大inodes节点数量或删除无用的小文件。</p>
+</section>
+<section id="se5se7se9ip">
+<h2><a class="toc-backref" href="#id20" role="doc-backlink"><span class="section-number">3.3.2.12. </span>SE5、SE7、SE9盒子如何修改IP？</a><a class="headerlink" href="#se5se7se9ip" title="此标题的永久链接">¶</a></h2>
+<p>答：</p>
+<ol class="arabic simple">
+<li><p>修改配置文件：对于盒子来说，修改/etc/network/下的配置文件，eth0对应WAN口，根据实际修改；eth1对应LAN口，应保持static方式固定IP 192.168.150.1不变，方便系统维护时使用固定IP连接；</p></li>
+</ol>
+</section>
+<section id="id3">
+<h2><a class="toc-backref" href="#id21" role="doc-backlink"><span class="section-number">3.3.2.13. </span>SE5盒子如何扩展存储空间？</a><a class="headerlink" href="#id3" title="此标题的永久链接">¶</a></h2>
+<p>答：</p>
+<ol class="arabic simple">
+<li><p>配有硬盘仓，支持 2.5 英寸 7mm 高度的 SATA 接口 HDD 或 SSD 硬盘，支持容量不超过 2TB；</p></li>
+<li><p><strong>不推荐</strong> 使用SD卡：SE5背部维护仓内部有SD卡插槽，速率 模式为 SDR104，最大容量 2TB；</p></li>
+<li><p>USB接口连接外接硬盘，可临时使用，长期不推荐。</p></li>
+</ol>
+</section>
+<section id="id4">
+<h2><a class="toc-backref" href="#id22" role="doc-backlink"><span class="section-number">3.3.2.14. </span>如何实现扩展硬盘的开机自动挂载？</a><a class="headerlink" href="#id4" title="此标题的永久链接">¶</a></h2>
+<p>答：可查看《SE5/7  SSD开机自动挂载指定分区》教程：<a class="reference external" href="https://developer.sophgo.com/thread/579.html">https://developer.sophgo.com/thread/579.html</a></p>
+<p>推荐使用启动脚本或者systemd service的方式来实现扩展硬盘的开机自动挂载；您可以修改/etc/rc.local文件，
+将挂载命令放在文件的末尾 exit 0 之前。我们不建议直接修改/etc/fstab文件，因为一旦挂载出现问题，系统将无法启动。
+为了安全起见，SE5中/etc/fstab文件不能随意修改，每次开机时只读分区的/media/root-ro/ fstab.emmc.ro会自动替换/etc/fstab。
+（若您一定要修改fstab文件，请先sudo mount -o remount rw /media/root-ro将分区修改为可写；
+然后修改 fstab.emmc.ro 文件；修改完成后，请再将分区修改回只读属性。）（如果因挂载问题出现系统无法启动的问题，请尝试使用SD卡刷的方式修复。）</p>
+</section>
+<section id="id5">
+<h2><a class="toc-backref" href="#id23" role="doc-backlink"><span class="section-number">3.3.2.15. </span>关于内核版本以及增加内核模块？</a><a class="headerlink" href="#id5" title="此标题的永久链接">¶</a></h2>
+<p>问：我拿到的这个盒子上uname -r拿到的版本和实际的内核模块版本不一致，另外我想加几个内核模块，盒子上源码目录下是空的，是不是需要你们帮忙重新编下内核</p>
+<img alt="../../_images/soc_uname_r.png" src="../../_images/soc_uname_r.png" />
+<img alt="../../_images/soc_ls_lib_modules.png" src="../../_images/soc_ls_lib_modules.png" />
+<p>答：内核版本和/lib/modules不一致，说明那个盒子应该是从某个比较老的版本，通过替换内核镜像的方式升级的，所以只有内核更新了，/lib/modules没有更新。建议您用我们的卡刷包重新刷一下，就一致了。
+如果您想添加内核模块的话，可以参考https://gitee.com/sophon-ai/bsp-sdk，但是请了解如果您添加的kernel config对kernel API有比较大变化，会和我们以二进制形式发布的一些驱动不兼容。</p>
+</section>
+<section id="se5-lsmod-br-netfilter">
+<h2><a class="toc-backref" href="#id24" role="doc-backlink"><span class="section-number">3.3.2.16. </span>SE5盒子中使用卡刷后，使用lsmod查看内核模块，比之前多了br_netfilter，它的作用是什么？和之前没有的盒子有什么区别？</a><a class="headerlink" href="#se5-lsmod-br-netfilter" title="此标题的永久链接">¶</a></h2>
+<img alt="../../_images/soc_lsmod.png" src="../../_images/soc_lsmod.png" />
+<p>答：安装使用k3s/k8s需要这个driver，是在某个版本开始加入的。另外，如果没有这个driver，说明盒子的固件比较老旧了，建议使用卡刷重刷一下固件，以免直接替换文件升级新版SDK后发现不可预期的问题。</p>
+</section>
+<section id="k8s-plugin">
+<h2><a class="toc-backref" href="#id25" role="doc-backlink"><span class="section-number">3.3.2.17. </span>k8s plugin 在哪里下载？</a><a class="headerlink" href="#k8s-plugin" title="此标题的永久链接">¶</a></h2>
+<p>答：请联系我们的技术支持获取最新版本。</p>
+</section>
+<section id="socpythonopencv-sophon-opencv">
+<h2><a class="toc-backref" href="#id26" role="doc-backlink"><span class="section-number">3.3.2.18. </span>SoC中python如何使用OpenCV？导入sophon-opencv？</a><a class="headerlink" href="#socpythonopencv-sophon-opencv" title="此标题的永久链接">¶</a></h2>
+<p>答：SoC建议使用我们改造过的sophon-opencv以获得硬件加速支持。设置环境变量即可：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># 设置环境变量
+export PYTHONPATH=$PYTHONPATH:/opt/sophon/sophon-opencv_&lt;x.y.z&gt;/opencv-python
+</pre></div>
+</div>
+</section>
+<section id="ffmpeg-vpu">
+<h2><a class="toc-backref" href="#id27" role="doc-backlink"><span class="section-number">3.3.2.19. </span>使用ffmpeg命令时报错，找不到vpu驱动怎么办？</a><a class="headerlink" href="#ffmpeg-vpu" title="此标题的永久链接">¶</a></h2>
+<img alt="../../_images/opration_faults_ffmpeg_no_vpu.png" src="../../_images/opration_faults_ffmpeg_no_vpu.png" />
+<p>#. lsmod查看所有的ko是否加载，正常情况下jpu、vpu、bmtpu、fl2000等4个ko加载成功;若没有加载成功，请联系技术支持或用卡刷修复系统。
+.. #. 对于没有加载的ko，进入/system/data目录下手动加载查看是否报错。若报错，原因可能是升级过内核，内核和ko不匹配，建议使用卡刷修复系统。</p>
+</section>
+<section id="hdmi">
+<h2><a class="toc-backref" href="#id28" role="doc-backlink"><span class="section-number">3.3.2.20. </span>使用hdmi连接显示器，过一会儿不显示黑屏的问题</a><a class="headerlink" href="#hdmi" title="此标题的永久链接">¶</a></h2>
+<p>请参考《算能SOC模式设备FL2000&amp;MS9132使用流程》 。此文档请联系算能技术支持获取。</p>
+</section>
+<section id="id6">
+<h2><a class="toc-backref" href="#id29" role="doc-backlink"><span class="section-number">3.3.2.21. </span>SoC查看内存使用情况？</a><a class="headerlink" href="#id6" title="此标题的永久链接">¶</a></h2>
+<p>答：</p>
+<ol class="arabic">
+<li><p>查看系统内存：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">free</span> <span class="o">-</span><span class="n">h</span>
+</pre></div>
+</div>
+</li>
+<li><p>查看ION内存(SE5、SE7)如下，SE9请参考 <a class="reference internal" href="../common_commands.html#id5"><span class="std std-ref">SoC设备状态信息常用命令</span></a></p>
+<p>NPU内存使用情况：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cat</span> <span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">kernel</span><span class="o">/</span><span class="n">debug</span><span class="o">/</span><span class="n">ion</span><span class="o">/</span><span class="n">bm_npu_heap_dump</span><span class="o">/</span><span class="n">summary</span> <span class="o">|</span> <span class="n">head</span> <span class="o">-</span><span class="mi">2</span>
+</pre></div>
+</div>
+<p>VPU内存使用情况：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cat</span> <span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">kernel</span><span class="o">/</span><span class="n">debug</span><span class="o">/</span><span class="n">ion</span><span class="o">/</span><span class="n">bm_vpu_heap_dump</span><span class="o">/</span><span class="n">summary</span> <span class="o">|</span> <span class="n">head</span> <span class="o">-</span><span class="mi">2</span>
+</pre></div>
+</div>
+<p>VPP内存使用情况：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cat</span> <span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">kernel</span><span class="o">/</span><span class="n">debug</span><span class="o">/</span><span class="n">ion</span><span class="o">/</span><span class="n">bm_vpp_heap_dump</span><span class="o">/</span><span class="n">summary</span> <span class="o">|</span> <span class="n">head</span> <span class="o">-</span><span class="mi">2</span>
+</pre></div>
+</div>
+<img alt="../../_images/soc_heap_occupied.png" src="../../_images/soc_heap_occupied.png" />
+<p>如上，通常SE5、SE7会有3个ION heap(即三块预留的内存区域)，如名字所示，分别供TPU、VPU、VPP使用。以上示例中只打印了每个heap使用信息的开头，如果完整地cat summary文件， 可以到其中分配的每块buffer的地址和大小信息</p>
+</li>
+</ol>
+</section>
+<section id="id7">
+<h2><a class="toc-backref" href="#id30" role="doc-backlink"><span class="section-number">3.3.2.22. </span>SE5盒子的配置方法</a><a class="headerlink" href="#id7" title="此标题的永久链接">¶</a></h2>
+<p>SE5盒子有两种配置方式：</p>
+<ul>
+<li><p>SE5直连电脑：</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>链接SE5 WAN口至电脑端LAN口</p></li>
+<li><p>配置电脑ip地址至192.168.150.1同网段下</p></li>
+<li><p>ssh至192.168.150.1，初始账户名密码在机身下方</p></li>
+</ol>
+</div></blockquote>
+</li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="c1"># 例如</span>
+<span class="linenos">2</span>ssh<span class="w"> </span>linaro@192.168.150.1
+<span class="linenos">3</span><span class="c1"># 输入密码linaro</span>
+</pre></div>
+</div>
+<ul>
+<li><p>SE5通过路由器或交换机连接：</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>连接SE5端的WAN口至路由器或交换机</p></li>
+<li><p>从路由器或交换机连接至电脑端LAN口</p></li>
+<li><p>配置电脑ip至192.168.150.1同网段</p></li>
+<li><p>ssh至192.168.150.1，初始账户名密码在机身下方</p></li>
+<li><p>查看SE5盒子的WAN口ip地址，以用来远程连接</p></li>
+</ol>
+</div></blockquote>
+</li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="soc_firmware_update.html" class="btn btn-neutral float-left" title="3.3.1. 刷机问题" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="SE9_faq.html" class="btn btn-neutral float-right" title="3.3.3. SE9使用问题" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2022, SOPHGO.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="前往官网"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="前往文档中心"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="页面顶部"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="页面底部"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>本页二维码</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

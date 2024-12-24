@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>6.1. 程序优化常见问题 &mdash; SOPHON and SDK FAQ master
+ 文档</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="../_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/translations.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <script src="../_static/js/qrious.js"></script>
+    <script src="../_static/js/nav.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="6.2. SOPHON DEMO 常见问题" href="sophon-demo-faq.html" />
+    <link rel="prev" title="6. 程序开发常见问题" href="../6_program_optimization.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> SOPHON and SDK FAQ
+          </a>
+              <div class="version">
+                master
+
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../0_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1_basic_concept.html">2. 基础概念常见问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3_device_usages.html">3. 设备使用常见问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4_converter_quantization.html">4. 模型转换及量化常见问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../5_multimedia.html">5. 多媒体用户常见问题</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../6_program_optimization.html">6. 程序开发常见问题</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">6.1. 程序优化常见问题</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">6.1.1. 前后处理加速</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">6.1.2. 模型编译</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">6.1.3. 推理加速</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bmlang">6.1.4. bmlang开发</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">6.1.5. 流程优化</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sophon-demo-faq.html">6.2. SOPHON DEMO 常见问题</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sophon-stream-faq.html">6.3. SOPHON STREAM 常见问题</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sophon-pipeline-faq.html">6.4. SOPHON PIPELINE 常见问题及解答</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">SOPHON and SDK FAQ</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../6_program_optimization.html"><span class="section-number">6. </span>程序开发常见问题</a> &raquo;</li>
+      <li><span class="section-number">6.1. </span>程序优化常见问题</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="../_sources/program_develop/program_opt.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">返回文档中心</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1><span class="section-number">6.1. </span>程序优化常见问题<a class="headerlink" href="#id1" title="此标题的永久链接">¶</a></h1>
+<section id="id2">
+<h2><span class="section-number">6.1.1. </span>前后处理加速<a class="headerlink" href="#id2" title="此标题的永久链接">¶</a></h2>
+<ul class="simple">
+<li><p>编解码使用bm_ffmpeg/bm_opencv</p></li>
+<li><p>前处理中图片处理部分尽量采用bmcv来进行加速，优先使用带有vpp的接口</p></li>
+<li><p>必要时候使用libyuv，基于ARM neon加速(SoC)</p></li>
+<li><p>nms等后处理使用硬件加速接口</p></li>
+</ul>
+</section>
+<section id="id3">
+<h2><span class="section-number">6.1.2. </span>模型编译<a class="headerlink" href="#id3" title="此标题的永久链接">¶</a></h2>
+<ul class="simple">
+<li><p>精度满足的条件下，使用轻量级的模型</p></li>
+</ul>
+</section>
+<section id="id4">
+<h2><span class="section-number">6.1.3. </span>推理加速<a class="headerlink" href="#id4" title="此标题的永久链接">¶</a></h2>
+<ul class="simple">
+<li><p>推理的时候采用4N batch模式</p></li>
+<li><p>使用INT8量化模型推理</p></li>
+</ul>
+</section>
+<section id="bmlang">
+<h2><span class="section-number">6.1.4. </span>bmlang开发<a class="headerlink" href="#bmlang" title="此标题的永久链接">¶</a></h2>
+<ul>
+<li><p>使用尽可能少的操作</p></li>
+<li><p>让数据访问只发生在本地存储</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>尽量少使用 全局操作；</p></li>
+<li><p>集中且连续的使用 本地操作来完成计算；</p></li>
+<li><p>编程中相邻 本地操作尽可能是生产者消费者关系。</p></li>
+</ol>
+</div></blockquote>
+</li>
+<li><p>科学切割数据，合理的Tensor 数据排布将提升 TPU 计算单元使用率</p></li>
+<li><p>使能数据切分优化（尽量设置 shape 不大于 4 维，若数据很大，在设置 shape 时优先将大数设置在 S2 维度，其次 S0 维度）</p></li>
+</ul>
+</section>
+<section id="id5">
+<h2><span class="section-number">6.1.5. </span>流程优化<a class="headerlink" href="#id5" title="此标题的永久链接">¶</a></h2>
+<ul class="simple">
+<li><p>优化模型流水线，多线程方式优化，VPU/JPU/VPP/CPU/智能视觉深度学习处理器 的并行</p></li>
+<li><p>减少不必要的内存拷贝</p></li>
+<li><p>视频流抽帧处理，我们的ffmpeg支持只解关键帧的设置</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../6_program_optimization.html" class="btn btn-neutral float-left" title="6. 程序开发常见问题" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="sophon-demo-faq.html" class="btn btn-neutral float-right" title="6.2. SOPHON DEMO 常见问题" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2022, SOPHGO.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="前往官网"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="前往文档中心"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="页面顶部"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="页面底部"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>本页二维码</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

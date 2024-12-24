@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>1. 声明 &mdash; SOPHON and SDK FAQ master
+ 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="2. 基础概念常见问题" href="1_basic_concept.html" />
+    <link rel="prev" title="SOPHON设备和SDK使用常见问题及解答" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> SOPHON and SDK FAQ
+          </a>
+              <div class="version">
+                master
+
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">1. 声明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_basic_concept.html">2. 基础概念常见问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_device_usages.html">3. 设备使用常见问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_converter_quantization.html">4. 模型转换及量化常见问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_multimedia.html">5. 多媒体用户常见问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6_program_optimization.html">6. 程序开发常见问题</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SOPHON and SDK FAQ</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">1. </span>声明</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/0_disclaimer.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">返回文档中心</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1><span class="section-number">1. </span>声明<a class="headerlink" href="#id1" title="此标题的永久链接">¶</a></h1>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/logo.png"><img alt="SOPHGO LOGO" src="_images/logo.png" style="width: 200.0px; height: 200.0px;" /></a>
+</figure>
+<div class="line-block">
+<div class="line"><strong>法律声明</strong></div>
+<div class="line">版权所有 © 算能 2022. 保留一切权利。</div>
+<div class="line">非经本公司书面许可，任何单位和个人不得擅自摘抄、复制本文档内容的部分或全部，并不得以任何形式传播。</div>
+</div>
+<div class="line-block">
+<div class="line"><strong>注意</strong></div>
+<div class="line">您购买的产品、服务或特性等应受 算能 商业合同和条款的约束，
+本文档中描述的全部或部分产品、服务或特性可能不在您的购买或使用范围之内。
+除非合同另有约定， 算能 对本文档内容不做任何明示或默示的声明或保证。
+由于产品版本升级或其他原因，本文档内容会不定期进行更新。
+除非另有约定，本文档仅作为使用指导，本文档中的所有陈述、信息和建议不构成任何明示或暗示的担保。</div>
+</div>
+<div class="line-block">
+<div class="line"><strong>技术支持</strong></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">地址<span class="colon">:</span></dt>
+<dd class="field-odd"><p>北京市海淀区丰豪东路9号院中关村集成电路设计园（ICPARK）1号楼</p>
+</dd>
+<dt class="field-even">邮编<span class="colon">:</span></dt>
+<dd class="field-even"><p>100094</p>
+</dd>
+<dt class="field-odd">网址<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://www.sophgo.com/">https://www.sophgo.com/</a></p>
+</dd>
+<dt class="field-even">邮箱<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="mailto:sales&#37;&#52;&#48;sophgo&#46;com">sales<span>&#64;</span>sophgo<span>&#46;</span>com</a></p>
+</dd>
+<dt class="field-odd">电话<span class="colon">:</span></dt>
+<dd class="field-odd"><p>+86-10-57590723
++86-10-57590724</p>
+</dd>
+</dl>
+<div class="line-block">
+<div class="line"><strong>SDK发布记录</strong></div>
+</div>
+<table class="docutils align-default" style="width: 600">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 30%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>版本</p></th>
+<th class="head"><p>发布日期</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>v1.5.1</p></td>
+<td><p>2024.05.01</p></td>
+<td><p>v1.5.1版本发布。</p></td>
+</tr>
+<tr class="row-odd"><td><p>v1.6.0</p></td>
+<td><p>2024.06.14</p></td>
+<td><p>v1.6.0版本发布。</p></td>
+</tr>
+<tr class="row-even"><td><p>v1.7.0</p></td>
+<td><p>2024.07.26</p></td>
+<td><p>v1.7.0版本发布。</p></td>
+</tr>
+<tr class="row-odd"><td><p>v1.8.0</p></td>
+<td><p>2024.10.12</p></td>
+<td><p>v1.8.0版本发布。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line"><strong>1.8.0 更新内容</strong></div>
+</div>
+<ul class="simple">
+<li><p>开放bmapi接口，支持视频编解码，图片编解码</p></li>
+<li><p>支持gstreamer，视频编解码，图片编解码…..</p></li>
+<li><p>ffmpeg编码支持 yuvj420p格式</p></li>
+<li></li>
+</ul>
+<div class="line-block">
+<div class="line"><strong>1.7.0 更新内容</strong></div>
+</div>
+<ul class="simple">
+<li><p>opencv的转码例子videotranscode支持多线程演示</p></li>
+<li><p>jpu支持在任何heap上操作</p></li>
+<li></li>
+</ul>
+<div class="line-block">
+<div class="line"><strong>1.6.0 更新内容</strong></div>
+</div>
+<ul class="simple">
+<li><p>base64支持</p></li>
+<li><p>2DE升级</p></li>
+<li></li>
+</ul>
+<div class="line-block">
+<div class="line"><strong>1.5.1 更新内容</strong></div>
+</div>
+<ul class="simple">
+<li><p>第一次正式公开发布</p></li>
+<li><p>opencv支持 vpu 编码/解码</p></li>
+<li><p>ffmpeg支持 vpu 编码/解码</p></li>
+<li><p>opencv支持jpu 编码/解码</p></li>
+<li><p>ffmpeg支持jpu 编码/解码</p></li>
+</ul>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="SOPHON设备和SDK使用常见问题及解答" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="1_basic_concept.html" class="btn btn-neutral float-right" title="2. 基础概念常见问题" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2022, SOPHGO.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="前往官网"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="前往文档中心"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="页面顶部"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="页面底部"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>本页二维码</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

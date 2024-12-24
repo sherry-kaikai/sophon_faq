@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3.1. 环境配置常见问题 &mdash; SOPHON and SDK FAQ master
+ 文档</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="../_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/translations.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <script src="../_static/js/qrious.js"></script>
+    <script src="../_static/js/nav.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="3.2. 设备版本、状态、bmodel模型信息如何获取？" href="common_commands.html" />
+    <link rel="prev" title="3. 设备使用常见问题" href="../3_device_usages.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> SOPHON and SDK FAQ
+          </a>
+              <div class="version">
+                master
+
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../0_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1_basic_concept.html">2. 基础概念常见问题</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../3_device_usages.html">3. 设备使用常见问题</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">3.1. 环境配置常见问题</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">3.1.1. 开发环境配置常见问题</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#x-sdk">3.1.1.1. BM1684、BM1684X 如何安装和使用SDK？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#docker">3.1.1.2. 如何在docker容器内使用宿主机上的显示设备显示图像？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#abi0abi1">3.1.1.3. 关于ABI0和ABI1版本的问题？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#centos7-6gcc-6-5bm-opencv">3.1.1.4. 在CentOS7.6上使用gcc 6.5编译程序链接BM-OpenCV库时报找不到符号链接的错误</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pythonbm-opencv">3.1.1.5. 如何在开发环境中的Python环境下使用我们提供的BM-OpenCV?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#centosubuntudockersail">3.1.1.6. CentOS宿主机上在官方ubuntu开发docker中使用sail模块报找不到符号错误？</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">3.1.2. 运行环境配置常见问题</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id6">3.1.2.1. 有哪些环境变量需要手动配置？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id7">3.1.2.2. 处理器无法正常工作怎么办？</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="common_commands.html">3.2. 设备版本、状态、bmodel模型信息如何获取？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="devices_SOC.html">3.3. 智算盒子（模组）常见问题</a></li>
+<li class="toctree-l2"><a class="reference internal" href="devices_PCIE.html">3.4. 智算卡常见问题</a></li>
+<li class="toctree-l2"><a class="reference internal" href="devices_server.html">3.5. 智算服务器常见问题</a></li>
+<li class="toctree-l2"><a class="reference internal" href="forum_page.html">3.6. 论坛资料</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../4_converter_quantization.html">4. 模型转换及量化常见问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../5_multimedia.html">5. 多媒体用户常见问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../6_program_optimization.html">6. 程序开发常见问题</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">SOPHON and SDK FAQ</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../3_device_usages.html"><span class="section-number">3. </span>设备使用常见问题</a> &raquo;</li>
+      <li><span class="section-number">3.1. </span>环境配置常见问题</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="../_sources/devices/environment.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">返回文档中心</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <style>
+
+.red {
+    color:red;
+}
+.blue {
+    color:blue;
+}
+.green {
+    color:green;
+}
+
+</style><section id="id1">
+<h1><span class="section-number">3.1. </span>环境配置常见问题<a class="headerlink" href="#id1" title="此标题的永久链接">¶</a></h1>
+<p><strong>名词解释：开发环境与运行环境：</strong></p>
+<p>开发环境是指用于模型转换或验证以及程序编译等开发过程的环境；运行环境是指在具备SOPHON设备的平台上实际使用设备进行算法应用部署的运行环境。</p>
+<p>开发环境与运行环境可能是统一的（如插有SC5加速卡的x86主机，既是开发环境又是运行环境），也可能是分离的（如使用x86主机作为开发环境转换模型和编译程序，使用SE5盒子部署运行最终的算法应用）。</p>
+<p>但是，无论您使用的产品是SoC模式还是PCIe模式，您均需要一台x86主机作为开发环境，您的运行环境可以是任何我们已经测试支持的系统平台。</p>
+<section id="id2">
+<h2><span class="section-number">3.1.1. </span>开发环境配置常见问题<a class="headerlink" href="#id2" title="此标题的永久链接">¶</a></h2>
+<section id="x-sdk">
+<h3><span class="section-number">3.1.1.1. </span>BM1684、BM1684X 如何安装和使用SDK？<a class="headerlink" href="#x-sdk" title="此标题的永久链接">¶</a></h3>
+<p>答：
+| <a class="reference external" href="https://doc.sophgo.com/sdk-docs/v23.09.01-lts/docs_latest_release/docs/SophonSDK_doc/zh/html/sdk_intro/3_claim_sdk.html">SDK获取方式</a>
+| <a class="reference external" href="https://doc.sophgo.com/sdk-docs/v23.09.01-lts/docs_latest_release/docs/SophonSDK_doc/zh/html/sdk_intro/4_install.html#">SDK安装方式</a>
+| <a class="reference external" href="https://github.com/sophgo/sophon-demo/blob/release/docs/Environment_Install_Guide.md">SDK使用方式</a></p>
+</section>
+<section id="docker">
+<h3><span class="section-number">3.1.1.2. </span>如何在docker容器内使用宿主机上的显示设备显示图像？<a class="headerlink" href="#docker" title="此标题的永久链接">¶</a></h3>
+<div class="compound">
+<p><strong>解决方案1：启动容器时添加配置选项，使用宿主机显示器显示画面</strong></p>
+<p>目前的主流图像界面服务X11支持客户端/服务端（Client/Server）的工作模式，只要在容器启动的时候，将 『unix:端口』或『主机名:端口』共享给docker，docker 就可以通过端口找到显示输出的地方，和linux系统共用显示设备：</p>
+<ol class="arabic">
+<li><p>宿主机安装x11-server：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">x11</span><span class="o">-</span><span class="n">xserver</span><span class="o">-</span><span class="n">utils</span>
+</pre></div>
+</div>
+</li>
+<li><p>开放权限，允许所有用户，当然包括docker,访问X11 的显示接口:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">xhost</span> <span class="o">+</span>
+</pre></div>
+</div>
+</li>
+<li><p>修改启动docker容器脚本，增加选项：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>-v /tmp/.X11-unix:/tmp/.X11-unix \     # 共享本地unix端口
+-e DISPLAY=unix$DISPLAY \              # 修改环境变量DISPLAY
+-e GDK_SCALE \                         # 与显示效果相关的环境变量
+-e GDK_DPI_SCALE
+</pre></div>
+</div>
+</li>
+<li><p>重新启动docker容器</p></li>
+</ol>
+<p><strong>解决方案2：已经启动的容器，通过网络IP连接到x11 server显示图像（本地或局域网内其他主机都可以）</strong></p>
+<p>若不想重新启动容器，可以通过IP地址来映射显示设备从而显示图像：</p>
+<ol class="arabic">
+<li><p>查询x11 server主机IP：假设为192.168.150.100</p></li>
+<li><p>设置x11 server权限：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">gedit</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">lightdm</span><span class="o">/</span><span class="n">lightdm</span><span class="o">.</span><span class="n">conf</span> <span class="c1">#增加一行 xserver-allow-tcp=true</span>
+<span class="n">sudo</span> <span class="n">systemctl</span> <span class="n">restart</span> <span class="n">lightdm</span>
+<span class="n">xhost</span> <span class="o">+</span> <span class="c1">#注意加号前应有空格</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>如果您使用的系统的桌面管理器不是lightdm，那么配置文件可能会不一样。比如ubuntu18.04以上默认使用gdm3，其配置文件为/etc/gdm/custom.conf，您需要在[security]下增加AllowRemoteAutoLogin=true，[xhmcp]下增加Enable=true, Port=177。重启gdm服务的命令为：service gdm restart</p>
+</div>
+</li>
+<li><p>在docker容器中设置DSIPLAY变量：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">export</span> <span class="n">DISPLAY</span><span class="o">=</span> <span class="mf">192.168.150.100</span><span class="p">:</span><span class="mf">0.0</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<p><strong>测试是否成功</strong></p>
+<div class="line-block">
+<div class="line">您可以在docker中安装以下显示时钟的小程序来验证显示设备已被正确配置</div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">xarclock</span> <span class="c1"># 安装这个小程序</span>
+<span class="n">xarclock</span> <span class="c1"># 运行，如果配置成功，会显示出一个小钟表动画</span>
+</pre></div>
+</div>
+<p><strong>说明：以上操作主要针对Linux，若您想使用windows或者Mac主机作为显示设备，原理是相似的，请查找类似解决方案配置即可。</strong></p>
+</div>
+</section>
+<section id="abi0abi1">
+<h3><span class="section-number">3.1.1.3. </span>关于ABI0和ABI1版本的问题？<a class="headerlink" href="#abi0abi1" title="此标题的永久链接">¶</a></h3>
+<p>答：每个操作系统都会为运行在该系统下的应用程序提供应用程序二进制接口（Application Binary Interface，ABI）。ABI包含了应用程序在这个系统下运行时必须遵守的编程约定。
+ABI总是包含一系列的系统调用和使用这些系统调用的方法，以及关于程序可以使用的内存地址和使用机器寄存器的规定。
+ABI的版本与操作系统、硬件设备有相关。SDK原始包中提供了ABI0和ABI1两个版本的so库，默认为ABI1， ABI0库为 <cite>sophon-mw-sophon-opencv-abi0_x.x.x.rpm</cite>。</p>
+</section>
+<section id="centos7-6gcc-6-5bm-opencv">
+<h3><span class="section-number">3.1.1.4. </span>在CentOS7.6上使用gcc 6.5编译程序链接BM-OpenCV库时报找不到符号链接的错误<a class="headerlink" href="#centos7-6gcc-6-5bm-opencv" title="此标题的永久链接">¶</a></h3>
+<img alt="../_images/dev_env_gcc_bm_opencv_undefined_ref.png" src="../_images/dev_env_gcc_bm_opencv_undefined_ref.png" />
+<p>答：Centos下直接安装的编译器，所有版本下默认都是使用D_GLIBCXX_USE_CXX11_ABI=0，与我们的BM-OpenCV编译时使用的ABI版本（ABI=1）不兼容，因此，需要使用我们提供的x86-linux-gcc编译器，以确保ABI兼容，编译器请联系技术支持获取。</p>
+</section>
+<section id="pythonbm-opencv">
+<h3><span class="section-number">3.1.1.5. </span>如何在开发环境中的Python环境下使用我们提供的BM-OpenCV?<a class="headerlink" href="#pythonbm-opencv" title="此标题的永久链接">¶</a></h3>
+<p>答：只需设置好PYTHONPATH环境变量。不同的架构平台，请注意修改对应的路径。</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>export PYTHONPATH=$PYTHONPATH:/workspace/lib/opencv/x86/opencv-python
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="centosubuntudockersail">
+<h3><span class="section-number">3.1.1.6. </span>CentOS宿主机上在官方ubuntu开发docker中使用sail模块报找不到符号错误？<a class="headerlink" href="#centosubuntudockersail" title="此标题的永久链接">¶</a></h3>
+<img alt="../_images/dev_env_centos_ubuntu_docker_sail_symbol_error.png" src="../_images/dev_env_centos_ubuntu_docker_sail_symbol_error.png" />
+<p>答：环境要求的ABI版本和so文件的ABI版本不匹配：具体来说，SDK里原始会存放ABI0 和ABI1 2个版本的库，系统没有使用正确的ABI版本。</p>
+</section>
+</section>
+<section id="id5">
+<h2><span class="section-number">3.1.2. </span>运行环境配置常见问题<a class="headerlink" href="#id5" title="此标题的永久链接">¶</a></h2>
+<section id="id6">
+<h3><span class="section-number">3.1.2.1. </span>有哪些环境变量需要手动配置？<a class="headerlink" href="#id6" title="此标题的永久链接">¶</a></h3>
+<p>对于SoC平台，内部已经集成了相应的libsophon、sophon-opencv和sophon-ffmpeg运行库包，位于/opt/sophon/下。只需手动设置opencv环境变量即可。</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># 设置环境变量</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">PYTHONPATH</span><span class="o">=</span><span class="nv">$PYTHONPATH</span>:/opt/sophon/sophon-opencv_&lt;x.y.z&gt;/opencv-python
+</pre></div>
+</div>
+</section>
+<section id="id7">
+<h3><span class="section-number">3.1.2.2. </span>处理器无法正常工作怎么办？<a class="headerlink" href="#id7" title="此标题的永久链接">¶</a></h3>
+<p>答：</p>
+<ol class="arabic simple">
+<li><p>检查设备是否为100%利用率，杀掉占用进程；</p></li>
+<li><p>复位：执行bm-smi –dev=0x0 –recovery；</p></li>
+<li><p>如果仍然不行，请将设备断电以后再重新上电；</p></li>
+<li><p>请反馈技术支持人员。</p></li>
+</ol>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../3_device_usages.html" class="btn btn-neutral float-left" title="3. 设备使用常见问题" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="common_commands.html" class="btn btn-neutral float-right" title="3.2. 设备版本、状态、bmodel模型信息如何获取？" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2022, SOPHGO.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="前往官网"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="前往文档中心"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="页面顶部"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="页面底部"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>本页二维码</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

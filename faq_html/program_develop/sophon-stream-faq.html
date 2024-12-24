@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>6.3. SOPHON STREAM 常见问题 &mdash; SOPHON and SDK FAQ master
+ 文档</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="../_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/translations.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <script src="../_static/js/qrious.js"></script>
+    <script src="../_static/js/nav.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="6.4. SOPHON PIPELINE 常见问题及解答" href="sophon-pipeline-faq.html" />
+    <link rel="prev" title="6.2. SOPHON DEMO 常见问题" href="sophon-demo-faq.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> SOPHON and SDK FAQ
+          </a>
+              <div class="version">
+                master
+
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../0_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1_basic_concept.html">2. 基础概念常见问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3_device_usages.html">3. 设备使用常见问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4_converter_quantization.html">4. 模型转换及量化常见问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../5_multimedia.html">5. 多媒体用户常见问题</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../6_program_optimization.html">6. 程序开发常见问题</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="program_opt.html">6.1. 程序优化常见问题</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sophon-demo-faq.html">6.2. SOPHON DEMO 常见问题</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">6.3. SOPHON STREAM 常见问题</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#can-not-find-element-maker-name-xxx">6.3.1. 1. 初始化阶段报错<code class="docutils literal notranslate"><span class="pre">Can</span> <span class="pre">not</span> <span class="pre">find</span> <span class="pre">element</span> <span class="pre">maker,</span> <span class="pre">name:</span> <span class="pre">xxx</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fatal-error-boost-version-hpp-no-such-file-or-directory">6.3.2. 2. 编译报错<code class="docutils literal notranslate"><span class="pre">fatal</span> <span class="pre">error:</span> <span class="pre">boost/version.hpp:</span> <span class="pre">No</span> <span class="pre">such</span> <span class="pre">file</span> <span class="pre">or</span> <span class="pre">directory</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#undefined-symbol-zn5boost6system15system-categoryev">6.3.3. 3. 交叉编译之后在盒子上运行报错 <code class="docutils literal notranslate"><span class="pre">undefined</span> <span class="pre">symbol:</span> <span class="pre">_ZN5boost6system15system_categoryEv</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lib-aarch64-linux-gnu-libc-so-6-version-glibc-2-33-not-found">6.3.4. 4. 交叉编译之后在盒子上运行报错<code class="docutils literal notranslate"><span class="pre">/lib/aarch64-linux-gnu/libc.so.6:</span> <span class="pre">version</span> <span class="pre">'GLIBC_2.33'</span> <span class="pre">not</span> <span class="pre">found</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tpu-kernel">6.3.5. 5. 编译阶段报错<code class="docutils literal notranslate"><span class="pre">找不到tpu_kernel相关定义</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#error-while-loading-shared-libraries-libxxx-so-cannot-open-shared-object-file-no-such-file-or-directory">6.3.6. 6. 交叉编译之后在盒子上运行报错<code class="docutils literal notranslate"><span class="pre">error</span> <span class="pre">while</span> <span class="pre">loading</span> <span class="pre">shared</span> <span class="pre">libraries:</span> <span class="pre">libxxx.so:</span> <span class="pre">cannot</span> <span class="pre">open</span> <span class="pre">shared</span> <span class="pre">object</span> <span class="pre">file:</span> <span class="pre">No</span> <span class="pre">such</span> <span class="pre">file</span> <span class="pre">or</span> <span class="pre">directory</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lframework-livslogger">6.3.7. 7. 编译阶段报错<code class="docutils literal notranslate"><span class="pre">找不到-lframework、-livslogger</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bm-check-error-bm-check-ret-fail">6.3.8. 8. 运行报错<code class="docutils literal notranslate"><span class="pre">[BM_CHECK][error]</span> <span class="pre">BM_CHECK_RET</span> <span class="pre">fail</span></code>，详细报错如下：</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">6.3.9. 9. 有的图片没有识别/检测结果</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">6.3.10. 10. 推流失败</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sophon-pipeline-faq.html">6.4. SOPHON PIPELINE 常见问题及解答</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">SOPHON and SDK FAQ</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../6_program_optimization.html"><span class="section-number">6. </span>程序开发常见问题</a> &raquo;</li>
+      <li><span class="section-number">6.3. </span>SOPHON STREAM 常见问题</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="../_sources/program_develop/sophon-stream-faq.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">返回文档中心</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="sophon-stream">
+<h1><a class="toc-backref" href="#id4" role="doc-backlink"><span class="section-number">6.3. </span>SOPHON STREAM 常见问题</a><a class="headerlink" href="#sophon-stream" title="此标题的永久链接">¶</a></h1>
+<div class="admonition attention">
+<p class="admonition-title">注意</p>
+<p>本篇内容和 sophon-stream/docs/docs_zh/FAQ 内容一样，本篇与其重复只是为了方便查找。
+原文地址：<a class="reference external" href="https://github.com/sophgo/sophon-stream">https://github.com/sophgo/sophon-stream</a></p>
+</div>
+<nav class="contents" id="id1">
+<p class="topic-title">目录</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#sophon-stream" id="id4">SOPHON STREAM 常见问题</a></p>
+<ul>
+<li><p><a class="reference internal" href="#can-not-find-element-maker-name-xxx" id="id5">1. 初始化阶段报错<code class="docutils literal notranslate"><span class="pre">Can</span> <span class="pre">not</span> <span class="pre">find</span> <span class="pre">element</span> <span class="pre">maker,</span> <span class="pre">name:</span> <span class="pre">xxx</span></code></a></p></li>
+<li><p><a class="reference internal" href="#fatal-error-boost-version-hpp-no-such-file-or-directory" id="id6">2. 编译报错<code class="docutils literal notranslate"><span class="pre">fatal</span> <span class="pre">error:</span> <span class="pre">boost/version.hpp:</span> <span class="pre">No</span> <span class="pre">such</span> <span class="pre">file</span> <span class="pre">or</span> <span class="pre">directory</span></code></a></p></li>
+<li><p><a class="reference internal" href="#undefined-symbol-zn5boost6system15system-categoryev" id="id7">3. 交叉编译之后在盒子上运行报错 <code class="docutils literal notranslate"><span class="pre">undefined</span> <span class="pre">symbol:</span> <span class="pre">_ZN5boost6system15system_categoryEv</span></code></a></p></li>
+<li><p><a class="reference internal" href="#lib-aarch64-linux-gnu-libc-so-6-version-glibc-2-33-not-found" id="id8">4. 交叉编译之后在盒子上运行报错<code class="docutils literal notranslate"><span class="pre">/lib/aarch64-linux-gnu/libc.so.6:</span> <span class="pre">version</span> <span class="pre">'GLIBC_2.33'</span> <span class="pre">not</span> <span class="pre">found</span></code></a></p></li>
+<li><p><a class="reference internal" href="#tpu-kernel" id="id9">5. 编译阶段报错<code class="docutils literal notranslate"><span class="pre">找不到tpu_kernel相关定义</span></code></a></p></li>
+<li><p><a class="reference internal" href="#error-while-loading-shared-libraries-libxxx-so-cannot-open-shared-object-file-no-such-file-or-directory" id="id10">6. 交叉编译之后在盒子上运行报错<code class="docutils literal notranslate"><span class="pre">error</span> <span class="pre">while</span> <span class="pre">loading</span> <span class="pre">shared</span> <span class="pre">libraries:</span> <span class="pre">libxxx.so:</span> <span class="pre">cannot</span> <span class="pre">open</span> <span class="pre">shared</span> <span class="pre">object</span> <span class="pre">file:</span> <span class="pre">No</span> <span class="pre">such</span> <span class="pre">file</span> <span class="pre">or</span> <span class="pre">directory</span></code></a></p></li>
+<li><p><a class="reference internal" href="#lframework-livslogger" id="id11">7. 编译阶段报错<code class="docutils literal notranslate"><span class="pre">找不到-lframework、-livslogger</span></code></a></p></li>
+<li><p><a class="reference internal" href="#bm-check-error-bm-check-ret-fail" id="id12">8. 运行报错<code class="docutils literal notranslate"><span class="pre">[BM_CHECK][error]</span> <span class="pre">BM_CHECK_RET</span> <span class="pre">fail</span></code>，详细报错如下：</a></p></li>
+<li><p><a class="reference internal" href="#id2" id="id13">9. 有的图片没有识别/检测结果</a></p></li>
+<li><p><a class="reference internal" href="#id3" id="id14">10. 推流失败</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+<section id="can-not-find-element-maker-name-xxx">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink"><span class="section-number">6.3.1. </span>1. 初始化阶段报错<code class="docutils literal notranslate"><span class="pre">Can</span> <span class="pre">not</span> <span class="pre">find</span> <span class="pre">element</span> <span class="pre">maker,</span> <span class="pre">name:</span> <span class="pre">xxx</span></code></a><a class="headerlink" href="#can-not-find-element-maker-name-xxx" title="此标题的永久链接">¶</a></h2>
+<p>这个原因是修改了某个element的json文件里的“name”项，这是Factory识别Element的依据，需要保持原样。</p>
+</section>
+<section id="fatal-error-boost-version-hpp-no-such-file-or-directory">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink"><span class="section-number">6.3.2. </span>2. 编译报错<code class="docutils literal notranslate"><span class="pre">fatal</span> <span class="pre">error:</span> <span class="pre">boost/version.hpp:</span> <span class="pre">No</span> <span class="pre">such</span> <span class="pre">file</span> <span class="pre">or</span> <span class="pre">directory</span></code></a><a class="headerlink" href="#fatal-error-boost-version-hpp-no-such-file-or-directory" title="此标题的永久链接">¶</a></h2>
+<p>请使用如下命令安装该库：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt-get<span class="w"> </span>update
+sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>libboost-all-dev
+</pre></div>
+</div>
+</section>
+<section id="undefined-symbol-zn5boost6system15system-categoryev">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink"><span class="section-number">6.3.3. </span>3. 交叉编译之后在盒子上运行报错 <code class="docutils literal notranslate"><span class="pre">undefined</span> <span class="pre">symbol:</span> <span class="pre">_ZN5boost6system15system_categoryEv</span></code></a><a class="headerlink" href="#undefined-symbol-zn5boost6system15system-categoryev" title="此标题的永久链接">¶</a></h2>
+<p>先检查boost库的版本：<code class="docutils literal notranslate"><span class="pre">dpkg</span> <span class="pre">-S</span> <span class="pre">/usr/include/boost/version.hpp</span></code>
+1.71版本可以正常编译运行，较旧的版本可能报如上错误。</p>
+<p>如果不便安装该版本boost，可以使用我们提供的<a class="reference external" href="./HowToMake.md#使用开发镜像编译">docker镜像进行编译</a></p>
+</section>
+<section id="lib-aarch64-linux-gnu-libc-so-6-version-glibc-2-33-not-found">
+<h2><a class="toc-backref" href="#id8" role="doc-backlink"><span class="section-number">6.3.4. </span>4. 交叉编译之后在盒子上运行报错<code class="docutils literal notranslate"><span class="pre">/lib/aarch64-linux-gnu/libc.so.6:</span> <span class="pre">version</span> <span class="pre">'GLIBC_2.33'</span> <span class="pre">not</span> <span class="pre">found</span></code></a><a class="headerlink" href="#lib-aarch64-linux-gnu-libc-so-6-version-glibc-2-33-not-found" title="此标题的永久链接">¶</a></h2>
+<p>这是由于您主机上的交叉编译工具链版本太高导致，可以通过如下命令重新安装：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt<span class="w"> </span>remove<span class="w"> </span>cpp-*-aarch64-linux-gnu
+sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>gcc-7-aarch64-linux-gnu<span class="w"> </span>g++-7-aarch64-linux-gnu
+sudo<span class="w"> </span>ln<span class="w"> </span>-s<span class="w"> </span>/usr/bin/aarch64-linux-gnu-gcc-7<span class="w"> </span>/usr/bin/aarch64-linux-gnu-gcc
+sudo<span class="w"> </span>ln<span class="w"> </span>-s<span class="w"> </span>/usr/bin/aarch64-linux-gnu-g++-7<span class="w"> </span>/usr/bin/aarch64-linux-gnu-g++
+</pre></div>
+</div>
+<p>如果不便安装该版本交叉编译器，可以使用我们提供的<a class="reference external" href="./HowToMake.md#使用开发镜像编译">docker镜像进行编译</a></p>
+</section>
+<section id="tpu-kernel">
+<h2><a class="toc-backref" href="#id9" role="doc-backlink"><span class="section-number">6.3.5. </span>5. 编译阶段报错<code class="docutils literal notranslate"><span class="pre">找不到tpu_kernel相关定义</span></code></a><a class="headerlink" href="#tpu-kernel" title="此标题的永久链接">¶</a></h2>
+<p>启用tpu_kernel相关功能需要03.01及之后的SDK，可以参考官网进行升级。</p>
+</section>
+<section id="error-while-loading-shared-libraries-libxxx-so-cannot-open-shared-object-file-no-such-file-or-directory">
+<h2><a class="toc-backref" href="#id10" role="doc-backlink"><span class="section-number">6.3.6. </span>6. 交叉编译之后在盒子上运行报错<code class="docutils literal notranslate"><span class="pre">error</span> <span class="pre">while</span> <span class="pre">loading</span> <span class="pre">shared</span> <span class="pre">libraries:</span> <span class="pre">libxxx.so:</span> <span class="pre">cannot</span> <span class="pre">open</span> <span class="pre">shared</span> <span class="pre">object</span> <span class="pre">file:</span> <span class="pre">No</span> <span class="pre">such</span> <span class="pre">file</span> <span class="pre">or</span> <span class="pre">directory</span></code></a><a class="headerlink" href="#error-while-loading-shared-libraries-libxxx-so-cannot-open-shared-object-file-no-such-file-or-directory" title="此标题的永久链接">¶</a></h2>
+<p>首先检查sophon-stream/build/lib目录下是否有这个so文件，如果没有，需要从交叉编译的主机上scp到盒子；如果文件路径无误但无法找到，需要执行以下命令：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span>path-to/sophon-stream/build/lib/:<span class="nv">$LD_LIBRARY_PATH</span>
+</pre></div>
+</div>
+</section>
+<section id="lframework-livslogger">
+<h2><a class="toc-backref" href="#id11" role="doc-backlink"><span class="section-number">6.3.7. </span>7. 编译阶段报错<code class="docutils literal notranslate"><span class="pre">找不到-lframework、-livslogger</span></code></a><a class="headerlink" href="#lframework-livslogger" title="此标题的永久链接">¶</a></h2>
+<p>一般是编译路径有误，例如在element目录或samples目录编译等。需要回到sophon-stream项目目录进行编译。</p>
+</section>
+<section id="bm-check-error-bm-check-ret-fail">
+<h2><a class="toc-backref" href="#id12" role="doc-backlink"><span class="section-number">6.3.8. </span>8. 运行报错<code class="docutils literal notranslate"><span class="pre">[BM_CHECK][error]</span> <span class="pre">BM_CHECK_RET</span> <span class="pre">fail</span></code>，详细报错如下：</a><a class="headerlink" href="#bm-check-error-bm-check-ret-fail" title="此标题的永久链接">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">bmlib_memory</span><span class="p">][</span><span class="n">error</span><span class="p">]</span> <span class="n">bm_alloc_gmem</span> <span class="n">failed</span><span class="p">,</span> <span class="n">dev_id</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mh">0x20</span>
+<span class="p">[</span><span class="n">BM_CHECK</span><span class="p">][</span><span class="n">error</span><span class="p">]</span> <span class="n">BM_CHECK_RET</span> <span class="n">fail</span> <span class="o">/</span><span class="n">workspace</span><span class="o">/</span><span class="n">libsophon</span><span class="o">/</span><span class="n">bmlib</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">bmlib_memory</span><span class="o">.</span><span class="n">cpp</span><span class="p">:</span> <span class="n">bm_malloc_device_byte_heap_mask</span><span class="p">:</span> <span class="mi">705</span>
+<span class="n">MAT</span> <span class="n">Allocate</span> <span class="n">Err</span><span class="p">:</span> <span class="n">dims</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">],</span> <span class="nb">type</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">terminate</span> <span class="n">called</span> <span class="n">after</span> <span class="n">throwing</span> <span class="n">an</span> <span class="n">instance</span> <span class="n">of</span> <span class="s1">&#39;cv::Exception&#39;</span>
+<span class="p">[</span><span class="n">bmlib_memory</span><span class="p">][</span><span class="n">error</span><span class="p">]</span> <span class="n">bm_alloc_gmem</span> <span class="n">failed</span><span class="p">,</span> <span class="n">dev_id</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mh">0x10</span>
+  <span class="n">what</span><span class="p">():</span>  <span class="n">OpenCV</span><span class="p">(</span><span class="mf">4.1.0</span><span class="p">)</span> <span class="o">/</span><span class="n">workspace</span><span class="o">/</span><span class="n">middleware</span><span class="o">-</span><span class="n">soc</span><span class="o">/</span><span class="n">bm_opencv</span><span class="o">/</span><span class="n">modules</span><span class="o">/</span><span class="n">core</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">matrix</span><span class="o">.</span><span class="n">cpp</span><span class="p">:</span><span class="mi">448</span><span class="p">:</span> <span class="n">error</span><span class="p">:</span> <span class="p">(</span><span class="o">-</span><span class="mi">215</span><span class="p">:</span><span class="n">Assertion</span> <span class="n">failed</span><span class="p">)</span> <span class="n">u</span> <span class="o">!=</span> <span class="mi">0</span> <span class="ow">in</span> <span class="n">function</span> <span class="s1">&#39;create&#39;</span>
+
+<span class="p">[</span><span class="n">BM_CHECK</span><span class="p">][</span><span class="n">error</span><span class="p">]</span> <span class="n">BM_CHECK_RET</span> <span class="n">fail</span> <span class="o">/</span><span class="n">workspace</span><span class="o">/</span><span class="n">libsophon</span><span class="o">/</span><span class="n">bmlib</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">bmlib_memory</span><span class="o">.</span><span class="n">cpp</span><span class="p">:</span> <span class="n">bm_malloc_device_byte_heap_mask</span><span class="p">:</span> <span class="mi">705</span>
+<span class="n">Aborted</span> <span class="p">(</span><span class="n">core</span> <span class="n">dumped</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>可能是linux文件句柄数量限制导致的，某些设备上默认句柄数量限制为1024，可尝试将其设置为20480</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ulimit</span> <span class="o">-</span><span class="n">n</span> <span class="mi">20480</span>
+</pre></div>
+</div>
+</section>
+<section id="id2">
+<h2><a class="toc-backref" href="#id13" role="doc-backlink"><span class="section-number">6.3.9. </span>9. 有的图片没有识别/检测结果</a><a class="headerlink" href="#id2" title="此标题的永久链接">¶</a></h2>
+<p>图片/视频存在少数的漏检误检是正常情况，因为原模型精度也无法达到100%。stream暂时未提供精度评估功能，观察大部分图片识别/检测结果正常即可。</p>
+</section>
+<section id="id3">
+<h2><a class="toc-backref" href="#id14" role="doc-backlink"><span class="section-number">6.3.10. </span>10. 推流失败</a><a class="headerlink" href="#id3" title="此标题的永久链接">¶</a></h2>
+<p>推流失败最常见的原因是未开启流服务器，此种情况下，终端会有如下打印：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>tcp<span class="w"> </span>@<span class="w"> </span>0x7f6cbe4a00<span class="o">]</span><span class="w"> </span>Connection<span class="w"> </span>to<span class="w"> </span>tcp://localhost:1935?tcp_nodelay<span class="o">=</span><span class="m">0</span><span class="w"> </span>failed:<span class="w"> </span>Connection<span class="w"> </span>refused
+<span class="o">[</span>rtmp<span class="w"> </span>@<span class="w"> </span>0x7f6cbe4580<span class="o">]</span><span class="w"> </span>Cannot<span class="w"> </span>open<span class="w"> </span>connection<span class="w"> </span>tcp://localhost:1935?tcp_nodelay<span class="o">=</span><span class="m">0</span>
+</pre></div>
+</div>
+<p>或：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>tcp<span class="w"> </span>@<span class="w"> </span>0x7f40104eb0<span class="o">]</span><span class="w"> </span>Connection<span class="w"> </span>to<span class="w"> </span>tcp://localhost:8554?timeout<span class="o">=</span><span class="m">0</span><span class="w"> </span>failed:<span class="w"> </span>Connection<span class="w"> </span>refused
+</pre></div>
+</div>
+<p>此种情况下，请参考 <a class="reference external" href="../element/multimedia/encode/README.md">encode
+element</a>，开启流服务器后重试。</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="sophon-demo-faq.html" class="btn btn-neutral float-left" title="6.2. SOPHON DEMO 常见问题" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="sophon-pipeline-faq.html" class="btn btn-neutral float-right" title="6.4. SOPHON PIPELINE 常见问题及解答" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2022, SOPHGO.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="前往官网"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="前往文档中心"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="页面顶部"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="页面底部"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>本页二维码</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

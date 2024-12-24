@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>5.3. 多媒体客户常见问题（补充） &mdash; SOPHON and SDK FAQ master
+ 文档</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="../_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/translations.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <script src="../_static/js/qrious.js"></script>
+    <script src="../_static/js/nav.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="6. 程序开发常见问题" href="../6_program_optimization.html" />
+    <link rel="prev" title="5.2. 多媒体客户常见问题" href="Multimedia_FAQ.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> SOPHON and SDK FAQ
+          </a>
+              <div class="version">
+                master
+
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../0_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1_basic_concept.html">2. 基础概念常见问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3_device_usages.html">3. 设备使用常见问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4_converter_quantization.html">4. 模型转换及量化常见问题</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../5_multimedia.html">5. 多媒体用户常见问题</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="multimedia_troubleshooting.html">5.1. 多媒体问题排查手册</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Multimedia_FAQ.html">5.2. 多媒体客户常见问题</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">5.3. 多媒体客户常见问题（补充）</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#cv-matbm-image">5.3.1. cv::Mat如何转换为bm_image？</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hostbgr-planar-cv-mathostbgr-packed-cv-mat">5.3.2. 如何将host上的bgr planar cv::Mat变成host上的BGR packed cv::Mat？</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#nv12-bm-image">5.3.3. 使用NV12原始数据，创建bm_image的注意事项？</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#opencv-contrib">5.3.4. 是否可以提供OpenCV contrib库？</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bmcv-bm-image">5.3.5. BMCV相关接口，输入和输出可以使同一个bm_image吗？</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cv-bmcv-resize-bmcv-image-resize-cv-resizecpu-matcpu-1cv-hal-resize-bmcv-hwresize-cv-bmcv-resizecv-resize">5.3.6. cv::bmcv::resize 看代码底层调用的是bmcv_image_resize，cv::resize用的是cpu吗，处理的是mat中cpu内存中的那部分数据吗？还有1个cv::hal::resize, bmcv::hwResize，这些是什么关系啊。cv::bmcv::resize和cv::resize 是否支持输入和输出是同一个对象，原地进行转换呢？</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bm-opencvgb28181">5.3.7. 关于BM-OpenCV中GB28181接口，说的是接国标流是吧？本身支持转国标流功能吗？</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">5.3.8. 如何进行编解码性能测试？是否有参考程序？</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bm1684x">5.3.9. BM1684X芯片的编解码性能数据是怎样的？</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bm1684x322">5.3.10. BM1684X编解码性能是同时支持32路解码和2路编码吗？内存大小和内存带宽会不会成为瓶颈？</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vpp">5.3.11. 解码会占用多少内存？使用vpp进行图像处理，最大可能会消耗多少内存？</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hwcchwnchw-1684x">5.3.12. 前处理时图片数据格式转换需要HWC转CHW和NCHW， 1684X是否相关接口可以使用？</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">5.3.13. 硬编的画面输出是绿屏</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">5.3.14. 解码器卡住</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bmcv-image-vpp-resize-padding-vpp-input-image-param-err">5.3.15. 使用bmcv_image_vpp_resize_padding时报错提示”vpp input image param err”？</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bmcvopencv-cvtcolor-subtract-bitwise-and-findcontours">5.3.16. bmcv库中是否有和OpenCV相对应的 cvtColor、 subtract、 bitwise_and、 findContours 等这几个方法？</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#soccv-matcv-mat">5.3.17. SoC模式使用cv::Mat的数据地址初始化另外一个cv::Mat时有可能会出现乱码？</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#soccv-mat">5.3.18. SoC模式对cv::Mat的内存进行操作</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sophon-gate-gate-webserver-py-sophonface">5.3.19. Sophon gate 人脸应用中gate_webserver.py 的 sophonface  是如何导入的？</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#opencvimreadjpg">5.3.20. OpenCV的imread接口读取进来的JPG图片尺寸问题</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bm-imagecv-mat">5.3.21. 如何将bm_image转为cv.Mat?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rtspffmpegopencv-sail-decoder">5.3.22. rtsp流使用ffmpeg和opencv可以正常解码，但是使用sail.Decoder无法正常解码</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../6_program_optimization.html">6. 程序开发常见问题</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">SOPHON and SDK FAQ</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../5_multimedia.html"><span class="section-number">5. </span>多媒体用户常见问题</a> &raquo;</li>
+      <li><span class="section-number">5.3. </span>多媒体客户常见问题（补充）</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="../_sources/multimedia/multimedia_general_faq.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">返回文档中心</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1><span class="section-number">5.3. </span>多媒体客户常见问题（补充）<a class="headerlink" href="#id1" title="此标题的永久链接">¶</a></h1>
+<div class="admonition attention">
+<p class="admonition-title">注意</p>
+<p>本篇FAQ内容是 《 <a class="reference external" href="https://doc.sophgo.com/sdk-docs/v23.09.01-lts/docs_latest_release/docs/sophon-mw/faq/html/index.html">多媒体客户常见问题手册</a> 》的内容补充</p>
+</div>
+<section id="cv-matbm-image">
+<h2><span class="section-number">5.3.1. </span>cv::Mat如何转换为bm_image？<a class="headerlink" href="#cv-matbm-image" title="此标题的永久链接">¶</a></h2>
+<p>答：</p>
+<ol class="arabic simple">
+<li><p>如果你使用BM-OpenCV创建cv::Mat ，想把它变成bm_image，那么你需要创建一个具备设备内存的Mat，也就是使用含有dev_id的参数的构造函数（也就是创建1个我们改造过的Mat），这样你才能把这个Mat通过toBMI转换为bm_image，并且这个转换过程不会发生数据拷贝，bm_image只会引用Mat的设备内存;</p></li>
+<li><p>如果你使用data指针构造没有设备内存的原始cv::Mat，这个cv::Mat不能调用toBMI转换为bm_image，如果你确实有一个原始OpenCV的cv::Mat，要转换为bm_image，那么你应当：创建一个有设备内存的Mat，然后使用Mat.copyTo将openCV的cv::Mat的系统内存拷贝到有设备内存的Mat的系统内存空间，然后使用cv::bmcv::uploadMat将有设备内存的Mat的系统内存同步到其设备内存，然后再调用toBMI将其转换为bm_image。</p></li>
+</ol>
+</section>
+<section id="hostbgr-planar-cv-mathostbgr-packed-cv-mat">
+<h2><span class="section-number">5.3.2. </span>如何将host上的bgr planar cv::Mat变成host上的BGR packed cv::Mat？<a class="headerlink" href="#hostbgr-planar-cv-mathostbgr-packed-cv-mat" title="此标题的永久链接">¶</a></h2>
+<p>答：首先，cv::Mat 支持的都是packed的数据，你的BGR plannar的数据，怎么会生成cv::Mat，如果你真有一组BGR plannar的数据，那你不应该将它直接赋值给cv::Mat，这样容易引起混乱，需要自己时刻谨记这个cv::Mat里的数据不是packed。OpenCV的标准用法，当你想从BGR packed得到planar，应当使用cv::split 分成3个cv::Mat；当你想从BGR planar到packed，那你应当有3个通道的cv::Mat，然后使用cv::Merge合成1个cv::Mat。 但是如果你觉得openCV实现的split和merge不够高效，那么可以考虑使用libyuv中基于ARM NEON指令做过优化的SplitRGB和MergeRGB。</p>
+</section>
+<section id="nv12-bm-image">
+<h2><span class="section-number">5.3.3. </span>使用NV12原始数据，创建bm_image的注意事项？<a class="headerlink" href="#nv12-bm-image" title="此标题的永久链接">¶</a></h2>
+<p>答：NV12 有2个plane，stride应为二维数据，调用bm_image_create() 或者 不指定stride，内部自己计算；或者指定stride。指定stride时，必须指定完整的stride，注意NV12 的stride应为二维数组，并指定2个plane的stride。由于nv12 是2个plane，因此，如果要使用bm_malloc_device_byte和bm_image_attach的话，需要分别调用2次bm_malloc_device_byte分别为每个plane申请设备内存，这样会得到2个bm_device_mem_t，把他们写成1个数组，然后再用这个数组来调用bm_image_attach。 因此，建议使用bm_image_alloc_dev_mem来申请内存，而不是bm_malloc_device_byte。</p>
+</section>
+<section id="opencv-contrib">
+<h2><span class="section-number">5.3.4. </span>是否可以提供OpenCV contrib库？<a class="headerlink" href="#opencv-contrib" title="此标题的永久链接">¶</a></h2>
+<p>答：OpenCV contrib库中包含一些有专利的算法、以及尚不稳定的新算法等，我们正式发布的SDK只有常用的那部分，contrib部分如有需要只能单独提供。</p>
+<ol class="arabic">
+<li><p>可在外发FTP下载：</p>
+<div class="line-block">
+<div class="line"><a class="reference external" href="ftp://QA&#64;172.28.141.75/opencv_contrib">ftp://QA&#64;172.28.141.75/opencv_contrib</a></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="bmcv-bm-image">
+<h2><span class="section-number">5.3.5. </span>BMCV相关接口，输入和输出可以使同一个bm_image吗？<a class="headerlink" href="#bmcv-bm-image" title="此标题的永久链接">¶</a></h2>
+<p>答：不可以。bmcv_image_resize, bmcv_image_convert_to, bmcv_image_vpp_convert 等这些接口，input和output的bm_image应当是不同的内存地址对象，不支持in-place操作。</p>
+</section>
+<section id="cv-bmcv-resize-bmcv-image-resize-cv-resizecpu-matcpu-1cv-hal-resize-bmcv-hwresize-cv-bmcv-resizecv-resize">
+<h2><span class="section-number">5.3.6. </span>cv::bmcv::resize 看代码底层调用的是bmcv_image_resize，cv::resize用的是cpu吗，处理的是mat中cpu内存中的那部分数据吗？还有1个cv::hal::resize, bmcv::hwResize，这些是什么关系啊。cv::bmcv::resize和cv::resize 是否支持输入和输出是同一个对象，原地进行转换呢？<a class="headerlink" href="#cv-bmcv-resize-bmcv-image-resize-cv-resizecpu-matcpu-1cv-hal-resize-bmcv-hwresize-cv-bmcv-resizecv-resize" title="此标题的永久链接">¶</a></h2>
+<p>答：</p>
+<div class="line-block">
+<div class="line">cv::resize 在soc下使用bmcv::hwResize进行加入，如果加速失败，继续走软件 resize;</div>
+</div>
+<div class="line-block">
+<div class="line">cv::hal::resize是opencv的底层实现，会尝试使用opencl。</div>
+<div class="line">cv::bmcv::resize不能in-place操作。</div>
+<div class="line">cv::resize如果走标准opencv，可以in-place操作。</div>
+</div>
+</section>
+<section id="bm-opencvgb28181">
+<h2><span class="section-number">5.3.7. </span>关于BM-OpenCV中GB28181接口，说的是接国标流是吧？本身支持转国标流功能吗？<a class="headerlink" href="#bm-opencvgb28181" title="此标题的永久链接">¶</a></h2>
+<p>答：不支持，目前BM-OpenCV和BM-OpenCV支持GB28181国标流的解析，具体使用方案请查看《 <a class="reference external" href="https://doc.sophgo.com/docs/3.0.0/docs_latest_release/multimedia_guide/html/index.html">多媒体用户开发手册</a> 》。</p>
+</section>
+<section id="id4">
+<h2><span class="section-number">5.3.8. </span>如何进行编解码性能测试？是否有参考程序？<a class="headerlink" href="#id4" title="此标题的永久链接">¶</a></h2>
+<p>答：请参考SDK目录下examples/multimedia/ocv_vidmulti目录。可以进行编解码性能测试。如果是SoC模式，vidmulti程序已经编译好放置在/system/bin/下；</p>
+</section>
+<section id="bm1684x">
+<h2><span class="section-number">5.3.9. </span>BM1684X芯片的编解码性能数据是怎样的？<a class="headerlink" href="#bm1684x" title="此标题的永久链接">¶</a></h2>
+<p>答：BM1684X有4个VPU硬核和4个JPU硬核，具体视频和图片的编解码的速度与实际情况有关，要以实测为准。</p>
+<p>视频解码的速度与输入视频码流的格式有很大关系，不同复杂度的码流的解码速度有比较大的波动，比如码率、GOP结构，分辨率等，都会影响到具体的测试结果。一般来说，针对视频监控应用场景，BM1684X产品单芯片可以支持到32路HD高清实时解码。码率和GOP结构对解码速度的影响因具体情况而异，需要实测；分辨率对于解码帧率的影响，可以按照比例来换算。</p>
+<p>视频编码的速度与编码的配置参数有很大关系，不同的编码配置下，即使相同的视频内容，编码速度也不是完全相同的。一般来说，BM1684X产品单芯片最高可以支持到2路HD高清实时编码。</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>视频解码</p></td>
+<td><p>H.264/H.265:1080P &#64;960fps</p></td>
+</tr>
+<tr class="row-even"><td><p>视频解码格式</p></td>
+<td><p>CIF / D1 / 720P / 1080P / 4K(3840×2160) / 8K(8192×4096) / 8192x8192</p></td>
+</tr>
+<tr class="row-odd"><td><p>视频编码</p></td>
+<td><p><a class="reference external" href="mailto:1080P&#37;&#52;&#48;50fps">1080P<span>&#64;</span>50fps</a></p></td>
+</tr>
+<tr class="row-even"><td><p>视频编码格式</p></td>
+<td><p>CIF / D1 / 720P / 1080P / 4K(3840×2160)</p></td>
+</tr>
+<tr class="row-odd"><td><p>图片编解码</p></td>
+<td><ul class="simple">
+<li><p>SoC: 600 fps (<a class="reference external" href="mailto:yuv420&#37;&#52;&#48;1080p">yuv420<span>&#64;</span>1080p</a>)</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p>图片编解码分辨率</p></td>
+<td><p>最大分辨率32768 x 32768</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>视频解码</p></td>
+<td><p>H.264/H.265:1080P &#64;960fps</p></td>
+</tr>
+<tr class="row-even"><td><p>视频解码格式</p></td>
+<td><p>CIF / D1 / 720P / 1080P / 4K(3840×2160) / 8K(8192×4096) / 8192x8192</p></td>
+</tr>
+<tr class="row-odd"><td><p>视频编码</p></td>
+<td><p><a class="reference external" href="mailto:1080P&#37;&#52;&#48;50fps">1080P<span>&#64;</span>50fps</a></p></td>
+</tr>
+<tr class="row-even"><td><p>视频编码格式</p></td>
+<td><p>CIF / D1 / 720P / 1080P / 4K(3840×2160)</p></td>
+</tr>
+<tr class="row-odd"><td><p>图片编解码</p></td>
+<td><ul class="simple">
+<li><p>SoC: 600 fps (<a class="reference external" href="mailto:yuv420&#37;&#52;&#48;1080p">yuv420<span>&#64;</span>1080p</a>)</p></li>
+<li><p>PCIe: 700 fps (<a class="reference external" href="mailto:yuv420&#37;&#52;&#48;1080p">yuv420<span>&#64;</span>1080p</a>)</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p>图片编解码分辨率</p></td>
+<td><p>最大分辨率32768 x 32768</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="bm1684x322">
+<h2><span class="section-number">5.3.10. </span>BM1684X编解码性能是同时支持32路解码和2路编码吗？内存大小和内存带宽会不会成为瓶颈？<a class="headerlink" href="#bm1684x322" title="此标题的永久链接">¶</a></h2>
+<p>答：编解码是不同的硬件单元,  可以同时支持。按照目前的内存布局，32+2应该就在内存带宽的临界位置。</p>
+<p>在 SoC 模式下，视频内存的默认配置是 2G（另外的给VPP使用），正常使用的话支持 16 路是绰绰有余的，但要支持 32 路视频解码时需要在应用层面上仔细设计，不能有任何的浪费。</p>
+</section>
+<section id="vpp">
+<h2><span class="section-number">5.3.11. </span>解码会占用多少内存？使用vpp进行图像处理，最大可能会消耗多少内存？<a class="headerlink" href="#vpp" title="此标题的永久链接">¶</a></h2>
+<p>答：解码过程的内存占用与码流格式、压缩率、码率有关，需以实测为准。</p>
+<p>vpp模块本身是没有内存积累的，内存就是一张输入图像和一张输出图像空间。</p>
+</section>
+<section id="hwcchwnchw-1684x">
+<h2><span class="section-number">5.3.12. </span>前处理时图片数据格式转换需要HWC转CHW和NCHW， 1684X是否相关接口可以使用？<a class="headerlink" href="#hwcchwnchw-1684x" title="此标题的永久链接">¶</a></h2>
+<p>答：BMCV中提供了针对图像的处理接口，可以实现图像数据的NHWC 与NCHW以及通道顺序的转换，也就是packed和planar、BGR和RGB的转换，但没有针对tensor的通用的NHWC和NCHW的转换。但应该可以满足模型前处理时ide图片数据格式转换需求。请查看：bmcv_image_storage_convert，bmcv_image_vpp_basic，bmcv_image_vpp_convert，bmcv_image_vpp_convert_padding、bmcv_image_convert_to等接口。</p>
+</section>
+<section id="id5">
+<h2><span class="section-number">5.3.13. </span>硬编的画面输出是绿屏<a class="headerlink" href="#id5" title="此标题的永久链接">¶</a></h2>
+<p>答：h264_bm/265_bm硬编后，画面是绿屏。本质是编码前的原始数据没加载到。要考虑原始数据在设备内存，还是系统内存中。一般如果原始数据在主机内存的要设置is_dma_buffer=0；反之，在设备内存时，设置is_dma_buffer=1。此参数默认为1。</p>
+</section>
+<section id="id6">
+<h2><span class="section-number">5.3.14. </span>解码器卡住<a class="headerlink" href="#id6" title="此标题的永久链接">¶</a></h2>
+<p>答：如果解码器正常运行一段时间后，卡住了，可能是由于当前程序里的解码帧数量达到了限制。这个值可以通过extra_frame_buffer_num设置，默认为5。所以在处理完AVFrame后，需要及时释放，防止占用过多解码帧。</p>
+</section>
+<section id="bmcv-image-vpp-resize-padding-vpp-input-image-param-err">
+<h2><span class="section-number">5.3.15. </span>使用bmcv_image_vpp_resize_padding时报错提示”vpp input image param err”？<a class="headerlink" href="#bmcv-image-vpp-resize-padding-vpp-input-image-param-err" title="此标题的永久链接">¶</a></h2>
+<p>答：bmcv库中带有vpp前缀的接口与是使用硬件VPP实现的，会对输入输出图像格式有一定的要求，比如缩放比例不能超过32倍等。具体请查看《BMCV用户手册》。</p>
+</section>
+<section id="bmcvopencv-cvtcolor-subtract-bitwise-and-findcontours">
+<h2><span class="section-number">5.3.16. </span>bmcv库中是否有和OpenCV相对应的 cvtColor、 subtract、 bitwise_and、 findContours 等这几个方法？<a class="headerlink" href="#bmcvopencv-cvtcolor-subtract-bitwise-and-findcontours" title="此标题的永久链接">¶</a></h2>
+<p>答：cvtColor请参见bmcv_image_storage_convert，substract请参见bmcv_image_absdiff和bmcv_image_add_weighted，bitwise_and和findContours无BMCV实现。</p>
+</section>
+<section id="soccv-matcv-mat">
+<h2><span class="section-number">5.3.17. </span>SoC模式使用cv::Mat的数据地址初始化另外一个cv::Mat时有可能会出现乱码？<a class="headerlink" href="#soccv-matcv-mat" title="此标题的永久链接">¶</a></h2>
+<p>答：SoC模式使用cv::Mat的数据地址初始化另外一个cv::Mat 时需要指定_step，即</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cv</span><span class="p">::</span><span class="n">Mat</span> <span class="n">image_temp_1</span><span class="p">(</span><span class="n">image_ost</span><span class="o">.</span><span class="n">rows</span><span class="p">,</span><span class="n">image_ost</span><span class="o">.</span><span class="n">cols</span><span class="p">,</span><span class="n">CV_8UC3</span><span class="p">,</span><span class="n">image_ost</span><span class="o">.</span><span class="n">data</span><span class="p">,</span><span class="n">image_ost</span><span class="o">.</span><span class="n">step</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+</pre></div>
+</div>
+<p>详细原因可参考 <a class="reference external" href="https://doc.sophgo.com/docs/3.0.0/docs_latest_release/multimedia_guide/html/guide/Multimedia_Guide_zh.html#opencv">https://doc.sophgo.com/docs/3.0.0/docs_latest_release/multimedia_guide/html/guide/Multimedia_Guide_zh.html#opencv</a></p>
+</section>
+<section id="soccv-mat">
+<h2><span class="section-number">5.3.18. </span>SoC模式对cv::Mat的内存进行操作<a class="headerlink" href="#soccv-mat" title="此标题的永久链接">¶</a></h2>
+<p>答：SoC模式下面，cv::Mat的内存需要64字节对齐，所以cv::Mat的内存长度不是width*3*height，而是step*height，如果原始图像满足64字节对齐，那么step=width*3</p>
+</section>
+<section id="sophon-gate-gate-webserver-py-sophonface">
+<h2><span class="section-number">5.3.19. </span>Sophon gate 人脸应用中gate_webserver.py 的 sophonface  是如何导入的？<a class="headerlink" href="#sophon-gate-gate-webserver-py-sophonface" title="此标题的永久链接">¶</a></h2>
+<img alt="../_images/multimedia_sophon_gate_webserver_py.jpg" src="../_images/multimedia_sophon_gate_webserver_py.jpg" />
+<p>答：sophonface通过PYTHONPATH路径的方式直接指定，run_gateway.sh中，在PYTHONPATH中添加了/system/SophonFaceSDK。</p>
+<img alt="../_images/multimedia_sophon_gate_webserver_pythonpath_add.jpg" src="../_images/multimedia_sophon_gate_webserver_pythonpath_add.jpg" />
+</section>
+<section id="opencvimreadjpg">
+<h2><span class="section-number">5.3.20. </span>OpenCV的imread接口读取进来的JPG图片尺寸问题<a class="headerlink" href="#opencvimreadjpg" title="此标题的永久链接">¶</a></h2>
+<p>答：</p>
+<p>软解JPG保持原尺寸。硬解JPG的话，会使用到JPU，虽然JPU默认最大尺寸是32768*32768，但VPP最大支持尺寸是4096*4096。
+这里为满足后续VPP宽高同时小于4K的要求，会自动将图片宽高缩小到4K以下。
+例如，当前w*h=5000*3000，则会同时将宽高除以2，得到2500*1500，此时宽高均满足小于4K，则停止resize。否则会继续宽高除以2的操作，最多会进行3次下采样(32768 / 8 = 4096)。</p>
+</section>
+<section id="bm-imagecv-mat">
+<h2><span class="section-number">5.3.21. </span>如何将bm_image转为cv.Mat?<a class="headerlink" href="#bm-imagecv-mat" title="此标题的永久链接">¶</a></h2>
+<p>答：</p>
+<ol class="arabic">
+<li><p>Python中cv.Mat就是一个numpy.array，请参考以下代码：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sophon.sail</span> <span class="kn">import</span> <span class="n">sail</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># engine = sail.Engine(model_path, device_id, io_mode)</span>
+<span class="c1"># handle = engine.get_handle()</span>
+
+<span class="n">bm_image</span> <span class="o">=</span> <span class="n">sail</span><span class="o">.</span><span class="n">BMImage</span><span class="p">()</span>
+
+<span class="c1"># 如果bm_image的format是FORMAT_BGR_PACKED或FORMAT_RGB_PACKED,</span>
+<span class="c1"># 需要先转换成FORMAT_BGR_PLANAR或FORMAT_RGB_PLANAR，</span>
+<span class="c1"># 再送入bm_image_to_tensor转Tensor，如</span>
+<span class="c1"># image_bgr_planar = sail.BMImage(handle,  bm_image.height(),  bm_image.width(), sail.Format.FORMAT_BGR_PLANAR,  bm_image.dtype())</span>
+<span class="c1"># sail.Bmcv(handle).convert_format(bm_image, image_bgr_planar)</span>
+<span class="c1"># 转换到FORMAT_BGR_PLANAR，再将image_bgr_planar通过bm_image_to_tensor转换成Tensor</span>
+
+<span class="n">result_tensor</span> <span class="o">=</span> <span class="n">sail</span><span class="o">.</span><span class="n">Bmcv</span><span class="p">(</span><span class="n">handle</span><span class="p">)</span><span class="o">.</span><span class="n">bm_image_to_tensor</span><span class="p">(</span><span class="n">bm_image</span><span class="p">)</span> <span class="c1"># 传入handle，初始化sail.Bmcv</span>
+<span class="n">result_numpy</span> <span class="o">=</span> <span class="n">result_tensor</span><span class="o">.</span><span class="n">asnumpy</span><span class="p">()</span>
+<span class="n">np_array_temp</span> <span class="o">=</span> <span class="n">result_numpy</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">np_array_t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">np_array_temp</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+<span class="n">mat_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">np_array_t</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>C++中使用cv::bmcv::toMat()接口。</p></li>
+</ol>
+</section>
+<section id="rtspffmpegopencv-sail-decoder">
+<h2><span class="section-number">5.3.22. </span>rtsp流使用ffmpeg和opencv可以正常解码，但是使用sail.Decoder无法正常解码<a class="headerlink" href="#rtspffmpegopencv-sail-decoder" title="此标题的永久链接">¶</a></h2>
+<p>答：定位问题的原因是extra_frame_buffer_num给的太大。分别分析几个矛盾的现象如下：
+#. ffmpeg下能够正常执行，而python sail下不能执行：这是因为ffmpeg下默认extra_frame_buffer_num为5
+#. 录下码流后，离线文件python sail可以工作，rtsp下python sail不能工作：这是因为python sail只在rtsp下设置extram_buffer_num为20个</p>
+<p>解码器内部每个instance最多允许32个 frame buffer，因为这个摄像头码流要求的缓存frame buffer比较多，加上20个extra frame buffer后，超过了32个，所以导致register frame buffer失败。</p>
+<p>目前在opencv中配置extra_frame_buffer_num为3， ffmpeg默认为5，这个配置基本不影响到速度，如果需要直接用解码器解出来的frame buffer做缓存，可以试着配置为10，20这个数字太大了。</p>
+<p>sail在2.7.0(20220412_224617)及以后的版本将extram_buffer_num设置为5，并且添加其它了其它设置，保持和opencv一致</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Multimedia_FAQ.html" class="btn btn-neutral float-left" title="5.2. 多媒体客户常见问题" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../6_program_optimization.html" class="btn btn-neutral float-right" title="6. 程序开发常见问题" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2022, SOPHGO.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="前往官网"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="前往文档中心"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="页面顶部"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="页面底部"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>本页二维码</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

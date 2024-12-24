@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>4. 模型转换及量化常见问题 &mdash; SOPHON and SDK FAQ master
+ 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="5. 多媒体用户常见问题" href="5_multimedia.html" />
+    <link rel="prev" title="3.6. 论坛资料" href="devices/forum_page.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> SOPHON and SDK FAQ
+          </a>
+              <div class="version">
+                master
+
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="0_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_basic_concept.html">2. 基础概念常见问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_device_usages.html">3. 设备使用常见问题</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">4. 模型转换及量化常见问题</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id3">4.1. 基本使用</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id4">4.1.1. 模型转换失败怎么办？</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">4.1.2. 是否支持模型的在线编译？</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#fp32">4.2. fp32模型转换</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id6">4.2.1. fp32模型的输出和原始模型输出差异比较大怎么办？</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#int8">4.3. int8模型量化</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#int8fp32">4.3.1. int8的输出和fp32模型输出差异比较大怎么办？</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="5_multimedia.html">5. 多媒体用户常见问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6_program_optimization.html">6. 程序开发常见问题</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SOPHON and SDK FAQ</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">4. </span>模型转换及量化常见问题</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/4_converter_quantization.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">返回文档中心</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1><span class="section-number">4. </span>模型转换及量化常见问题<a class="headerlink" href="#id1" title="此标题的永久链接">¶</a></h1>
+<p>开发文档：
+《 <a class="reference external" href="https://doc.sophgo.com/sdk-docs/v23.09.01-lts/docs_latest_release/docs/tpu-mlir/quick_start/html/index.html">TPU-MLIR快速入门手册</a> 》，《 <a class="reference external" href="https://doc.sophgo.com/sdk-docs/v23.09.01-lts/docs_latest_release/docs/tpu-mlir/developer_manual/html/index.html">TPU-MLIR开发参考手册</a> 》。</p>
+<section id="id3">
+<h2><span class="section-number">4.1. </span>基本使用<a class="headerlink" href="#id3" title="此标题的永久链接">¶</a></h2>
+<section id="id4">
+<h3><span class="section-number">4.1.1. </span>模型转换失败怎么办？<a class="headerlink" href="#id4" title="此标题的永久链接">¶</a></h3>
+<p>答：</p>
+<ol class="arabic simple">
+<li><p>检查命令行输入参数有没有错误，这个一般会有打印提示；</p></li>
+<li><p>不支持的算子需要开发，可以联系我方技术人员来解决；</p></li>
+<li><p>使用转换工具编译模型时，保存更详细的日志，提供给我方技术人员进一步排查；</p></li>
+<li><p>有时转换失败是因为误差比对超过了允许的阈值而导致编译过程中断，目前比对误差阈值设置为误差在0.01之内，但也不排除有些模型有很多的累加或除法操作，由于尾差累计导致超出这个范围；可以加上–cmp False关闭比对，最终到业务层面上验证转换后的模型精度是否符合要求；</p></li>
+</ol>
+</section>
+<section id="id5">
+<h3><span class="section-number">4.1.2. </span>是否支持模型的在线编译？<a class="headerlink" href="#id5" title="此标题的永久链接">¶</a></h3>
+<p>答：不支持，也不推荐这样做，因为模型编译的过程是特别耗时的。因此我们采用了离线编译生成BModel，在线推理时直接加载BModel运行的方式。</p>
+</section>
+</section>
+<section id="fp32">
+<h2><span class="section-number">4.2. </span>fp32模型转换<a class="headerlink" href="#fp32" title="此标题的永久链接">¶</a></h2>
+<section id="id6">
+<h3><span class="section-number">4.2.1. </span>fp32模型的输出和原始模型输出差异比较大怎么办？<a class="headerlink" href="#id6" title="此标题的永久链接">¶</a></h3>
+<p>答：</p>
+<ol class="arabic simple">
+<li><p>对于两个模型采用同样的输入，看看输出是否一致，比如输入都是用全部是0.1的矩阵，填充input tensor的内存空间，然后做推理，比较输出数据的差异;</p></li>
+<li><p>设置 export BMRT_SAVE_IO_TENSORS=1，运行bmruntime的时候会输出两个文件 input_ref_data.dat.bmrt和output_ref_data.dat.bmrt，用这个和理想的输入输出作对比排查。</p></li>
+</ol>
+</section>
+</section>
+<section id="int8">
+<h2><span class="section-number">4.3. </span>int8模型量化<a class="headerlink" href="#int8" title="此标题的永久链接">¶</a></h2>
+<section id="int8fp32">
+<h3><span class="section-number">4.3.1. </span>int8的输出和fp32模型输出差异比较大怎么办？<a class="headerlink" href="#int8fp32" title="此标题的永久链接">¶</a></h3>
+<p>答：</p>
+<ol class="arabic simple">
+<li><p>检查前后处理是否有问题，int8网络输入输出一般需要做scale处理，看看是否遗漏？</p></li>
+<li><p>通过MLIR工具找出导致误差较大的层，参考 《 <a class="reference external" href="https://doc.sophgo.com/sdk-docs/v23.09.01-lts/docs_latest_release/docs/tpu-mlir/quick_start/html/07_quantization.html">量化与量化调优</a> 》。</p></li>
+</ol>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="devices/forum_page.html" class="btn btn-neutral float-left" title="3.6. 论坛资料" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="5_multimedia.html" class="btn btn-neutral float-right" title="5. 多媒体用户常见问题" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2022, SOPHGO.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="前往官网"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="前往文档中心"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="页面顶部"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="页面底部"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>本页二维码</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

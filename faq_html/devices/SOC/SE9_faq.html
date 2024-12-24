@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3.3.3. SE9使用问题 &mdash; SOPHON and SDK FAQ master
+ 文档</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="../../_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/translations.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <script src="../../_static/js/qrious.js"></script>
+    <script src="../../_static/js/nav.js"></script>
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="3.3.4. BSP问题" href="bm1684_soc_mode_faq.html" />
+    <link rel="prev" title="3.3.2. SE5、SE7使用问题" href="SE5_SE7_faq.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> SOPHON and SDK FAQ
+          </a>
+              <div class="version">
+                master
+
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../0_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../1_basic_concept.html">2. 基础概念常见问题</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../3_device_usages.html">3. 设备使用常见问题</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../environment.html">3.1. 环境配置常见问题</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../common_commands.html">3.2. 设备版本、状态、bmodel模型信息如何获取？</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../devices_SOC.html">3.3. 智算盒子（模组）常见问题</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="soc_firmware_update.html">3.3.1. 刷机问题</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SE5_SE7_faq.html">3.3.2. SE5、SE7使用问题</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">3.3.3. SE9使用问题</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id2">3.3.3.1. SE9常用命令参考有哪些？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">3.3.3.2. SE9如何加装存储？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#se94g-5glte">3.3.3.3. SE9如何加装4G/5G和LTE天线？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#se94g-5gwifisata">3.3.3.4. 在哪里添加SE9的4G/5G、WIFI、SATA模块？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">3.3.3.5. SE9如何刷新固件？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">3.3.3.6. SE9如何使用串口调试工具进行调试？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">3.3.3.7. 如何连接SE9？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#se9ip">3.3.3.8. SE9如何修改IP？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id7">3.3.3.9. 如何修改内存布局？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id8">3.3.3.10. 如何制作SE9刷机包？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id9">3.3.3.11. SE9盒子上有哪些服务，是做什么的？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id10">3.3.3.12. SE9设备是否有看门狗？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sn-mac">3.3.3.13. 如何查看SN/MAC？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id11">3.3.3.14. 查看内存情况</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sophon-ffmpegusb">3.3.3.15. 如何使用sophon-ffmpeg读取USB摄像头视频流？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ffmpegalsa">3.3.3.16. 如何使用ffmpeg读取alsa音频？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pythonsophon-opencv">3.3.3.17. 如何使用python版sophon-opencv？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bm-imagecv-mat">3.3.3.18. 如何将bm_image转为cv.Mat？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sophon-opencv">3.3.3.19. sophon-opencv的版本？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sophon-ffmpeg">3.3.3.20. sophon-ffmpeg的版本？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpio">3.3.3.21. GPIO使用？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id12">3.3.3.22. 继电器使用方法</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#can">3.3.3.23. CAN使用方法</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id13">3.3.3.24. 485/232使用方法？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tpu-mlir">3.3.3.25. 使用TPU-MLIR，设置混精度的层名后，混精度未生效？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tpu-mlir-fp32-fp16-int8">3.3.3.26. 使用TPU-MLIR，FP32/FP16模型推理可以得到正确结果，INT8模型无法得到正确结果？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id14">3.3.3.27. 使用TPU-MLIR，如何混精度？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#se9-8-8gse9-16-16g-se9-84g-se9-168g">3.3.3.28. 工厂发出的SE9-8 8G版本和SE9-16 16G版本，查询SE9-8的内存是4G，SE9-16的内存是8G。这是为什么？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bmrt-test-bmodel-xxx-bmodel">3.3.3.29. 客户拿到盒子后，使用bmrt_test –bmodel xxx.bmodel报错</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#se9hdmi-ubuntu">3.3.3.30. SE9接上HDMI后，为什么没有出现ubuntu的桌面？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#se9-8bm-smitpu-tpu-p-currclk-450m-bmrt-test-se9-16">3.3.3.31. SE9-8设备使用bm-smi查看TPU频率(TPU_P Currclk)是450M，bmrt_test运行模型推理，较SE9-16速度慢的原因</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#se9sdk">3.3.3.32. SE9的SDK下载链接</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id15">3.3.3.33. 如何查看模型属于单核模型还是双核模型？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#se9-8-cv186ah">3.3.3.34. 双核模型在SE9-8(CV186AH)上运行会如何？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sophon-opencvsophon-ffmpeg">3.3.3.35. sophon-opencv和sophon-ffmpeg具体做了哪些硬件加速？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#docker">3.3.3.36. 使用docker搭建测试环境</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bmcvbmcv-image-warp-perspective">3.3.3.37. 使用bmcv的bmcv_image_warp_perspective函数，有锯齿现象</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opencv">3.3.3.38. 如何使用opencv在图片上写中文字符？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ddr">3.3.3.39. 如何查看设备ddr内存总量？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#se9-sm9cpuddr">3.3.3.40. 如何查看SE9 SM9的cpu、ddr频率?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sd">3.3.3.41. 如何判断SD卡刷机完成？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id16">3.3.3.42. SD卡不能成功刷机？</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="bm1684_soc_mode_faq.html">3.3.4. BSP问题</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../devices_PCIE.html">3.4. 智算卡常见问题</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../devices_server.html">3.5. 智算服务器常见问题</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../forum_page.html">3.6. 论坛资料</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../4_converter_quantization.html">4. 模型转换及量化常见问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../5_multimedia.html">5. 多媒体用户常见问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../6_program_optimization.html">6. 程序开发常见问题</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">SOPHON and SDK FAQ</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../3_device_usages.html"><span class="section-number">3. </span>设备使用常见问题</a> &raquo;</li>
+          <li><a href="../devices_SOC.html"><span class="section-number">3.3. </span>智算盒子（模组）常见问题</a> &raquo;</li>
+      <li><span class="section-number">3.3.3. </span>SE9使用问题</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="../../_sources/devices/SOC/SE9_faq.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">返回文档中心</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="se9">
+<h1><a class="toc-backref" href="#id17" role="doc-backlink"><span class="section-number">3.3.3. </span>SE9使用问题</a><a class="headerlink" href="#se9" title="此标题的永久链接">¶</a></h1>
+<nav class="contents" id="id1">
+<p class="topic-title">目录</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#se9" id="id17">SE9使用问题</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id2" id="id18">SE9常用命令参考有哪些？</a></p></li>
+<li><p><a class="reference internal" href="#id3" id="id19">SE9如何加装存储？</a></p></li>
+<li><p><a class="reference internal" href="#se94g-5glte" id="id20">SE9如何加装4G/5G和LTE天线？</a></p></li>
+<li><p><a class="reference internal" href="#se94g-5gwifisata" id="id21">在哪里添加SE9的4G/5G、WIFI、SATA模块？</a></p></li>
+<li><p><a class="reference internal" href="#id4" id="id22">SE9如何刷新固件？</a></p></li>
+<li><p><a class="reference internal" href="#id5" id="id23">SE9如何使用串口调试工具进行调试？</a></p></li>
+<li><p><a class="reference internal" href="#id6" id="id24">如何连接SE9？</a></p></li>
+<li><p><a class="reference internal" href="#se9ip" id="id25">SE9如何修改IP？</a></p></li>
+<li><p><a class="reference internal" href="#id7" id="id26">如何修改内存布局？</a></p></li>
+<li><p><a class="reference internal" href="#id8" id="id27">如何制作SE9刷机包？</a></p></li>
+<li><p><a class="reference internal" href="#id9" id="id28">SE9盒子上有哪些服务，是做什么的？</a></p></li>
+<li><p><a class="reference internal" href="#id10" id="id29">SE9设备是否有看门狗？</a></p></li>
+<li><p><a class="reference internal" href="#sn-mac" id="id30">如何查看SN/MAC？</a></p></li>
+<li><p><a class="reference internal" href="#id11" id="id31">查看内存情况</a></p></li>
+<li><p><a class="reference internal" href="#sophon-ffmpegusb" id="id32">如何使用sophon-ffmpeg读取USB摄像头视频流？</a></p></li>
+<li><p><a class="reference internal" href="#ffmpegalsa" id="id33">如何使用ffmpeg读取alsa音频？</a></p></li>
+<li><p><a class="reference internal" href="#pythonsophon-opencv" id="id34">如何使用python版sophon-opencv？</a></p></li>
+<li><p><a class="reference internal" href="#bm-imagecv-mat" id="id35">如何将bm_image转为cv.Mat？</a></p></li>
+<li><p><a class="reference internal" href="#sophon-opencv" id="id36">sophon-opencv的版本？</a></p></li>
+<li><p><a class="reference internal" href="#sophon-ffmpeg" id="id37">sophon-ffmpeg的版本？</a></p></li>
+<li><p><a class="reference internal" href="#gpio" id="id38">GPIO使用？</a></p></li>
+<li><p><a class="reference internal" href="#id12" id="id39">继电器使用方法</a></p></li>
+<li><p><a class="reference internal" href="#can" id="id40">CAN使用方法</a></p></li>
+<li><p><a class="reference internal" href="#id13" id="id41">485/232使用方法？</a></p></li>
+<li><p><a class="reference internal" href="#tpu-mlir" id="id42">使用TPU-MLIR，设置混精度的层名后，混精度未生效？</a></p></li>
+<li><p><a class="reference internal" href="#tpu-mlir-fp32-fp16-int8" id="id43">使用TPU-MLIR，FP32/FP16模型推理可以得到正确结果，INT8模型无法得到正确结果？</a></p></li>
+<li><p><a class="reference internal" href="#id14" id="id44">使用TPU-MLIR，如何混精度？</a></p></li>
+<li><p><a class="reference internal" href="#se9-8-8gse9-16-16g-se9-84g-se9-168g" id="id45">工厂发出的SE9-8 8G版本和SE9-16 16G版本，查询SE9-8的内存是4G，SE9-16的内存是8G。这是为什么？</a></p></li>
+<li><p><a class="reference internal" href="#bmrt-test-bmodel-xxx-bmodel" id="id46">客户拿到盒子后，使用bmrt_test –bmodel xxx.bmodel报错</a></p></li>
+<li><p><a class="reference internal" href="#se9hdmi-ubuntu" id="id47">SE9接上HDMI后，为什么没有出现ubuntu的桌面？</a></p></li>
+<li><p><a class="reference internal" href="#se9-8bm-smitpu-tpu-p-currclk-450m-bmrt-test-se9-16" id="id48">SE9-8设备使用bm-smi查看TPU频率(TPU_P Currclk)是450M，bmrt_test运行模型推理，较SE9-16速度慢的原因</a></p></li>
+<li><p><a class="reference internal" href="#se9sdk" id="id49">SE9的SDK下载链接</a></p></li>
+<li><p><a class="reference internal" href="#id15" id="id50">如何查看模型属于单核模型还是双核模型？</a></p></li>
+<li><p><a class="reference internal" href="#se9-8-cv186ah" id="id51">双核模型在SE9-8(CV186AH)上运行会如何？</a></p></li>
+<li><p><a class="reference internal" href="#sophon-opencvsophon-ffmpeg" id="id52">sophon-opencv和sophon-ffmpeg具体做了哪些硬件加速？</a></p></li>
+<li><p><a class="reference internal" href="#docker" id="id53">使用docker搭建测试环境</a></p></li>
+<li><p><a class="reference internal" href="#bmcvbmcv-image-warp-perspective" id="id54">使用bmcv的bmcv_image_warp_perspective函数，有锯齿现象</a></p></li>
+<li><p><a class="reference internal" href="#opencv" id="id55">如何使用opencv在图片上写中文字符？</a></p></li>
+<li><p><a class="reference internal" href="#ddr" id="id56">如何查看设备ddr内存总量？</a></p></li>
+<li><p><a class="reference internal" href="#se9-sm9cpuddr" id="id57">如何查看SE9 SM9的cpu、ddr频率?</a></p></li>
+<li><p><a class="reference internal" href="#sd" id="id58">如何判断SD卡刷机完成？</a></p></li>
+<li><p><a class="reference internal" href="#id16" id="id59">SD卡不能成功刷机？</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+<section id="id2">
+<h2><a class="toc-backref" href="#id18" role="doc-backlink"><span class="section-number">3.3.3.1. </span>SE9常用命令参考有哪些？</a><a class="headerlink" href="#id2" title="此标题的永久链接">¶</a></h2>
+<p>答：</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>用于获取设备基本信息，包括IP地址、MAC 地址、系统开机时间、板卡温度、平台结温，NPU使用率等</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bm_get_basic_info</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>查看当前设备平台结温</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">cat</span> <span class="pre">/sys/class/thermal/thermal_zone0/temp</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>查看设备启动到当前的运行时长（秒）</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">cat</span> <span class="pre">/proc/uptime</span> <span class="pre">2&gt;/dev/null</span> <span class="pre">|</span> <span class="pre">awk</span> <span class="pre">'{print</span> <span class="pre">$1}'</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>查看平台型号</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">awk</span> <span class="pre">-F':</span> <span class="pre">'</span> <span class="pre">'/model</span> <span class="pre">name/{print</span> <span class="pre">$2;</span> <span class="pre">exit}'</span> <span class="pre">/proc/cpuinfo</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>用于查看设备版本信息</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bm_version</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>用于获取设备温度信息，包括板卡温度、平台结温等</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bm_get_temperature</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>用于设置静态IP</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bm_set_ip</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>用于设置动态IP</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bm_set_ip_auto</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>检测驱动是否安装</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">lsmod</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>查看TPU使用率</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bm-smi,</span> <span class="pre">cat</span> <span class="pre">/sys/class/bm-tpu/bm-tpu0/device/npu_usage</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>查看VPU使用率(VPU:Video Subsystem, 用于h264/h265/jpeg编解码)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">cat</span> <span class="pre">/proc/soph/vpuinfo</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>查看VPSS使用率(VPSS:也称为VPP,属于CV SubSystem)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">cat</span> <span class="pre">/proc/soph/vppinfo</span></code>  (SDK版本≥1.8)</p></td>
+</tr>
+<tr class="row-odd"><td><p>用于获取产品OEM信息</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">cat</span> <span class="pre">/factory/OEMconfig.ini</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>查看VPSS预留及当前使用内存的情况</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">cat</span> <span class="pre">/sys/kernel/debug/ion/cvi_vpp_heap_dump</span> <span class="pre">/summary|head</span> <span class="pre">-3</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>查看TPU预留及当前使用内存的情况</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">cat</span> <span class="pre">/sys/kernel/debug/ion/cvi_npu_heap_dump</span> <span class="pre">/summary|head</span> <span class="pre">-3</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>模型结果对比测试</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bmrt_test</span> <span class="pre">--context_dir</span> <span class="pre">[compilation_outdir]</span></code> 详情见bmruntime文档</p></td>
+</tr>
+<tr class="row-odd"><td><p>模型可用性测试</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bmrt_test</span> <span class="pre">--bmodel</span> <span class="pre">xxx.bmodel</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>查看bmodel信息</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">tpu_model</span> <span class="pre">--info</span> <span class="pre">test.bmodel</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>合并bmodel文件</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">tpu_model</span> <span class="pre">--combine</span> <span class="pre">a.bmodel</span> <span class="pre">b.bmodel</span> <span class="pre">c.bmodel</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>分解bmodel文件</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">tpu_model</span> <span class="pre">--extract</span> <span class="pre">test.bmodel</span> <span class="pre">(分解成单个command的bmodel)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>查询系统内存</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">free</span> <span class="pre">–h</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id3">
+<h2><a class="toc-backref" href="#id19" role="doc-backlink"><span class="section-number">3.3.3.2. </span>SE9如何加装存储？</a><a class="headerlink" href="#id3" title="此标题的永久链接">¶</a></h2>
+<p>答：M.2 SSD 支持容量2TB(已验证)，为非标配配件，需要用户根据所需对接的运营商自行采购。</p>
+<ul class="simple">
+<li><p>已验证2T 以下容量（额定功耗≤3W，功耗超出时可联系我司销售购买专用散热块）</p></li>
+<li><p>M.2 SSD 接口如图：</p></li>
+</ul>
+<figure class="align-center">
+<img alt="../../_images/soc_m.2_ssd.png" src="../../_images/soc_m.2_ssd.png" />
+</figure>
+<p>安装完成后，挂载硬盘后，可以正常使用。
+具体请参考《SE9用户指导手册》4.4章节选件安装和6.3章节硬盘挂载</p>
+</section>
+<section id="se94g-5glte">
+<h2><a class="toc-backref" href="#id20" role="doc-backlink"><span class="section-number">3.3.3.3. </span>SE9如何加装4G/5G和LTE天线？</a><a class="headerlink" href="#se94g-5glte" title="此标题的永久链接">¶</a></h2>
+<p>答：参考《SE9用户指导手册》第四章“操作与安装”的LTE天线章节</p>
+</section>
+<section id="se94g-5gwifisata">
+<h2><a class="toc-backref" href="#id21" role="doc-backlink"><span class="section-number">3.3.3.4. </span>在哪里添加SE9的4G/5G、WIFI、SATA模块？</a><a class="headerlink" href="#se94g-5gwifisata" title="此标题的永久链接">¶</a></h2>
+<p>答：</p>
+<figure class="align-default">
+<img alt="../../_images/soc_se9_4g5g_wifi_sata_module.png" src="../../_images/soc_se9_4g5g_wifi_sata_module.png" />
+</figure>
+</section>
+<section id="id4">
+<h2><a class="toc-backref" href="#id22" role="doc-backlink"><span class="section-number">3.3.3.5. </span>SE9如何刷新固件？</a><a class="headerlink" href="#id4" title="此标题的永久链接">¶</a></h2>
+<p>答：</p>
+<ol class="arabic simple">
+<li><p>使用sdcard卡刷方式。参考《SE9用户指导手册》6.1系统升级章节。  注意，刷机之后，设备ip会改变，需要重新配置网络。</p></li>
+</ol>
+</section>
+<section id="id5">
+<h2><a class="toc-backref" href="#id23" role="doc-backlink"><span class="section-number">3.3.3.6. </span>SE9如何使用串口调试工具进行调试？</a><a class="headerlink" href="#id5" title="此标题的永久链接">¶</a></h2>
+<p>答：准备一条USB Type-c 接口的数据线，在笔记本电脑或台式电脑上安装串口驱动cp210x(<a class="reference external" href="https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers?tab=downloads">https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers?tab=downloads</a>)，使用USB Type-c线连接SE9的TYPE- C口与电脑，设置波特率115200。再给SE9上电，进入串口通讯界面，即可开始对SE9进行操作。原始账号和密码默认均为linaro。</p>
+</section>
+<section id="id6">
+<h2><a class="toc-backref" href="#id24" role="doc-backlink"><span class="section-number">3.3.3.7. </span>如何连接SE9？</a><a class="headerlink" href="#id6" title="此标题的永久链接">¶</a></h2>
+<p>答：有两种方式查看SE9 IP。</p>
+<ol class="arabic simple">
+<li><p>在显示器上直接查看IP的方式：SE9连上网线，插上HDMI线，HDMI连接显示器，在显示器上查看IP，再使用ssh工具连接SE9；</p></li>
+<li><p>通过SE9 LAN口连接查看IP的方式：</p></li>
+</ol>
+<p>SE9盒子有两种配置方式：</p>
+<p>方式1：SE9直连电脑：</p>
+<ol class="arabic simple">
+<li><p>连接SE9 LAN口至电脑端LAN口</p></li>
+<li><p>配置电脑ip地址至192.168.150.1同网段下，例如ip设为192.168.150.2，子网掩码设为255.255.255.0，默认网关设为192.168.150.254</p></li>
+<li><p>ssh至192.168.150.1，初始账户名密码均为linaro</p></li>
+</ol>
+<p>方式2：SE9通过路由器或交换机连接：</p>
+<ol class="arabic simple">
+<li><p>连接SE9 LAN口至路由器或交换机</p></li>
+<li><p>从路由器或交换机连接至电脑端网口</p></li>
+<li><p>配置电脑ip地址至192.168.150.1同网段下，例如ip设为192.168.150.2，子网掩码设为255.255.255.0，默认网关设为192.168.150.254</p></li>
+<li><p>ssh至192.168.150.1，初始账户名密码均为linaro</p></li>
+<li><p>查看SE9盒子的WAN口ip地址，以用来远程连接</p></li>
+</ol>
+</section>
+<section id="se9ip">
+<h2><a class="toc-backref" href="#id25" role="doc-backlink"><span class="section-number">3.3.3.8. </span>SE9如何修改IP？</a><a class="headerlink" href="#se9ip" title="此标题的永久链接">¶</a></h2>
+<p>答：WAN IP地址修改有多种方式</p>
+<ol class="arabic">
+<li><p>使用ifconfig命令配置IP地址</p></li>
+<li><p>使用``bm_set_ip命令``，即``bm_set_ip eth0 ip netmask gateway dns``</p></li>
+<li><p>使用netplan工具来配置网络接口的静态IP地址</p>
+<p>修改/etc/netplan/01-netcfg.yaml：</p>
+<figure class="align-default">
+<img alt="../../_images/soc_netplan.jpg" src="../../_images/soc_netplan.jpg" />
+</figure>
+<p>将上图内容保存后，应用配置</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>netplan<span class="w"> </span>apply
+</pre></div>
+</div>
+</div></blockquote>
+<p>这将把eth0接口配置为静态IP：172.21.2.92，同时制定了网关和DNS服务器</p>
+</li>
+<li><p>参考《SE9用户指导手册》5.2.3.3网络设置</p></li>
+</ol>
+</section>
+<section id="id7">
+<h2><a class="toc-backref" href="#id26" role="doc-backlink"><span class="section-number">3.3.3.9. </span>如何修改内存布局？</a><a class="headerlink" href="#id7" title="此标题的永久链接">¶</a></h2>
+<p>答：《BM1688_CV186AH SOPHONSDK开发指南》附录，SoC模式内存修改工具
+注意： BM1688、CV186AH 平台中VPU/VPP/JPU共用一个heap。</p>
+</section>
+<section id="id8">
+<h2><a class="toc-backref" href="#id27" role="doc-backlink"><span class="section-number">3.3.3.10. </span>如何制作SE9刷机包？</a><a class="headerlink" href="#id8" title="此标题的永久链接">¶</a></h2>
+<p>答：有两种方式，一种是通过github代码构建安装包，另一种是基于sdcard.tgz基础软件包定制化。</p>
+<ol class="arabic simple">
+<li><p>参考《算能边缘产品BSP开发参考手册》7.2如何通过github代码构建安装包</p></li>
+<li><p>使用bm1688_socbak工具制作(<a class="reference external" href="https://wiki.sophgo.com/pages/viewpage.action?pageId=116895859">bm1688_socbak使用说明</a>，或参考：《BM1688_CV186AH SOPHONSDK开发指南》附录，微服务器定制化软件包)</p></li>
+</ol>
+<ol class="arabic simple">
+<li><p>sudo su 进入root权限</p></li>
+<li><p>创建/socrepack目录，并且将外部存储设备挂载到该位置</p></li>
+<li><p>下载最新的socbak工具&lt;<a class="reference external" href="https://sophon-file.sophon.cn/sophon-prod-s3/drive/23/11/16/18/socbak.zip">https://sophon-file.sophon.cn/sophon-prod-s3/drive/23/11/16/18/socbak.zip</a>&gt;， 然后将socbak.sh脚本拷贝到该目录下</p></li>
+<li><p>cd到这个目录下，./socbak.sh执行环境镜像</p></li>
+<li><p>下载最新的bm1688_repack包解压并进入（&lt;<a class="reference external" href="https://sophon-file.sophon.cn/sophon-prod-s3/drive/24/02/23/20/bm1688_repack.tgz">https://sophon-file.sophon.cn/sophon-prod-s3/drive/24/02/23/20/bm1688_repack.tgz</a>&gt;）</p></li>
+<li><p>建立目录pack,然后将原始刷机包解压到这个目录下</p></li>
+<li><p>cd到depack.sh文件同目录,然后执行./depack.sh脚本进行解包</p></li>
+<li><p>生成的各个分区压缩包会在update目录下生成,此时将socbak生成的所有文件都拷贝到这个目录下</p></li>
+<li><p>修改完毕后cd到enpack.sh文件同目录,然后执行./enpack.sh sdcard 或者./enpack.sh tftp 命令进行打包</p></li>
+<li><p>生成的新的刷机包在update/sdcard和update/tftp</p></li>
+</ol>
+</section>
+<section id="id9">
+<h2><a class="toc-backref" href="#id28" role="doc-backlink"><span class="section-number">3.3.3.11. </span>SE9盒子上有哪些服务，是做什么的？</a><a class="headerlink" href="#id9" title="此标题的永久链接">¶</a></h2>
+<p>答：</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>服务</p></td>
+<td><p>说明</p></td>
+</tr>
+<tr class="row-even"><td><p>SophonHDMI</p></td>
+<td><p>HDMI显示</p></td>
+</tr>
+<tr class="row-odd"><td><p>sophliteos</p></td>
+<td><p>设备管理软件前端，含有基础运维功能</p></td>
+</tr>
+<tr class="row-even"><td><p>bmssm</p></td>
+<td><p>设备管理软件，采用目录的形式管理资源，通过HTTP协议管理所有的系统的软硬件信息</p></td>
+</tr>
+</tbody>
+</table>
+<p>可以使用如下命令，启动一个服务</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>systemctl<span class="w"> </span>start<span class="w"> </span>&lt;service_name&gt;
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="id10">
+<h2><a class="toc-backref" href="#id29" role="doc-backlink"><span class="section-number">3.3.3.12. </span>SE9设备是否有看门狗？</a><a class="headerlink" href="#id10" title="此标题的永久链接">¶</a></h2>
+<p>答：watchdog默认是在内核开启的。使用这命令开watchdog：</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>busybox<span class="w"> </span>watchdog<span class="w"> </span>-t<span class="w"> </span><span class="m">3</span><span class="w"> </span>-T<span class="w"> </span><span class="m">5</span><span class="w"> </span>/dev/watchdog0
+</pre></div>
+</div>
+</div></blockquote>
+<p>其中-t 是是喂狗周期，-T是时长。
+请参考《算能边缘产品BSP开发参考手册》—-5.12Watchdog 操作指南</p>
+</section>
+<section id="sn-mac">
+<h2><a class="toc-backref" href="#id30" role="doc-backlink"><span class="section-number">3.3.3.13. </span>如何查看SN/MAC？</a><a class="headerlink" href="#sn-mac" title="此标题的永久链接">¶</a></h2>
+<dl>
+<dt>答：</dt><dd><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cat<span class="w"> </span>/factory/OEMconfig.ini
+</pre></div>
+</div>
+</dd>
+</dl>
+</section>
+<section id="id11">
+<h2><a class="toc-backref" href="#id31" role="doc-backlink"><span class="section-number">3.3.3.14. </span>查看内存情况</a><a class="headerlink" href="#id11" title="此标题的永久链接">¶</a></h2>
+<dl>
+<dt>答：</dt><dd><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>free<span class="w"> </span>-h
+sudo<span class="w"> </span>cat<span class="w"> </span>/sys/kernel/debug/ion/cvi_vpp_heap_dump/summary<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-3
+sudo<span class="w"> </span>cat<span class="w"> </span>/sys/kernel/debug/ion/cvi_npu_heap_dump/summary<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-3
+</pre></div>
+</div>
+</dd>
+</dl>
+</section>
+<section id="sophon-ffmpegusb">
+<h2><a class="toc-backref" href="#id32" role="doc-backlink"><span class="section-number">3.3.3.15. </span>如何使用sophon-ffmpeg读取USB摄像头视频流？</a><a class="headerlink" href="#sophon-ffmpegusb" title="此标题的永久链接">¶</a></h2>
+<p>答：使用sophon-ffmpeg读取USB摄像头视频流，具有硬件加速功能</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ffmpeg<span class="w"> </span>-f<span class="w"> </span>v4l2<span class="w"> </span>-pix_fmt<span class="w"> </span>mjpeg<span class="w"> </span>-s:v<span class="w"> </span>1920x1080<span class="w"> </span>-r<span class="w"> </span><span class="m">30</span><span class="w"> </span>-zero_copy<span class="w"> </span><span class="m">0</span><span class="w"> </span>-c:v<span class="w"> </span>jpeg_bm<span class="w"> </span>-i<span class="w"> </span>/dev/video6<span class="w"> </span>-is_dma_buffer<span class="w"> </span><span class="m">1</span><span class="w"> </span>-vf<span class="w"> </span><span class="nv">scale_bm</span><span class="o">=</span><span class="nv">format</span><span class="o">=</span>yuv420p:zero_copy<span class="o">=</span><span class="m">1</span><span class="w"> </span>-r<span class="w"> </span><span class="m">25</span><span class="w"> </span>-c:v<span class="w"> </span>h264_bm<span class="w"> </span>-b:v<span class="w"> </span>3M<span class="w"> </span>output.mp4
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="ffmpegalsa">
+<h2><a class="toc-backref" href="#id33" role="doc-backlink"><span class="section-number">3.3.3.16. </span>如何使用ffmpeg读取alsa音频？</a><a class="headerlink" href="#ffmpegalsa" title="此标题的永久链接">¶</a></h2>
+<p>答：ALSA为软件功能，无硬件加速功能。</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ffmpeg<span class="w"> </span>-f<span class="w"> </span>alsa<span class="w"> </span>-i<span class="w"> </span>hw:0<span class="w"> </span>-t<span class="w"> </span><span class="m">30</span><span class="w"> </span>out.wav
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="pythonsophon-opencv">
+<h2><a class="toc-backref" href="#id34" role="doc-backlink"><span class="section-number">3.3.3.17. </span>如何使用python版sophon-opencv？</a><a class="headerlink" href="#pythonsophon-opencv" title="此标题的永久链接">¶</a></h2>
+<p>答：</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">PYTHONPATH</span><span class="o">=</span><span class="nv">$PYTHONPATH</span>:/opt/sophon/sophon-opencv-latest/opencv-python
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="bm-imagecv-mat">
+<h2><a class="toc-backref" href="#id35" role="doc-backlink"><span class="section-number">3.3.3.18. </span>如何将bm_image转为cv.Mat？</a><a class="headerlink" href="#bm-imagecv-mat" title="此标题的永久链接">¶</a></h2>
+<p>答：</p>
+<ol class="arabic simple">
+<li><p>Python中cv.Mat就是一个 <strong>numpy</strong>.array, 可以参考sail中的 <code class="docutils literal notranslate"><span class="pre">sail.BMImage.asmat()</span></code> 接口；</p></li>
+<li><p>C++中使用cv::bmcv::toMat()接口；</p></li>
+</ol>
+</section>
+<section id="sophon-opencv">
+<h2><a class="toc-backref" href="#id36" role="doc-backlink"><span class="section-number">3.3.3.19. </span>sophon-opencv的版本？</a><a class="headerlink" href="#sophon-opencv" title="此标题的永久链接">¶</a></h2>
+<p>答：基于开源opencv 4.8.0版本改造。1684(x)上是基于4.1.0</p>
+</section>
+<section id="sophon-ffmpeg">
+<h2><a class="toc-backref" href="#id37" role="doc-backlink"><span class="section-number">3.3.3.20. </span>sophon-ffmpeg的版本？</a><a class="headerlink" href="#sophon-ffmpeg" title="此标题的永久链接">¶</a></h2>
+<p>答：基于开源ffmpeg 6.0.0版本改造。1684(x)上是基于5.0.0</p>
+</section>
+<section id="gpio">
+<h2><a class="toc-backref" href="#id38" role="doc-backlink"><span class="section-number">3.3.3.21. </span>GPIO使用？</a><a class="headerlink" href="#gpio" title="此标题的永久链接">¶</a></h2>
+<p>答：参考BSP开发参考手册5.10章节和SE9产品手册6.5章节</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">#配置 pinmux</span>
+cvi_pinmux<span class="w"> </span>w<span class="w"> </span>I2S0_SCLK/GPIO0
+cvi_pinmux<span class="w"> </span>w<span class="w"> </span>I2S0_WSI/GPIO1
+cvi_pinmux<span class="w"> </span>w<span class="w"> </span>I2S0_SDI0/GPIO2
+cvi_pinmux<span class="w"> </span>w<span class="w"> </span>I2S0_SDI1/GPIO3
+<span class="c1">#导出 gpio</span>
+<span class="nb">echo</span><span class="w"> </span><span class="m">480</span><span class="w"> </span>&gt;<span class="w"> </span>/sys/class/gpio/export
+<span class="nb">echo</span><span class="w"> </span><span class="m">481</span><span class="w"> </span>&gt;<span class="w"> </span>/sys/class/gpio/export
+<span class="nb">echo</span><span class="w"> </span><span class="m">482</span><span class="w"> </span>&gt;<span class="w"> </span>/sys/class/gpio/export
+<span class="nb">echo</span><span class="w"> </span><span class="m">483</span><span class="w"> </span>&gt;<span class="w"> </span>/sys/class/gpio/export
+<span class="c1">#设置方向</span>
+<span class="nb">echo</span><span class="w"> </span>out<span class="w"> </span>&gt;<span class="w"> </span>/sys/cla<span class="w"> </span>ss/gpio/gpio480/direction
+<span class="nb">echo</span><span class="w"> </span>out<span class="w"> </span>&gt;<span class="w"> </span>/sys/class/gpio/gpio481/direction
+<span class="nb">echo</span><span class="w"> </span><span class="k">in</span><span class="w"> </span>&gt;<span class="w"> </span>/sys/class/gpio/gpio482/direction
+<span class="nb">echo</span><span class="w"> </span><span class="k">in</span><span class="w"> </span>&gt;<span class="w"> </span>/sys/class/gpio/gpio483/direction
+<span class="c1">#输出高</span>
+<span class="nb">echo</span><span class="w"> </span><span class="m">1</span><span class="w"> </span>&gt;<span class="w"> </span>/sys/class/gpio/gpio480/value
+<span class="nb">echo</span><span class="w"> </span><span class="m">1</span><span class="w"> </span>&gt;<span class="w"> </span>/sys/class/gpio/gpio481/value
+<span class="c1">#输出低</span>
+<span class="nb">echo</span><span class="w"> </span><span class="m">0</span><span class="w"> </span>&gt;<span class="w"> </span>/sys/class/gpio/gpio480/value
+<span class="nb">echo</span><span class="w"> </span><span class="m">0</span><span class="w"> </span>&gt;<span class="w"> </span>/sys/class/gpio/gpio481/value
+<span class="c1">#读取输入</span>
+cat<span class="w"> </span>/sys/class/gpio/gpio482/value
+cat<span class="w"> </span>/sys/class/gpio/gpio483/value
+</pre></div>
+</div>
+</section>
+<section id="id12">
+<h2><a class="toc-backref" href="#id39" role="doc-backlink"><span class="section-number">3.3.3.22. </span>继电器使用方法</a><a class="headerlink" href="#id12" title="此标题的永久链接">¶</a></h2>
+<p>答：继电器常态COM接NC，COM接NO时系统短路，掉电重启。继电器：GPIO198。GPIOOUT1：GPIO0。GPIOOUT2：GPIO1。</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># 配置pinmux</span>
+cvi_pinmux<span class="w"> </span>-w<span class="w"> </span>PAD_VIVO0_D13/GPIO131
+<span class="c1"># 导出</span>
+<span class="nb">echo</span><span class="w"> </span><span class="m">355</span><span class="w"> </span>&gt;<span class="w">  </span>/sys/class/gpio/export
+<span class="c1"># 设置方向</span>
+<span class="nb">echo</span><span class="w"> </span>out<span class="w"> </span>&gt;<span class="w"> </span>/sys/class/gpio/gpio355/direction
+<span class="c1"># 输出高</span>
+<span class="nb">echo</span><span class="w"> </span><span class="m">1</span><span class="w"> </span>&gt;<span class="w"> </span>/sys/class/gpio/gpio355/value
+<span class="c1"># 输出低</span>
+<span class="nb">echo</span><span class="w"> </span><span class="m">0</span><span class="w"> </span>&gt;<span class="w"> </span>/sys/class/gpio/gpio355/value
+<span class="c1">#读取输入</span>
+cat<span class="w"> </span>/sys/class/gpio/gpio355/value
+</pre></div>
+</div>
+</section>
+<section id="can">
+<h2><a class="toc-backref" href="#id40" role="doc-backlink"><span class="section-number">3.3.3.23. </span>CAN使用方法</a><a class="headerlink" href="#can" title="此标题的永久链接">¶</a></h2>
+<p>答：凤凰端子的L 和H 接口，对应CAN 的CAN_L 和CAN_H</p>
+<ol class="arabic simple">
+<li><p>设置can 波特率
+ip link set can0 up type can bitrate 250000</p></li>
+<li><p>打开can 设备
+ifconfig can0 up</p></li>
+<li><p>发送扩展帧
+cansend can0 -i 0x55 0x12 0x23 0x34</p></li>
+</ol>
+<figure class="align-center">
+<img alt="../../_images/soc_can_1.png" src="../../_images/soc_can_1.png" />
+</figure>
+<p>如果是接收的话就做如下操作</p>
+<ul class="simple">
+<li><p>ifconfig can0 down</p></li>
+<li><p>ifconfig can0 up</p></li>
+<li><p>candump can0</p></li>
+</ul>
+<figure class="align-center">
+<img alt="../../_images/soc_can_2.png" src="../../_images/soc_can_2.png" />
+</figure>
+</section>
+<section id="id13">
+<h2><a class="toc-backref" href="#id41" role="doc-backlink"><span class="section-number">3.3.3.24. </span>485/232使用方法？</a><a class="headerlink" href="#id13" title="此标题的永久链接">¶</a></h2>
+<p>答：凤凰端子的A 和B 端口对应485 的接口
+凤凰端子的TX 和RX 对应RS232 的接口</p>
+<ul class="simple">
+<li><p>其中UART1 是485，UART3 是232</p></li>
+</ul>
+<ol class="arabic">
+<li><p>Set Pinmux for UART1 and UART3</p>
+<ul class="simple">
+<li><p>cvi_pinmux -w UART1_TX/UART1_TX</p></li>
+<li><p>cvi_pinmux -w UART1_RX/UART1_RX</p></li>
+<li><p>cvi_pinmux -w PWR_UART_TX/UART3_TX</p></li>
+<li><p>cvi_pinmux -w PWR_UART_RX/UART3_RX</p></li>
+</ul>
+</li>
+<li><p>Configure UART</p>
+<ul class="simple">
+<li><p>stty -F /dev/ttyS1 ispeed 115200 ospeed 115200 cs8 -parenb ixoff</p></li>
+<li><p>stty -F /dev/ttyS3 ispeed 115200 ospeed 115200 cs8 -parenb ixoff</p></li>
+<li><p>485 发送</p></li>
+</ul>
+<p>echo 1234 &gt; /dev/ttyS1</p>
+<ul class="simple">
+<li><p>485 接收</p></li>
+</ul>
+<p>cat /dev/ttyS1</p>
+<ul class="simple">
+<li><p>232 发送</p></li>
+</ul>
+<p>echo 1234 &gt; /dev/ttyS3</p>
+<ul class="simple">
+<li><p>232 接收</p></li>
+</ul>
+<p>cat /dev/ttyS3</p>
+</li>
+</ol>
+</section>
+<section id="tpu-mlir">
+<h2><a class="toc-backref" href="#id42" role="doc-backlink"><span class="section-number">3.3.3.25. </span>使用TPU-MLIR，设置混精度的层名后，混精度未生效？</a><a class="headerlink" href="#tpu-mlir" title="此标题的永久链接">¶</a></h2>
+<p>答：设置不需要量化的层名时需要使用<strong>mlir2onnx工具把.mlir转成.onnx</strong> 后，查看并设置对应层名。</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>若使用原始.onnx文件的层名，有可能设置无效。mlir2onnx工具使用如下：mlir2onnx.py -m xxx.mlir -o revert.onnx</p>
+</div>
+</section>
+<section id="tpu-mlir-fp32-fp16-int8">
+<h2><a class="toc-backref" href="#id43" role="doc-backlink"><span class="section-number">3.3.3.26. </span>使用TPU-MLIR，FP32/FP16模型推理可以得到正确结果，INT8模型无法得到正确结果？</a><a class="headerlink" href="#tpu-mlir-fp32-fp16-int8" title="此标题的永久链接">¶</a></h2>
+<p>答：首先确保代码无问题，可以兼容FP32/FP16/INT8模型，再检查量化精度问题。尝试混合精度量化。其中，设置不需要量化的层名时需要使用<strong>mlir2onnx工具把.mlir转成.onnx</strong> 后，查看并设置对应层名。</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>若使用原始.onnx文件的层名，有可能设置无效。</p>
+</div>
+<p>请参考 <a class="reference external" href="https://github.com/sophgo/sophon-demo/blob/release/docs/Calibration_Guide.md">https://github.com/sophgo/sophon-demo/blob/release/docs/Calibration_Guide.md</a></p>
+</section>
+<section id="id14">
+<h2><a class="toc-backref" href="#id44" role="doc-backlink"><span class="section-number">3.3.3.27. </span>使用TPU-MLIR，如何混精度？</a><a class="headerlink" href="#id14" title="此标题的永久链接">¶</a></h2>
+<p>答：参考《TPU- MLIR快速入门指南.pdf》7.3局部不量化章节。使用fp_forward工具生成混精度表以提升精度。其中，fpfwd_inputs参数表示设置当前层及之前的网络层不量化，fpfwd_outputs参数表示设置当前层及之后的网络层不量化，fpfwd_blocks参数表示设置当前层不量化。其中，设置不需要量化的层名时需要使用<strong>mlir2onnx工具把.mlir转成.onnx</strong> 后，查看并设置对应层名。</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>若使用原始.onnx文件的层名，有可能设置无效。</p>
+</div>
+<p>请参考 <a class="reference external" href="https://github.com/sophgo/sophon-demo/blob/release/docs/Calibration_Guide.md">https://github.com/sophgo/sophon-demo/blob/release/docs/Calibration_Guide.md</a></p>
+</section>
+<section id="se9-8-8gse9-16-16g-se9-84g-se9-168g">
+<h2><a class="toc-backref" href="#id45" role="doc-backlink"><span class="section-number">3.3.3.28. </span>工厂发出的SE9-8 8G版本和SE9-16 16G版本，查询SE9-8的内存是4G，SE9-16的内存是8G。这是为什么？</a><a class="headerlink" href="#se9-8-8gse9-16-16g-se9-84g-se9-168g" title="此标题的永久链接">¶</a></h2>
+<p>答：
+盒子出厂默认的DTS是标准配置(SE9-8是4G，SE9-16是8G)，需要选择对应的DTS配置。</p>
+<ol class="arabic">
+<li><p>先刷机升级到SDK1.6</p></li>
+<li><p>进入到系统里面，执行dts_tool 命令</p>
+<figure class="align-center">
+<img alt="../../_images/soc_dts_tool.png" src="../../_images/soc_dts_tool.png" />
+</figure>
+</li>
+<li><p>输入对应数字(SE9-8选28，SE9-16选25)</p></li>
+<li><p>重启</p></li>
+</ol>
+</section>
+<section id="bmrt-test-bmodel-xxx-bmodel">
+<h2><a class="toc-backref" href="#id46" role="doc-backlink"><span class="section-number">3.3.3.29. </span>客户拿到盒子后，使用bmrt_test –bmodel xxx.bmodel报错</a><a class="headerlink" href="#bmrt-test-bmodel-xxx-bmodel" title="此标题的永久链接">¶</a></h2>
+<p>答：盒子出厂的版本有些问题，重新刷机后解决。</p>
+<figure class="align-center">
+<img alt="../../_images/soc_bmrt_test--bmodelxxx.bmodel_failed.png" src="../../_images/soc_bmrt_test--bmodelxxx.bmodel_failed.png" />
+</figure>
+</section>
+<section id="se9hdmi-ubuntu">
+<h2><a class="toc-backref" href="#id47" role="doc-backlink"><span class="section-number">3.3.3.30. </span>SE9接上HDMI后，为什么没有出现ubuntu的桌面？</a><a class="headerlink" href="#se9hdmi-ubuntu" title="此标题的永久链接">¶</a></h2>
+<p>答：SE9默认不安装ubuntu界面，如果需要ubuntu桌面系统，可以手动安装。</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># 建议安装较轻量的xfce4</span>
+<span class="c1"># 桌面显示</span>
+sudo<span class="w"> </span>dpkg<span class="w"> </span>-r<span class="w"> </span>qt5-base
+sudo<span class="w"> </span>apt<span class="w"> </span>update
+<span class="c1"># 安装xfce4时选择lightdm</span>
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>xfce4
+sudo<span class="w"> </span>systemctl<span class="w"> </span>disable<span class="w"> </span>SophonHDMI
+sudo<span class="w"> </span>systemctl<span class="w"> </span>disable<span class="w"> </span>SophonHDMIStatus
+sudo<span class="w"> </span>reboot
+<span class="c1"># 如果遇到hdmi花屏则执行</span>
+sudo<span class="w"> </span>su
+<span class="nb">echo</span><span class="w"> </span>off<span class="w"> </span>&gt;<span class="w"> </span>/sys/class/drm/card0/card0-DSI-1/status
+<span class="nb">exit</span>
+</pre></div>
+</div>
+<p>注意：ubuntu 界面会占用比较大的存储/内存空间。</p>
+</section>
+<section id="se9-8bm-smitpu-tpu-p-currclk-450m-bmrt-test-se9-16">
+<h2><a class="toc-backref" href="#id48" role="doc-backlink"><span class="section-number">3.3.3.31. </span>SE9-8设备使用bm-smi查看TPU频率(TPU_P Currclk)是450M，bmrt_test运行模型推理，较SE9-16速度慢的原因</a><a class="headerlink" href="#se9-8bm-smitpu-tpu-p-currclk-450m-bmrt-test-se9-16" title="此标题的永久链接">¶</a></h2>
+<p>答：SE9-8设备老旧，需要做一个升级：</p>
+<p>设备接上串口，设置波特率为115200，把下载的文件(文件请联系算能技术支持获取)单独放到SD卡(fat32格式)的根目录下，之后将SD卡插入设备卡槽，重新上电。改完了之后串口会输出如下打印：</p>
+<figure class="align-center">
+<img alt="../../_images/soc_se9-8_modify.png" src="../../_images/soc_se9-8_modify.png" />
+</figure>
+<p>如果已经升级完毕后再执行步骤2，则会出现如下打印</p>
+<figure class="align-center">
+<img alt="../../_images/soc_se9-8_update.png" src="../../_images/soc_se9-8_update.png" />
+</figure>
+</section>
+<section id="se9sdk">
+<h2><a class="toc-backref" href="#id49" role="doc-backlink"><span class="section-number">3.3.3.32. </span>SE9的SDK下载链接</a><a class="headerlink" href="#se9sdk" title="此标题的永久链接">¶</a></h2>
+<p>答：SE9的SDK下载链接可以在官网找到，官网链接为 <a class="reference external" href="https://developer.sophon.cn/">https://developer.sophon.cn/</a>
+其中，BM1688&amp;CV186AH下的SDK为SE9能够使用的SDK，它与BM1684&amp;BM1684X不是同一套</p>
+<figure class="align-default">
+<img alt="../../_images/soc_se9_sdk_download.png" src="../../_images/soc_se9_sdk_download.png" />
+</figure>
+</section>
+<section id="id15">
+<h2><a class="toc-backref" href="#id50" role="doc-backlink"><span class="section-number">3.3.3.33. </span>如何查看模型属于单核模型还是双核模型？</a><a class="headerlink" href="#id15" title="此标题的永久链接">¶</a></h2>
+<p>答：有两种方式</p>
+<p>方式1：使用tpu_model –info xxx.bmodel</p>
+<blockquote>
+<div><figure class="align-center">
+<img alt="../../_images/soc_tpu_model--infoxxxbmodel.png" src="../../_images/soc_tpu_model--infoxxxbmodel.png" />
+</figure>
+</div></blockquote>
+<p>方式2：使用bmrt_test –bmodel xxx.bmodel</p>
+<blockquote>
+<div><figure class="align-center">
+<img alt="../../_images/soc_bmrt_test--bmodelxxxbmodel.png" src="../../_images/soc_bmrt_test--bmodelxxxbmodel.png" />
+</figure>
+</div></blockquote>
+</section>
+<section id="se9-8-cv186ah">
+<h2><a class="toc-backref" href="#id51" role="doc-backlink"><span class="section-number">3.3.3.34. </span>双核模型在SE9-8(CV186AH)上运行会如何？</a><a class="headerlink" href="#se9-8-cv186ah" title="此标题的永久链接">¶</a></h2>
+<p>答：双核模型没法运行在SE9-8(CV186AH)上。如果使用bmrt_test –bmodel xxx.bmodel，会报FATAL:(14)the bmodel is not compatible with the current target.</p>
+<figure class="align-center">
+<img alt="../../_images/soc_bmrt_test--bmodelxxxbmodel_failed.png" src="../../_images/soc_bmrt_test--bmodelxxxbmodel_failed.png" />
+</figure>
+</section>
+<section id="sophon-opencvsophon-ffmpeg">
+<h2><a class="toc-backref" href="#id52" role="doc-backlink"><span class="section-number">3.3.3.35. </span>sophon-opencv和sophon-ffmpeg具体做了哪些硬件加速？</a><a class="headerlink" href="#sophon-opencvsophon-ffmpeg" title="此标题的永久链接">¶</a></h2>
+<p>答:sophon-opencv API 包含了所有FFMPEG 支持的硬件及软件视频编解码接口（视频底层通过FFMPEG 支持，这部分功能完全覆盖），硬件加速的JPEG 编解码接口，软件支持的其他所有图像编解码接口（即所有OPENCV 开源支持的图像格式），部分硬件加速的图像处理接口（指用图像处理VPP 模块加速的缩放、crop、padding、色彩转换功能），所有软件支持的OPENCV 图像处理功能。其中，硬件模块加速对图片和视频的处理主要是：</p>
+<ol class="arabic simple">
+<li><p>多媒体模块：硬件加速JPEG 编码解码和Video 编解码操作。</p></li>
+<li><p>BMCV 模块：硬件加速对图片的resize、color conversion、crop、split、linear transform、nms、sort 等操作。</p></li>
+<li><p>NPU 模块：硬件加速对图片的split、rgb2gray、mean、scale、int8tofloat32 操作。</p></li>
+</ol>
+<p>sophon-ffmpeg API包含了所有硬件加速的视频/图像编解码接口，所有软件支持的视频/图像编解码接口（即所有FFMPEG 开源支持的格式），通过bm_scale filter 支持的部分硬件加速的图像处理接口（这部分图像处理接口，仅包括用硬件图像处理VPP 模块加速的缩放、crop、padding、色彩转换功能）。其中，通过硬件接口，提供了如下模块：硬件视频解码器、硬件视频编码器、硬件JPEG 解码器、硬件JPEG 编码器、硬件scale filter、hwupload filter、hwdownload filter
+参考《算能边缘产品MULTIMEDIA开发参考手册》2.2SOPHGO OpenCV使用指南和2.3SOPHGO FFMPEG使用指南</p>
+</section>
+<section id="docker">
+<h2><a class="toc-backref" href="#id53" role="doc-backlink"><span class="section-number">3.3.3.36. </span>使用docker搭建测试环境</a><a class="headerlink" href="#docker" title="此标题的永久链接">¶</a></h2>
+<p>答：参考《LIBSOPHON使用手册》即 <a class="reference external" href="https://doc.sophgo.com/sdk-docs/v23.09.01-lts/docs_latest_release/docs/libsophon/guide/html/4_docker_usage.html#docker">https://doc.sophgo.com/sdk-docs/v23.09.01-lts/docs_latest_release/docs/libsophon/guide/html/4_docker_usage.html#docker</a></p>
+<p>《SOC模式交叉编译docker环境搭建》参考：<a class="reference external" href="https://developer.sophgo.com/thread/682.html">https://developer.sophgo.com/thread/682.html</a></p>
+</section>
+<section id="bmcvbmcv-image-warp-perspective">
+<h2><a class="toc-backref" href="#id54" role="doc-backlink"><span class="section-number">3.3.3.37. </span>使用bmcv的bmcv_image_warp_perspective函数，有锯齿现象</a><a class="headerlink" href="#bmcvbmcv-image-warp-perspective" title="此标题的永久链接">¶</a></h2>
+<p>答：BM1688 或者 CV186AH平台上，使用bmcv进行投射变换时，可能会在变换角度较大时出现锯齿现象。为了获得更好的精度效果，建议使用opencv的warp函数在CPU上进行计算。</p>
+</section>
+<section id="opencv">
+<h2><a class="toc-backref" href="#id55" role="doc-backlink"><span class="section-number">3.3.3.38. </span>如何使用opencv在图片上写中文字符？</a><a class="headerlink" href="#opencv" title="此标题的永久链接">¶</a></h2>
+<p>答：请参考https://developer.sophgo.com/thread/604.html， 目前bmcv的bmcv_image_put_text只支持写英文字符。</p>
+</section>
+<section id="ddr">
+<h2><a class="toc-backref" href="#id56" role="doc-backlink"><span class="section-number">3.3.3.39. </span>如何查看设备ddr内存总量？</a><a class="headerlink" href="#ddr" title="此标题的永久链接">¶</a></h2>
+<p>答：为 free -h 和bm-smi的内存数据总和。
+其中bm-smi的内存数据为NPU+VPU/VPP/JPU的内存，图示见   <a class="reference internal" href="../../1_basic_concept.html#se9"><span class="std std-ref">SE9内存映射分区表</span></a>。</p>
+</section>
+<section id="se9-sm9cpuddr">
+<h2><a class="toc-backref" href="#id57" role="doc-backlink"><span class="section-number">3.3.3.40. </span>如何查看SE9 SM9的cpu、ddr频率?</a><a class="headerlink" href="#se9-sm9cpuddr" title="此标题的永久链接">¶</a></h2>
+<ol class="arabic simple">
+<li><p>看平台简介宣传材料</p></li>
+<li><p>如下命令</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>cat<span class="w"> </span>/sys/kernel/debug/clk/clk_summary<span class="w"> </span><span class="p">|</span>grep<span class="w"> </span>cpu
+sudo<span class="w"> </span>cat<span class="w"> </span>/sys/kernel/debug/clk/clk_summary<span class="w"> </span><span class="p">|</span>grep<span class="w"> </span>tpu
+sudo<span class="w"> </span>cat<span class="w"> </span>/sys/kernel/debug/clk/clk_summary<span class="w"> </span><span class="p">|</span>grep<span class="w"> </span>ddr
+</pre></div>
+</div>
+</section>
+<section id="sd">
+<h2><a class="toc-backref" href="#id58" role="doc-backlink"><span class="section-number">3.3.3.41. </span>如何判断SD卡刷机完成？</a><a class="headerlink" href="#sd" title="此标题的永久链接">¶</a></h2>
+<ol class="arabic simple">
+<li><p>SE9：连接串口，打印完成</p></li>
+<li><p>SM9开发者套件：连接串口，打印完成， 或者底板绿灯闪烁</p></li>
+</ol>
+</section>
+<section id="id16">
+<h2><a class="toc-backref" href="#id59" role="doc-backlink"><span class="section-number">3.3.3.42. </span>SD卡不能成功刷机？</a><a class="headerlink" href="#id16" title="此标题的永久链接">¶</a></h2>
+<ol class="arabic simple">
+<li><p>检查SD卡格式，是否格式化成FAT32格式</p></li>
+<li><p>检查SD卡内容，是否所有刷机文件内容解压后放在SD卡根目录中。</p></li>
+<li><p>将SD卡插上设备，检查分区格式：</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># 输入如下命令，输出无报错，则分区正常</span>
+ls<span class="w"> </span>/dev/mmcblk1p1
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="SE5_SE7_faq.html" class="btn btn-neutral float-left" title="3.3.2. SE5、SE7使用问题" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="bm1684_soc_mode_faq.html" class="btn btn-neutral float-right" title="3.3.4. BSP问题" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2022, SOPHGO.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="前往官网"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="前往文档中心"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="页面顶部"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="页面底部"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>本页二维码</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

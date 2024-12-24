@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3.4. 智算卡常见问题 &mdash; SOPHON and SDK FAQ master
+ 文档</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="../_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/translations.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <script src="../_static/js/qrious.js"></script>
+    <script src="../_static/js/nav.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="3.5. 智算服务器常见问题" href="devices_server.html" />
+    <link rel="prev" title="3.3.4. BSP问题" href="SOC/bm1684_soc_mode_faq.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> SOPHON and SDK FAQ
+          </a>
+              <div class="version">
+                master
+
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../0_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1_basic_concept.html">2. 基础概念常见问题</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../3_device_usages.html">3. 设备使用常见问题</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="environment.html">3.1. 环境配置常见问题</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common_commands.html">3.2. 设备版本、状态、bmodel模型信息如何获取？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="devices_SOC.html">3.3. 智算盒子（模组）常见问题</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">3.4. 智算卡常见问题</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#sc5">3.4.1. SC5+在主机运行过热的情况</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">3.4.2. SC5安装</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id4">3.4.2.1. SC5快速安装指南</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pcie">3.4.2.2. PCIe模式驱动安装的步骤与注意事项？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">3.4.2.3. 内核更新与驱动重装</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gcc-make-linux-header">3.4.2.4. 编译驱动过程报gcc/make/linux header找不到的错误？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">3.4.2.5. 驱动安装的其他注意事项？</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">3.4.3. PCIe卡无法被识别？</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#x86">3.4.3.1. 在X86服务器主机上安装驱动及卸载驱动的方法:</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#pcievpu">3.4.4. PCIe模式如何查看VPU内存分配情况？</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sophon">3.4.5. 如何判断机器上是否有SOPHON设备</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="devices_server.html">3.5. 智算服务器常见问题</a></li>
+<li class="toctree-l2"><a class="reference internal" href="forum_page.html">3.6. 论坛资料</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../4_converter_quantization.html">4. 模型转换及量化常见问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../5_multimedia.html">5. 多媒体用户常见问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../6_program_optimization.html">6. 程序开发常见问题</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">SOPHON and SDK FAQ</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../3_device_usages.html"><span class="section-number">3. </span>设备使用常见问题</a> &raquo;</li>
+      <li><span class="section-number">3.4. </span>智算卡常见问题</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="../_sources/devices/devices_PCIE.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">返回文档中心</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1><a class="toc-backref" href="#id9" role="doc-backlink"><span class="section-number">3.4. </span>智算卡常见问题</a><a class="headerlink" href="#id1" title="此标题的永久链接">¶</a></h1>
+<nav class="contents" id="id2">
+<p class="topic-title">目录</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#id1" id="id9">智算卡常见问题</a></p>
+<ul>
+<li><p><a class="reference internal" href="#sc5" id="id10">SC5+在主机运行过热的情况</a></p></li>
+<li><p><a class="reference internal" href="#id3" id="id11">SC5安装</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id4" id="id12">SC5快速安装指南</a></p></li>
+<li><p><a class="reference internal" href="#pcie" id="id13">PCIe模式驱动安装的步骤与注意事项？</a></p></li>
+<li><p><a class="reference internal" href="#id5" id="id14">内核更新与驱动重装</a></p></li>
+<li><p><a class="reference internal" href="#gcc-make-linux-header" id="id15">编译驱动过程报gcc/make/linux header找不到的错误？</a></p></li>
+<li><p><a class="reference internal" href="#id6" id="id16">驱动安装的其他注意事项？</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#id7" id="id17">PCIe卡无法被识别？</a></p>
+<ul>
+<li><p><a class="reference internal" href="#x86" id="id18">在X86服务器主机上安装驱动及卸载驱动的方法:</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#pcievpu" id="id19">PCIe模式如何查看VPU内存分配情况？</a></p></li>
+<li><p><a class="reference internal" href="#sophon" id="id20">如何判断机器上是否有SOPHON设备</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+<section id="sc5">
+<h2><a class="toc-backref" href="#id10" role="doc-backlink"><span class="section-number">3.4.1. </span>SC5+在主机运行过热的情况</a><a class="headerlink" href="#sc5" title="此标题的永久链接">¶</a></h2>
+<p>答：SC5+主机选择，请注意主机散热环境，SC5+散热角度服务器选型建议:</p>
+<ol class="arabic">
+<li><p>SC5+被动卡进风口温度与需求风量对应表</p>
+<table class="docutils align-default" id="id8">
+<caption><span class="caption-number">表 3.5 </span><span class="caption-text">SC5+被动卡进风口温度与需求风量</span><a class="headerlink" href="#id8" title="此表格的永久链接">¶</a></caption>
+<tbody>
+<tr class="row-odd"><td><p>卡进风口平均温度（℃）</p></td>
+<td><p>30℃以下</p></td>
+<td><p>35℃</p></td>
+<td><p>40℃</p></td>
+<td><p>45℃</p></td>
+<td><p>50℃</p></td>
+<td><p>55℃</p></td>
+</tr>
+<tr class="row-even"><td><p>最低Airflow（cfm）</p></td>
+<td><p>3.5</p></td>
+<td><p>4.3</p></td>
+<td><p>5.3</p></td>
+<td><p>6.7</p></td>
+<td><p>8.6</p></td>
+<td><p>10.5</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<ol class="arabic simple">
+<li><p>表中对应温度下的风量为需求的最小风量要求，具体风量是否满足需系统厂商实测确定</p></li>
+<li><p>卡进风口温度在25度以下时，只要智能卡接通电源，无论是idle或满载状态下，系统都需要提供与30度环境一样的最小风量</p></li>
+</ol>
+</div>
+</li>
+<li><p>建议选择搭配高风量及风压（或风扇并联）的服务器，便于智能卡散热</p>
+<ol class="loweralpha simple">
+<li><p>1U机型的风扇建议选用：4056风扇或两个4028风扇并联</p></li>
+<li><p>2U机型的风扇建议选用：8056风扇或两个8038风扇并联</p></li>
+<li><p>4U机型的风扇建议选用：2组8056风扇(或两个8038并联)</p></li>
+</ol>
+<img alt="../_images/hardware_sc5_dual_fan_parallel.jpg" src="../_images/hardware_sc5_dual_fan_parallel.jpg" />
+</li>
+<li><p>风道设计</p>
+<ol class="loweralpha">
+<li><p>建议最好选用前进后出的风道设计</p>
+<img alt="../_images/hardware_sc5_duct_design.jpg" src="../_images/hardware_sc5_duct_design.jpg" />
+</li>
+<li><p>导风罩设计：建议智能卡上做专用导风罩设计，与CPU导风罩分离；如下图所示，CPU散热器为一个导风罩，智能卡需单独设计导风罩，导风罩设计以最便于散热为目的</p>
+<img alt="../_images/hardware_sc5_cpu_radiator_cover.jpg" src="../_images/hardware_sc5_cpu_radiator_cover.jpg" />
+</li>
+<li><p>选用服务器时卡进风口最好不要有高发热原机器件，如下图，CPU为高发热器件，其散热器需要选择高度矮一些的，避免挡住卡进风口</p>
+<img alt="../_images/hardware_sc5_radiator_sink.jpg" src="../_images/hardware_sc5_radiator_sink.jpg" />
+</li>
+</ol>
+</li>
+<li><p>系统出风口设计</p>
+<p>确保任何空的扩展槽上均安装一个挡片,一个未装挡片的开放扩展槽会降低系统散热效果，由此可能引起过热而影响系统性能或导致部件损害</p>
+<img alt="../_images/hardware_sc5_system_outlet_design.jpg" src="../_images/hardware_sc5_system_outlet_design.jpg" />
+</li>
+</ol>
+</section>
+<section id="id3">
+<h2><a class="toc-backref" href="#id11" role="doc-backlink"><span class="section-number">3.4.2. </span>SC5安装</a><a class="headerlink" href="#id3" title="此标题的永久链接">¶</a></h2>
+<section id="id4">
+<h3><a class="toc-backref" href="#id12" role="doc-backlink"><span class="section-number">3.4.2.1. </span>SC5快速安装指南</a><a class="headerlink" href="#id4" title="此标题的永久链接">¶</a></h3>
+<ul>
+<li><p>在主机关机状态下将SC5安装至PCIe插槽，需要插到位，SC5从PCIe接口直接供电，不需要外接ATX 2x3电源。注意，服务器最好是拔掉220V电源再安装，某些服务器，在220V输入时，PCIe插槽有漏电。</p></li>
+<li><p>安装完后，先不要盖好后盖，power on上电，从上侧观察LED状态，如下图所示，4个灯的状态，蓝蓝绿红，为SC5上电正常。</p></li>
+<li><p>进入系统，输入命令lspci｜grep 1684，正常识别的话，会看到1684设备，如下图所示。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lspci</span> <span class="o">|</span> <span class="n">grep</span> <span class="mi">1684</span>
+<span class="mi">06</span><span class="p">:</span><span class="mf">00.0</span> <span class="n">Processing</span> <span class="n">accelerators</span><span class="p">:</span> <span class="n">Device</span> <span class="mf">1e30</span><span class="p">:</span><span class="mi">1684</span> <span class="p">(</span><span class="n">rev</span> <span class="mi">01</span><span class="p">)</span>
+<span class="mi">06</span><span class="p">:</span><span class="mf">00.1</span> <span class="n">Processing</span> <span class="n">accelerators</span><span class="p">:</span> <span class="n">Device</span> <span class="mf">1e30</span><span class="p">:</span><span class="mi">1684</span> <span class="p">(</span><span class="n">rev</span> <span class="mi">01</span><span class="p">)</span>
+<span class="mi">06</span><span class="p">:</span><span class="mf">00.2</span> <span class="n">Processing</span> <span class="n">accelerators</span><span class="p">:</span> <span class="n">Device</span> <span class="mf">1e30</span><span class="p">:</span><span class="mi">1684</span> <span class="p">(</span><span class="n">rev</span> <span class="mi">01</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>如没有1684设备，请再次确认LED状态是否正常；</p></li>
+<li><p>如LED 异常，关机，断电，断开220V，重新上电，再次观察LED 状态，如正常，请操作步骤4</p></li>
+<li><p>如LED正常，lspci命令下，仍无法识别设备，请收集硬件信息，和OS版本，反馈给我们。</p></li>
+</ul>
+</section>
+<section id="pcie">
+<h3><a class="toc-backref" href="#id13" role="doc-backlink"><span class="section-number">3.4.2.2. </span>PCIe模式驱动安装的步骤与注意事项？</a><a class="headerlink" href="#pcie" title="此标题的永久链接">¶</a></h3>
+<p>答：安装驱动成功的前提是主机需要能够扫描到我们的板卡，通过lspci可以查看，我们一个三芯卡SC5+有3 个function，一个SC5H有一个function。 lspci能显示我们的设备是安装驱动的必要条件，如果主机发现不了设备，则驱动安装会异常。</p>
+</section>
+<section id="id5">
+<h3><a class="toc-backref" href="#id14" role="doc-backlink"><span class="section-number">3.4.2.3. </span>内核更新与驱动重装</a><a class="headerlink" href="#id5" title="此标题的永久链接">¶</a></h3>
+<p>答：内核版本升级会导致重启后不能自动加载驱动：
+例如当前内核版本是:
+uname -r
+4.15.0-142-generic
+我们安装完驱动后，驱动放在下面目录:
+/lib/modules/4.15.0-142-generic/kernel/drivers/pci/bmsophon.ko 如果内核版本升级到了4.15.0-150-generic，则系统启动时会去/lib/modules/4.15.0-150-generic/kernel/drivers/pci/ 目录下去找bmsophon.ko，会失败，
+解决方法是重新装驱动，所以我们建议禁止内核自动升级。</p>
+</section>
+<section id="gcc-make-linux-header">
+<h3><a class="toc-backref" href="#id15" role="doc-backlink"><span class="section-number">3.4.2.4. </span>编译驱动过程报gcc/make/linux header找不到的错误？</a><a class="headerlink" href="#gcc-make-linux-header" title="此标题的永久链接">¶</a></h3>
+<p>答：build-essential、linux-headers-generic这些在插有板卡的host机器上要先安装好，否则会报gcc/make/linux header找不到的错误。</p>
+<blockquote>
+<div><p>centos：可以通过 yum install kernel-header 安装，如果uname -r 的版本与默认安装不一致，可以https://pkgs.org/ 搜索kernel-header下载。</p>
+<p>Ubuntu/debian： 可以通过 apt-get update;  apt-get install linux-headers-$(uname -r) 安装，如果找不到,可以https://pkgs.org/ 搜索linux-headers下载。</p>
+</div></blockquote>
+</section>
+<section id="id6">
+<h3><a class="toc-backref" href="#id16" role="doc-backlink"><span class="section-number">3.4.2.5. </span>驱动安装的其他注意事项？</a><a class="headerlink" href="#id6" title="此标题的永久链接">¶</a></h3>
+<p>答：</p>
+<ol class="arabic simple">
+<li><p>CentOS某些发行版，例如centos7.4已经不再维护，没有Linux header，导致编译失败，建议安装centos7.9 ；</p></li>
+<li><p>某些内核版本导致我们的驱动编译不过，需要我们改驱动源码。这种情况下，安装驱动过程中会有失败log，请将log发给我们分析；</p></li>
+<li><p>板卡温度过热，或者板卡和卡槽接触不良导致安装失败，会有kernel 错误log；这种情况下，请把kernel log(dmesg命令显示的log)发给我们分析；</p></li>
+<li><p>板卡个体故障原因导致安装失败，建议更换板卡 ；这种情况下，请把kernel log(dmesg命令显示的log)发给我们分析；</p></li>
+<li><p>lspci必须能发现我们的设备，才能出现设备节点，如果没有出现设备节点，请用上面命令检查系统是否有扫描到PCIE设备。</p></li>
+</ol>
+</section>
+</section>
+<section id="id7">
+<h2><a class="toc-backref" href="#id17" role="doc-backlink"><span class="section-number">3.4.3. </span>PCIe卡无法被识别？</a><a class="headerlink" href="#id7" title="此标题的永久链接">¶</a></h2>
+<p>该问题很可能跟散热问题相关，因散热不满足要求芯片温度过高而造成：</p>
+<ol class="arabic simple">
+<li><p>看一下是PC还是标准服务器，如果是PC，通常风道和风量不能符合三芯卡的被动散热要求，建议加装额外的风扇进行散热，或者采用主动散热卡；</p></li>
+<li><p>标准服务器，先看一下插卡的槽位是否是标准的X16槽位，X8槽位的功率支持通常最大只有45W，不建议使用；</p></li>
+<li><p>看一下服务器的风扇是否直对PCIE卡的进风口，中间有否物理阻挡；</p></li>
+<li><p>将服务器的上盖盖好，如果开盖，风扇的风会散逸，导致散热效果差；</p></li>
+<li><p>看一下服务器的所有PCIE槽位都加装了挡片，没有加装挡片的需要加装挡片；</p></li>
+<li><p>通过BIOS调整服务器的风扇转速到最大档位；</p></li>
+<li><p>建议将服务器放置于有空调的房间或者标准机房环境进行测试；</p></li>
+<li><p>针对三芯卡的散热，如果必须使用散热条件不足的工控机、PC、非GPU型服务器等，建议由主机厂商增加导风罩为加速卡设立专用风道，便于卡片散热；</p></li>
+<li><p>风扇1）为12V供电，2pin风扇，最大电流0.36A，不可调速；风扇2）和3）为12V供电，4pin风扇，最大电流0.68A，可调速；安装方式：风扇需要安装到卡的入风口处，风扇出风口与卡进风口的距离建议最好不要超过3mm，如果条件许可的话，建议风扇出风口与卡进风口的地方密封，防止漏风。</p></li>
+</ol>
+<section id="x86">
+<h3><a class="toc-backref" href="#id18" role="doc-backlink"><span class="section-number">3.4.3.1. </span>在X86服务器主机上安装驱动及卸载驱动的方法:</a><a class="headerlink" href="#x86" title="此标题的永久链接">¶</a></h3>
+<p>参考：<a class="reference external" href="https://doc.sophgo.com/sdk-docs/v23.09.01-lts/docs_latest_release/docs/libsophon/guide/html/1_install.html">https://doc.sophgo.com/sdk-docs/v23.09.01-lts/docs_latest_release/docs/libsophon/guide/html/1_install.html</a></p>
+</section>
+</section>
+<section id="pcievpu">
+<h2><a class="toc-backref" href="#id19" role="doc-backlink"><span class="section-number">3.4.4. </span>PCIe模式如何查看VPU内存分配情况？</a><a class="headerlink" href="#pcievpu" title="此标题的永久链接">¶</a></h2>
+<p>答：PCIe VPU内存使用情况：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bm</span><span class="o">-</span><span class="n">smi</span> <span class="o">--</span><span class="n">opmode</span><span class="o">=</span><span class="n">display_memory_detail</span>
+</pre></div>
+</div>
+</section>
+<section id="sophon">
+<h2><a class="toc-backref" href="#id20" role="doc-backlink"><span class="section-number">3.4.5. </span>如何判断机器上是否有SOPHON设备</a><a class="headerlink" href="#sophon" title="此标题的永久链接">¶</a></h2>
+<p>答：</p>
+<ol class="arabic">
+<li><p>卡插入卡槽后， <cite>lspci | grep ‘168’</cite> ，正常识别的话，会看到设备</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">类似这样的</span> <span class="mi">06</span><span class="p">:</span><span class="mf">00.0</span> <span class="n">Processing</span> <span class="n">accelerators</span><span class="p">:</span> <span class="n">Sophgo</span> <span class="n">Technologies</span> <span class="n">Inc</span><span class="o">.</span> <span class="n">BM1684X</span><span class="p">,</span> <span class="n">Sophon</span> <span class="n">Series</span> <span class="n">Deep</span> <span class="n">Learning</span> <span class="n">Accelerator</span> <span class="p">(</span><span class="n">rev</span> <span class="mi">01</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>卡被识别，驱动安装成功后，系统会有sophon模块</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>lsmod | grep bm 会输出：类似 bmsophon 2752512 0
+</pre></div>
+</div>
+</li>
+<li><p>卡被识别，驱动安装成功后，会有/dev/bmdev-ctl   /dev/bm-sophon0节点</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">bmdev</span><span class="o">-</span><span class="n">ctl</span>
+<span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">bm</span><span class="o">-</span><span class="n">sophon0节点</span>
+</pre></div>
+</div>
+</li>
+<li><p>卡被识别，驱动安装成功后，获取设备数量：</p>
+<p>命令行：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cat</span> <span class="o">/</span><span class="n">proc</span><span class="o">/</span><span class="n">bmsophon</span><span class="o">/</span><span class="n">card_num</span>
+<span class="n">cat</span> <span class="o">/</span><span class="n">proc</span><span class="o">/</span><span class="n">bmsophon</span><span class="o">/</span><span class="n">chip_num</span>
+</pre></div>
+</div>
+<p>程序接口，参考《 <a class="reference external" href="https://doc.sophgo.com/sdk-docs/v23.09.01-lts/docs_latest_release/docs/libsophon/reference/html/3_bmlib_api_detail.html?#bm-dev-getcount">bmlib详细接口介绍</a> 》：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bm_dev_getcount</span><span class="p">(</span><span class="nb">int</span> <span class="o">*</span><span class="n">count</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="SOC/bm1684_soc_mode_faq.html" class="btn btn-neutral float-left" title="3.3.4. BSP问题" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="devices_server.html" class="btn btn-neutral float-right" title="3.5. 智算服务器常见问题" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2022, SOPHGO.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="前往官网"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="前往文档中心"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="页面顶部"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="页面底部"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>本页二维码</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

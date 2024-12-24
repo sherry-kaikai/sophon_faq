@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>6. 程序开发常见问题 &mdash; SOPHON and SDK FAQ master
+ 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="6.1. 程序优化常见问题" href="program_develop/program_opt.html" />
+    <link rel="prev" title="5.3. 多媒体客户常见问题（补充）" href="multimedia/multimedia_general_faq.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> SOPHON and SDK FAQ
+          </a>
+              <div class="version">
+                master
+
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="0_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_basic_concept.html">2. 基础概念常见问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_device_usages.html">3. 设备使用常见问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_converter_quantization.html">4. 模型转换及量化常见问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_multimedia.html">5. 多媒体用户常见问题</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">6. 程序开发常见问题</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="program_develop/program_opt.html">6.1. 程序优化常见问题</a></li>
+<li class="toctree-l2"><a class="reference internal" href="program_develop/sophon-demo-faq.html">6.2. SOPHON DEMO 常见问题</a></li>
+<li class="toctree-l2"><a class="reference internal" href="program_develop/sophon-stream-faq.html">6.3. SOPHON STREAM 常见问题</a></li>
+<li class="toctree-l2"><a class="reference internal" href="program_develop/sophon-pipeline-faq.html">6.4. SOPHON PIPELINE 常见问题及解答</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SOPHON and SDK FAQ</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">6. </span>程序开发常见问题</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/6_program_optimization.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">返回文档中心</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1><span class="section-number">6. </span>程序开发常见问题<a class="headerlink" href="#id1" title="此标题的永久链接">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="program_develop/program_opt.html">6.1. 程序优化常见问题</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="program_develop/program_opt.html#id2">6.1.1. 前后处理加速</a></li>
+<li class="toctree-l2"><a class="reference internal" href="program_develop/program_opt.html#id3">6.1.2. 模型编译</a></li>
+<li class="toctree-l2"><a class="reference internal" href="program_develop/program_opt.html#id4">6.1.3. 推理加速</a></li>
+<li class="toctree-l2"><a class="reference internal" href="program_develop/program_opt.html#bmlang">6.1.4. bmlang开发</a></li>
+<li class="toctree-l2"><a class="reference internal" href="program_develop/program_opt.html#id5">6.1.5. 流程优化</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="program_develop/sophon-demo-faq.html">6.2. SOPHON DEMO 常见问题</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="program_develop/sophon-demo-faq.html#id2">6.2.1. 1 环境安装相关问题</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_develop/sophon-demo-faq.html#id3">6.2.1.1. 1.1 sophon-demo涉及的开发和运行环境安装可以参考相关文档。</a></li>
+<li class="toctree-l3"><a class="reference internal" href="program_develop/sophon-demo-faq.html#socsd">6.2.1.2. 1.2 SoC模式下如何使用SD卡刷更新固件</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="program_develop/sophon-demo-faq.html#id4">6.2.2. 2 模型导出相关问题</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_develop/sophon-demo-faq.html#pytorchjit-trace">6.2.2.1. 2.1 Pytorch模型如何进行jit.trace</a></li>
+<li class="toctree-l3"><a class="reference internal" href="program_develop/sophon-demo-faq.html#onnx">6.2.2.2. 2.2 ONNX模型导出过程使用的算子集</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="program_develop/sophon-demo-faq.html#id5">6.2.3. 3 模型编译和量化相关问题</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_develop/sophon-demo-faq.html#tpu-nntc">6.2.3.1. 3.1 使用TPU-NNTC量化的相关问题</a></li>
+<li class="toctree-l3"><a class="reference internal" href="program_develop/sophon-demo-faq.html#tpu-nntc-resnet260">6.2.3.2. 3.2 使用TPU-NNTC编译大模型(如resnet260)耗时长</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="program_develop/sophon-demo-faq.html#id6">6.2.4. 4 算法移植相关问题</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_develop/sophon-demo-faq.html#sophon-opencvopencvbmcv">6.2.4.1. 4.1 Sophon OpenCV和原生OpenCV、BMCV的关系</a></li>
+<li class="toctree-l3"><a class="reference internal" href="program_develop/sophon-demo-faq.html#opencvpythonsophon-opencv">6.2.4.2. 4.2 基于OpenCV的Python例程如何调用Sophon OpenCV进行加速</a></li>
+<li class="toctree-l3"><a class="reference internal" href="program_develop/sophon-demo-faq.html#opencvc-sophon-opencvopencv">6.2.4.3. 4.3 基于OpenCV的C++例程使用Sophon OpenCV还是原生OpenCV</a></li>
+<li class="toctree-l3"><a class="reference internal" href="program_develop/sophon-demo-faq.html#c-ff-decodevid-reset-unlock-flock-failed">6.2.4.4. 4.4 C++例程使用ff_decode解码视频提示“vid reset unlock flock failed”，但不影响正常运行</a></li>
+<li class="toctree-l3"><a class="reference internal" href="program_develop/sophon-demo-faq.html#bm-free-device">6.2.4.5. 4.5 bm_free_device失败</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="program_develop/sophon-demo-faq.html#id7">6.2.5. 5 精度测试相关问题</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_develop/sophon-demo-faq.html#fp32-bmodel">6.2.5.1. 5.1 FP32 BModel的推理结果与原模型的推理结果不一致</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="program_develop/sophon-demo-faq.html#id8">6.2.6. 6 性能测试相关问题</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_develop/sophon-demo-faq.html#fp32-bmodelbm1684xbm1684">6.2.6.1. 6.1 部分FP32 BModel的BM1684X性能低于BM1684</a></li>
+<li class="toctree-l3"><a class="reference internal" href="program_develop/sophon-demo-faq.html#opencv-pythonint8bmodelfp32bmodel">6.2.6.2. 6.2 基于opencv-python的例程int8bmodel推理时间没有比fp32bmodel快</a></li>
+<li class="toctree-l3"><a class="reference internal" href="program_develop/sophon-demo-faq.html#id9">6.2.6.3. 6.3 sophon-demo能否用于性能压测</a></li>
+<li class="toctree-l3"><a class="reference internal" href="program_develop/sophon-demo-faq.html#readme">6.2.6.4. 6.4 测试性能相比README下降</a></li>
+<li class="toctree-l3"><a class="reference internal" href="program_develop/sophon-demo-faq.html#id10">6.2.6.5. 6.5 性能测试表格的作用</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="program_develop/sophon-demo-faq.html#id11">6.2.7. 7 其他问题</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_develop/sophon-demo-faq.html#unkown-cmake-command-add-compile-definitions">6.2.7.1. 7.1 编译时出现<code class="docutils literal notranslate"><span class="pre">Unkown</span> <span class="pre">CMake</span> <span class="pre">command</span> <span class="pre">&quot;add_compile_definitions&quot;.</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="program_develop/sophon-demo-faq.html#id12">6.2.7.2. 7.2 有些图片的数据重叠到一起，有的图片框上面没数据，有些图片没有框</a></li>
+<li class="toctree-l3"><a class="reference internal" href="program_develop/sophon-demo-faq.html#bm-ion-alloc-failed">6.2.7.3. 7.3 程序运行时出现<code class="docutils literal notranslate"><span class="pre">bm_ion_alloc</span> <span class="pre">failed</span></code>等报错</a></li>
+<li class="toctree-l3"><a class="reference internal" href="program_develop/sophon-demo-faq.html#id13">6.2.7.4. 7.4 刚开机首次执行某个函数慢(比如解码)，重启进程再次运行程序，时间正常</a></li>
+<li class="toctree-l3"><a class="reference internal" href="program_develop/sophon-demo-faq.html#scripts-download-sh">6.2.7.5. 7.5 运行下载脚本<code class="docutils literal notranslate"><span class="pre">scripts/download.sh</span></code>报错</a></li>
+<li class="toctree-l3"><a class="reference internal" href="program_develop/sophon-demo-faq.html#pycocotoolspip-requireddependencyexception-jpeg">6.2.7.6. 7.6 pycocotools等包通过pip安装失败，报错中含有<code class="docutils literal notranslate"><span class="pre">RequiredDependencyException:</span> <span class="pre">jpeg</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="program_develop/sophon-demo-faq.html#id14">6.2.7.7. 7.7 解码超过一定路数开始报错，但是设备内存没有满</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="program_develop/sophon-stream-faq.html">6.3. SOPHON STREAM 常见问题</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="program_develop/sophon-stream-faq.html#can-not-find-element-maker-name-xxx">6.3.1. 1. 初始化阶段报错<code class="docutils literal notranslate"><span class="pre">Can</span> <span class="pre">not</span> <span class="pre">find</span> <span class="pre">element</span> <span class="pre">maker,</span> <span class="pre">name:</span> <span class="pre">xxx</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="program_develop/sophon-stream-faq.html#fatal-error-boost-version-hpp-no-such-file-or-directory">6.3.2. 2. 编译报错<code class="docutils literal notranslate"><span class="pre">fatal</span> <span class="pre">error:</span> <span class="pre">boost/version.hpp:</span> <span class="pre">No</span> <span class="pre">such</span> <span class="pre">file</span> <span class="pre">or</span> <span class="pre">directory</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="program_develop/sophon-stream-faq.html#undefined-symbol-zn5boost6system15system-categoryev">6.3.3. 3. 交叉编译之后在盒子上运行报错 <code class="docutils literal notranslate"><span class="pre">undefined</span> <span class="pre">symbol:</span> <span class="pre">_ZN5boost6system15system_categoryEv</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="program_develop/sophon-stream-faq.html#lib-aarch64-linux-gnu-libc-so-6-version-glibc-2-33-not-found">6.3.4. 4. 交叉编译之后在盒子上运行报错<code class="docutils literal notranslate"><span class="pre">/lib/aarch64-linux-gnu/libc.so.6:</span> <span class="pre">version</span> <span class="pre">'GLIBC_2.33'</span> <span class="pre">not</span> <span class="pre">found</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="program_develop/sophon-stream-faq.html#tpu-kernel">6.3.5. 5. 编译阶段报错<code class="docutils literal notranslate"><span class="pre">找不到tpu_kernel相关定义</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="program_develop/sophon-stream-faq.html#error-while-loading-shared-libraries-libxxx-so-cannot-open-shared-object-file-no-such-file-or-directory">6.3.6. 6. 交叉编译之后在盒子上运行报错<code class="docutils literal notranslate"><span class="pre">error</span> <span class="pre">while</span> <span class="pre">loading</span> <span class="pre">shared</span> <span class="pre">libraries:</span> <span class="pre">libxxx.so:</span> <span class="pre">cannot</span> <span class="pre">open</span> <span class="pre">shared</span> <span class="pre">object</span> <span class="pre">file:</span> <span class="pre">No</span> <span class="pre">such</span> <span class="pre">file</span> <span class="pre">or</span> <span class="pre">directory</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="program_develop/sophon-stream-faq.html#lframework-livslogger">6.3.7. 7. 编译阶段报错<code class="docutils literal notranslate"><span class="pre">找不到-lframework、-livslogger</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="program_develop/sophon-stream-faq.html#bm-check-error-bm-check-ret-fail">6.3.8. 8. 运行报错<code class="docutils literal notranslate"><span class="pre">[BM_CHECK][error]</span> <span class="pre">BM_CHECK_RET</span> <span class="pre">fail</span></code>，详细报错如下：</a></li>
+<li class="toctree-l2"><a class="reference internal" href="program_develop/sophon-stream-faq.html#id2">6.3.9. 9. 有的图片没有识别/检测结果</a></li>
+<li class="toctree-l2"><a class="reference internal" href="program_develop/sophon-stream-faq.html#id3">6.3.10. 10. 推流失败</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="program_develop/sophon-pipeline-faq.html">6.4. SOPHON PIPELINE 常见问题及解答</a></li>
+</ul>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="multimedia/multimedia_general_faq.html" class="btn btn-neutral float-left" title="5.3. 多媒体客户常见问题（补充）" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="program_develop/program_opt.html" class="btn btn-neutral float-right" title="6.1. 程序优化常见问题" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2022, SOPHGO.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="前往官网"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="前往文档中心"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="页面顶部"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="页面底部"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>本页二维码</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

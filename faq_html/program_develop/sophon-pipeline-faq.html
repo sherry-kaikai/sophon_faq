@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>6.4. SOPHON PIPELINE 常见问题及解答 &mdash; SOPHON and SDK FAQ master
+ 文档</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="../_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/translations.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <script src="../_static/js/qrious.js"></script>
+    <script src="../_static/js/nav.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="prev" title="6.3. SOPHON STREAM 常见问题" href="sophon-stream-faq.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> SOPHON and SDK FAQ
+          </a>
+              <div class="version">
+                master
+
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../0_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../1_basic_concept.html">2. 基础概念常见问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3_device_usages.html">3. 设备使用常见问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4_converter_quantization.html">4. 模型转换及量化常见问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../5_multimedia.html">5. 多媒体用户常见问题</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../6_program_optimization.html">6. 程序开发常见问题</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="program_opt.html">6.1. 程序优化常见问题</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sophon-demo-faq.html">6.2. SOPHON DEMO 常见问题</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sophon-stream-faq.html">6.3. SOPHON STREAM 常见问题</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">6.4. SOPHON PIPELINE 常见问题及解答</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">SOPHON and SDK FAQ</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../6_program_optimization.html"><span class="section-number">6. </span>程序开发常见问题</a> &raquo;</li>
+      <li><span class="section-number">6.4. </span>SOPHON PIPELINE 常见问题及解答</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="../_sources/program_develop/sophon-pipeline-faq.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">返回文档中心</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="sophon-pipeline">
+<h1><a class="toc-backref" href="#id2" role="doc-backlink"><span class="section-number">6.4. </span>SOPHON PIPELINE 常见问题及解答</a><a class="headerlink" href="#sophon-pipeline" title="此标题的永久链接">¶</a></h1>
+<div class="admonition attention">
+<p class="admonition-title">注意</p>
+<p>本篇内容和 sophon-pipeline/docs/docs_zh/FAQ 内容一样，本篇与其重复只是为了方便查找。
+原文地址：<a class="reference external" href="https://github.com/sophgo/sophon-pipeline">https://github.com/sophgo/sophon-pipeline</a></p>
+</div>
+<nav class="contents" id="id1">
+<p class="topic-title">目录</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#sophon-pipeline" id="id2">SOPHON PIPELINE 常见问题及解答</a></p></li>
+</ul>
+</nav>
+<p><strong>Q:
+当运行推理路数较多时，遇到``bm_malloc_device_byte_heap error``或``bm::BMImage::create_batch Assertion BM_SUCCESS==ret failed``等内存分配错误的问题</strong></p>
+<p><strong>A</strong>:</p>
+<p>这种错误主要是设备内存分配失败。失败的原因有两种：</p>
+<ol class="arabic simple">
+<li><p>设备内存不够用，可以通过如下方法确认：</p></li>
+</ol>
+<p>SOC模式下，使用以下命令查看：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cat<span class="w"> </span>/sys/kernel/debug/ion/bm_vpp_heap_dump/summary
+</pre></div>
+</div>
+<p>PCIe模式下，bm-smi工具可以查看设备内存空间。</p>
+<p>解决方法：</p>
+<p>设备内存不够就需要通过优化程序来减少对设备内存的占用，或者通过修改 dts
+文件中的内存布局来增加对应的设备内存。详细可以参考官方《SOPHON
+BSP开发参考手册.pdf》的相关说明。注：需要获取《SOPHON
+BSP开发参考手册.pdf》，请联系技术支持。</p>
+<ol class="arabic simple" start="2">
+<li><p>句柄数超过系统限制，原因有可能是因为句柄泄漏，或者系统句柄数设置过小，可以用
+如下方法确认：</p></li>
+</ol>
+<p>出现错误后，使用</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>dmesg<span class="w"> </span>&gt;<span class="w"> </span>err.log
+</pre></div>
+</div>
+<p>搜索err.log可见关键字“error_code=-24”、“Too many open
+files”等关键字。这个是因为我们使用 ION 管理内存， 而 ION 又依赖于
+dma_buf，后者会对每个分出来的 buffer 分配一个文件描述符 fd
+进行管理。系统对同时处在打开状态的 fd 总数是有限制的。</p>
+<p>那么请查看系统定义的最大句柄数：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">ulimit</span><span class="w"> </span>-n
+</pre></div>
+</div>
+<p>是否为20480。如果不是的话，请再检查<code class="docutils literal notranslate"><span class="pre">/etc/security/limits.conf</span></code>文件，是否有如下两行：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>*<span class="w"> </span>soft<span class="w"> </span>nofile<span class="w"> </span><span class="m">20480</span>
+*<span class="w"> </span>hard<span class="w"> </span>nofile<span class="w"> </span><span class="m">20480</span>
+</pre></div>
+</div>
+<p>解决方法：</p>
+<p>在排除代码本身的内存泄漏或者句柄泄漏问题后，可以通过以下两种方式加大系统最大句柄数来解决句柄的限制问题：</p>
+<ol class="loweralpha simple">
+<li><p>使用<code class="docutils literal notranslate"><span class="pre">ulimit</span></code>命令临时性修改，当终端或服务器被重启后失效</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">ulimit</span><span class="w"> </span>-HSn<span class="w"> </span><span class="m">20480</span>
+</pre></div>
+</div>
+<ol class="loweralpha simple" start="2">
+<li><p>在<code class="docutils literal notranslate"><span class="pre">/etc/security/limits.conf</span></code>文件末尾添加：</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">*</span> <span class="n">soft</span> <span class="n">nofile</span> <span class="mi">20480</span>
+<span class="o">*</span> <span class="n">hard</span> <span class="n">nofile</span> <span class="mi">20480</span>
+</pre></div>
+</div>
+<p>添加完成后重启服务器即可。</p>
+<blockquote>
+<div><p>注意：如果上述方法没有解决问题，请先通过 ps 命令获取业务进程 ID，然后
+cat
+/proc/<span class="math notranslate nohighlight">\(pid/limits， 检查“Max open files”那一行是否为 20480，如果不是的话，请在直接启动您业务程序的 shell 脚本（比如上面 log 示例里的 run.sh）开头添加“ulimit -n 20480”。重新运行业务，通过 cat /proc/\)</span>pid/limits
+复核是否修改成功。 如果以上方法都检查了没问题，那可能您的确申请了太多
+buf，可以通过上述方法继续增大 max open files 数量。但最大也不应超过
+cat /proc/sys/fs/file-max 显示的数量。</p>
+</div></blockquote>
+<p><strong>Q: 使用pipeline_client可视化时，pipeline_client报错：.BMvidDecCreateW
+get chip info failed!!! error sending a packet for decoding. decode
+failed!</strong></p>
+<p><strong>A:</strong></p>
+<p>由于在安装SophonSDK后，ffmpeg会链接到sophon-mw-ffmpeg的依赖库，若使用<code class="docutils literal notranslate"><span class="pre">ldd</span> <span class="pre">/usr/bin/ffmpeg</span></code>命令可见很多依赖链接到了<code class="docutils literal notranslate"><span class="pre">/opt/sophon/sophon-ffmpeg-latest/lib/*</span></code>下。</p>
+<p>解决方法：</p>
+<p>需要链接回公版ffmpeg的库上，可使用命令：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span>/lib/x86_64-linux-gnu:<span class="nv">$PATH</span>
+</pre></div>
+</div>
+<p>此时再次使用<code class="docutils literal notranslate"><span class="pre">ldd</span> <span class="pre">/usr/bin/ffmpeg</span></code>命令可见依赖链接回到<code class="docutils literal notranslate"><span class="pre">/lib/x86_64-linux-gnu/*</span></code>。</p>
+<p>同理，若出现pipeline_client占用了sophon的tpu，也用同样方法解决。</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="sophon-stream-faq.html" class="btn btn-neutral float-left" title="6.3. SOPHON STREAM 常见问题" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2022, SOPHGO.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="前往官网"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="前往文档中心"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="页面顶部"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="页面底部"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>本页二维码</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

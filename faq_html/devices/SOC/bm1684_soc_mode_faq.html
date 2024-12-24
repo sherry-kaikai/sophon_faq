@@ -1,0 +1,1703 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3.3.4. BSP问题 &mdash; SOPHON and SDK FAQ master
+ 文档</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="../../_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/translations.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <script src="../../_static/js/qrious.js"></script>
+    <script src="../../_static/js/nav.js"></script>
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="3.4. 智算卡常见问题" href="../devices_PCIE.html" />
+    <link rel="prev" title="3.3.3. SE9使用问题" href="SE9_faq.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> SOPHON and SDK FAQ
+          </a>
+              <div class="version">
+                master
+
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../0_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../1_basic_concept.html">2. 基础概念常见问题</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../3_device_usages.html">3. 设备使用常见问题</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../environment.html">3.1. 环境配置常见问题</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../common_commands.html">3.2. 设备版本、状态、bmodel模型信息如何获取？</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../devices_SOC.html">3.3. 智算盒子（模组）常见问题</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="soc_firmware_update.html">3.3.1. 刷机问题</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SE5_SE7_faq.html">3.3.2. SE5、SE7使用问题</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SE9_faq.html">3.3.3. SE9使用问题</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">3.3.4. BSP问题</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#bsp-sdk">3.3.4.1. BSP SDK</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sm5">3.3.4.2. SM5使用时过热的情况</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">3.3.4.3. BSP常见问题</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id18">3.3.4.4. SM5参考方案</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../devices_PCIE.html">3.4. 智算卡常见问题</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../devices_server.html">3.5. 智算服务器常见问题</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../forum_page.html">3.6. 论坛资料</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../4_converter_quantization.html">4. 模型转换及量化常见问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../5_multimedia.html">5. 多媒体用户常见问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../6_program_optimization.html">6. 程序开发常见问题</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">SOPHON and SDK FAQ</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../3_device_usages.html"><span class="section-number">3. </span>设备使用常见问题</a> &raquo;</li>
+          <li><a href="../devices_SOC.html"><span class="section-number">3.3. </span>智算盒子（模组）常见问题</a> &raquo;</li>
+      <li><span class="section-number">3.3.4. </span>BSP问题</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="../../_sources/devices/SOC/bm1684_soc_mode_faq.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">返回文档中心</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="bsp">
+<h1><a class="toc-backref" href="#id31" role="doc-backlink"><span class="section-number">3.3.4. </span>BSP问题</a><a class="headerlink" href="#bsp" title="此标题的永久链接">¶</a></h1>
+<p>BSP开源工程：<a class="reference external" href="https://gitee.com/sophon-ai/bsp-sdk">https://gitee.com/sophon-ai/bsp-sdk</a></p>
+<nav class="contents" id="id1">
+<p class="topic-title">目录</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#bsp" id="id31">BSP问题</a></p>
+<ul>
+<li><p><a class="reference internal" href="#bsp-sdk" id="id32">BSP SDK</a></p></li>
+<li><p><a class="reference internal" href="#sm5" id="id33">SM5使用时过热的情况</a></p>
+<ul>
+<li><p><a class="reference internal" href="#sm5mw-sm5" id="id34">SM5MW（SM5）散热设计说明</a></p></li>
+<li><p><a class="reference internal" href="#sm5w-sm5" id="id35">SM5W（SM5）散热设计说明</a></p></li>
+<li><p><a class="reference internal" href="#id3" id="id36">SM5模块散热参考设计</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#id4" id="id37">BSP常见问题</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id5" id="id38">日志文件太大怎么办</a></p></li>
+<li><p><a class="reference internal" href="#id6" id="id39">如何控制看门狗</a></p></li>
+<li><p><a class="reference internal" href="#windowssdsd" id="id40">windows操作SD卡分区导致SD卡无法升级问题</a></p></li>
+<li><p><a class="reference internal" href="#bm1684-soc-mode" id="id41">不同规格的BM1684 Soc mode产品区别</a></p></li>
+<li><p><a class="reference internal" href="#ion-allocate-buffer-failed" id="id42">ion_allocate_buffer failed错误如何处理</a></p></li>
+<li><p><a class="reference internal" href="#ip" id="id43">如何修改IP地址</a></p></li>
+<li><p><a class="reference internal" href="#id7" id="id44">如何查看网口速率</a></p></li>
+<li><p><a class="reference internal" href="#k3s" id="id45">使用K3S遇到问题</a></p></li>
+<li><p><a class="reference internal" href="#se5qt" id="id46">SE5上使用QT输出图形界面</a></p></li>
+<li><p><a class="reference internal" href="#apt-updatepublic-key" id="id47">apt update时出现public key无效提示</a></p></li>
+<li><p><a class="reference internal" href="#log" id="id48">上电后无log输出</a></p></li>
+<li><p><a class="reference internal" href="#emmc" id="id49">eMMC上的文件系统损坏（“变砖”）</a></p></li>
+<li><p><a class="reference internal" href="#sd" id="id50">SD卡的兼容性</a></p></li>
+<li><p><a class="reference internal" href="#tftp" id="id51">使用tftp刷机</a></p></li>
+<li><p><a class="reference internal" href="#id8" id="id52">文件系统变成只读的处理方法</a></p></li>
+<li><p><a class="reference internal" href="#id9" id="id53">大容量存储需求</a></p></li>
+<li><p><a class="reference internal" href="#id10" id="id54">如何修改内存布局</a></p></li>
+<li><p><a class="reference internal" href="#product-ddr" id="id55">BM1684X 的DDR设计</a></p></li>
+<li><p><a class="reference internal" href="#product-device-tree" id="id56">BM1684X 的device tree设计</a></p></li>
+<li><p><a class="reference internal" href="#id11" id="id57">修改源代码</a></p></li>
+<li><p><a class="reference internal" href="#id12" id="id58">修改SoC预制的内存布局工具</a></p></li>
+<li><p><a class="reference internal" href="#id13" id="id59">板卡类型判断</a></p></li>
+<li><p><a class="reference internal" href="#ko" id="id60">开机后没有自动加载ko文件</a></p></li>
+<li><p><a class="reference internal" href="#id14" id="id61">开机后自动运行业务</a></p></li>
+<li><p><a class="reference internal" href="#spi-flash" id="id62">使用串口更新SPI flash</a></p></li>
+<li><p><a class="reference internal" href="#id15" id="id63">日志文件过大怎么办</a></p></li>
+<li><p><a class="reference internal" href="#id16" id="id64">如何修改自动挂载点</a></p></li>
+<li><p><a class="reference internal" href="#id17" id="id65">如何判断异常重启的原因</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#id18" id="id66">SM5参考方案</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id19" id="id67">本地刷机方案</a></p></li>
+<li><p><a class="reference internal" href="#id20" id="id68">网络刷机方案</a></p></li>
+<li><p><a class="reference internal" href="#id21" id="id69">图形界面</a></p></li>
+<li><p><a class="reference internal" href="#perfetto" id="id70">用Perfetto工具分析性能</a></p></li>
+<li><p><a class="reference internal" href="#id22" id="id71">提高业务程序的实时性</a></p></li>
+<li><p><a class="reference internal" href="#g" id="id72">4G模块方案</a></p></li>
+<li><p><a class="reference internal" href="#id23" id="id73">5G模块方案</a></p></li>
+<li><p><a class="reference internal" href="#id24" id="id74">如何增加板类型</a></p></li>
+<li><p><a class="reference internal" href="#rootfs" id="id75">定制化rootfs</a></p></li>
+<li><p><a class="reference internal" href="#efusespacc" id="id76">使用eFuse和SPACC进行加解密</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+<section id="bsp-sdk">
+<h2><a class="toc-backref" href="#id32" role="doc-backlink"><span class="section-number">3.3.4.1. </span>BSP SDK</a><a class="headerlink" href="#bsp-sdk" title="此标题的永久链接">¶</a></h2>
+<p>所谓SoC mode是指BM1684片内的CPU运行嵌入式Linux系统，主要的业务软件运行在这个系统上，通过以太网与外部进行业务数据交互。与之相对的是PCIe mode，即BM1684作为一张PCIe加速卡插入到主机上，主要的业务软件运行在主机上，只是把视频编解码、图像处理、神经网络推理等工作offload到BM1684上做硬件加速。
+BSP SDK是BM1684 SoC模式产品最主要的软件开发资料：<a class="reference external" href="https://gitee.com/sophon-ai/bsp-sdk">https://gitee.com/sophon-ai/bsp-sdk</a>。使用方式请查看README.md文件。特别请留意里面提供了一个网盘链接，其中有一份《算丰SM5系列AI计算模组的SOC模式软件开发指南》（以下简称SM5指南），这份文档提供了很多基础的信息，在本文档中就不再赘述了。SM5指南也可以从 <a class="reference external" href="https://sophon-file.sophon.cn/sophon-prod-s3/drive/22/01/05/15/%E7%AE%97%E4%B8%B0SM5%E7%B3%BB%E5%88%97AI%E8%AE%A1%E7%AE%97%E6%A8%A1%E7%BB%84%E7%9A%84SOC%E6%A8%A1%E5%BC%8F%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97_V1.5.pdf">官网链接</a> 获取。
+本文档作为SM5指南的补充，适用于如下产品：</p>
+<ol class="arabic simple">
+<li><p>SM5系列产品</p></li>
+<li><p>预装box版本软件（即没有人脸识别应用）的SE5产品（预装gate版本软件的SE5产品在很多地方会有不同，如无特别说明，通常不适用，不清楚的地方请咨询技术支持）</p></li>
+<li><p>客户采购BM1684芯片制作的SoC模式产品</p></li>
+</ol>
+</section>
+<section id="sm5">
+<h2><a class="toc-backref" href="#id33" role="doc-backlink"><span class="section-number">3.3.4.2. </span>SM5使用时过热的情况</a><a class="headerlink" href="#sm5" title="此标题的永久链接">¶</a></h2>
+<p>答：SM5模组二次开发，需要设计完整的散热方案，包含散热器和风扇。单纯依靠模块自身时其不能正常工作，具体参考设计方案请参考如下说明</p>
+<section id="sm5mw-sm5">
+<h3><a class="toc-backref" href="#id34" role="doc-backlink"><span class="section-number">3.3.4.2.1. </span>SM5MW（SM5）散热设计说明</a><a class="headerlink" href="#sm5mw-sm5" title="此标题的永久链接">¶</a></h3>
+<p>答：</p>
+<figure class="align-center" id="id25">
+<img alt="../../_images/hardware_sm5_sm5mw_structure_plane.jpg" src="../../_images/hardware_sm5_sm5mw_structure_plane.jpg" />
+<figcaption>
+<p><span class="caption-number">图 3.1 </span><span class="caption-text">SM5M结构刨面图</span><a class="headerlink" href="#id25" title="此图像的永久链接">¶</a></p>
+</figcaption>
+</figure>
+<div class="admonition attention">
+<p class="admonition-title">注意</p>
+<ul>
+<li><p>请勿拆除SM5MW的金属外壳，包括上壳和下壳</p></li>
+<li><p>只要拆除一次散热部件，导热界面材料就不能重复使用</p></li>
+<li><p>如SM5M结构刨面图中的①号点代表SM5MW的壳温测试点，任何情况下使用SM5MW，请确保该点测量温度值不超过85℃(SM5M:75°)</p></li>
+<li><p>SM5M结构刨面图中的②号点代表BM1684结温，通过内置的温度传感器读取上报值。任何情况下使用SM5MW，请确保该点上报温度值不超过95℃(SM5M:85°)
+| SM5M的热性能参数要求参考下表</p>
+<table class="docutils align-default" id="id26">
+<caption><span class="caption-number">表 3.1 </span><span class="caption-text">SM5M热阻</span><a class="headerlink" href="#id26" title="此表格的永久链接">¶</a></caption>
+<tbody>
+<tr class="row-odd"><td><p>参数</p></td>
+<td><p>说明</p></td>
+</tr>
+<tr class="row-even"><td><p>SM5M热阻</p></td>
+<td><p>工作模式：17.6TOPS</p></td>
+</tr>
+<tr class="row-odd"><td><p>Rjc</p></td>
+<td><p>0.5℃/W</p></td>
+</tr>
+<tr class="row-even"><td><p>Rjb</p></td>
+<td><p>6.34℃/W</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li><p>计算热阻：</p>
+<ol class="arabic">
+<li><p>为了确定SM5M需要的散热方案热阻Rca，首先根据以下公式计算Tc（即SM5M结构刨面图 散热结构示意图中的①号点温度）</p>
+<div class="math notranslate nohighlight">
+\[Tjmax=Power x Rjc+Tc\]</div>
+<p>说明：各参数取值如下</p>
+<blockquote>
+<div><ol class="loweralpha simple">
+<li><p>Tjmax=105℃(SM5M:85°)（即SM5M结构刨面图散热结构示意图中的②号点最大工作温度限值，长期工作温度建议采用95℃(SM5M:85°)</p></li>
+<li><p>Rjc=0.5℃/W</p></li>
+<li><p>Power：SM5M功耗需要通过底板测试得出</p></li>
+</ol>
+</div></blockquote>
+</li>
+<li><p>查看Ta的值。Ta=SM5M正常工作时所要支持的最高环境温度。</p></li>
+<li><p>根据以下公式，计算SM5M正常工作所需要的散热方案热阻</p>
+<div class="math notranslate nohighlight">
+\[Rca=（ Tc-Ta） /Power\]</div>
+<p>说明：为了保证SM5M正常工作,请用户确保设计的散热方案热阻在最恶劣情况下小于上述计算值</p>
+</li>
+</ol>
+</li>
+</ul>
+</div>
+</section>
+<section id="sm5w-sm5">
+<h3><a class="toc-backref" href="#id35" role="doc-backlink"><span class="section-number">3.3.4.2.2. </span>SM5W（SM5）散热设计说明</a><a class="headerlink" href="#sm5w-sm5" title="此标题的永久链接">¶</a></h3>
+<p>答：</p>
+<figure class="align-center" id="id27">
+<img alt="../../_images/hardware_sm5_sm5w_structure_plane.jpg" src="../../_images/hardware_sm5_sm5w_structure_plane.jpg" />
+<figcaption>
+<p><span class="caption-number">图 3.2 </span><span class="caption-text">SM5W结构刨面图</span><a class="headerlink" href="#id27" title="此图像的永久链接">¶</a></p>
+</figcaption>
+</figure>
+<div class="admonition attention">
+<p class="admonition-title">注意</p>
+<ul>
+<li><p>请勿拆除SM5W的金属外壳</p></li>
+<li><p>只要拆除一次散热部件，导热材料就不能重复使用</p></li>
+<li><p>如SM5W结构刨面图中的①号点代表SM5W的壳温测试点，任何情况下使用SM5W，请确保该点测量温度值不超过85℃(SM5:75°)</p></li>
+<li><p>SM5W结构刨面图中的②号点代表BM1684结温，通过内置的温度传感器读取上报值。任何情况下使用SM5W，请确保该点上报温度值不超过95℃(SM5:85°)
+| SM5W的热性能参数要求参考下表</p>
+<table class="docutils align-default" id="id28">
+<caption><span class="caption-number">表 3.2 </span><span class="caption-text">SM5W热阻</span><a class="headerlink" href="#id28" title="此表格的永久链接">¶</a></caption>
+<tbody>
+<tr class="row-odd"><td><p>参数</p></td>
+<td><p>说明</p></td>
+</tr>
+<tr class="row-even"><td><p>SM5W热阻</p></td>
+<td><p>工作模式：17.6TOPS</p></td>
+</tr>
+<tr class="row-odd"><td><p>Rjc</p></td>
+<td><p>0.5℃/W</p></td>
+</tr>
+<tr class="row-even"><td><p>Rjb</p></td>
+<td><p>6.34℃/W</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li><p>计算热阻：</p>
+<ol class="arabic">
+<li><p>为了确定SM5W需要的散热方案热阻Rca，首先根据以下公式计算Tc（即SM5W结构刨面图 散热结构示意图中的①号点温度）</p>
+<div class="math notranslate nohighlight">
+\[Tjmax=Power x Rjc+Tc\]</div>
+<p>说明：各参数取值如下</p>
+<blockquote>
+<div><ol class="loweralpha simple">
+<li><p>Tjmax=105℃(SM5:90°)（即SM5W结构刨面图散热结构示意图中的②号点最大工作温度限值，长期工作温度建议采用95℃(SM5M:85°)</p></li>
+<li><p>Rjc=0.5℃/W</p></li>
+<li><p>Power：SM5W功耗需要通过底板测试得出</p></li>
+</ol>
+</div></blockquote>
+</li>
+<li><p>查看Ta的值。Ta=SM5W正常工作时所要支持的最高环境温度。</p></li>
+<li><p>根据以下公式，计算SM5W正常工作所需要的散热方案热阻</p>
+<div class="math notranslate nohighlight">
+\[Rca=（ Tc-Ta） /Power\]</div>
+<p>说明：为了保证SM5W正常工作,请用户确保设计的散热方案热阻在最恶劣情况下小于上述计算值</p>
+</li>
+</ol>
+</li>
+</ul>
+</div>
+</section>
+<section id="id3">
+<h3><a class="toc-backref" href="#id36" role="doc-backlink"><span class="section-number">3.3.4.2.3. </span>SM5模块散热参考设计</a><a class="headerlink" href="#id3" title="此标题的永久链接">¶</a></h3>
+<p>答：</p>
+<ol class="arabic">
+<li><p>当SM5采用被动散热设计(仅靠自带的散热器模块)，主机侧必须提供风扇来为模块散热，需满足的风量及风压设计要求如下表所述, 建议参数如下</p>
+<table class="docutils align-default" id="id29">
+<caption><span class="caption-number">表 3.3 </span><span class="caption-text">SM5对主机侧的风量散热要求（针对常温芯片）</span><a class="headerlink" href="#id29" title="此表格的永久链接">¶</a></caption>
+<tbody>
+<tr class="row-odd"><td><p>入风口平均温度/℃</p></td>
+<td><p>进风口需求最低风速/CFM</p></td>
+<td><p>最小压降/inch H2O</p></td>
+</tr>
+<tr class="row-even"><td><p>70</p></td>
+<td><p>16</p></td>
+<td><p>0.21</p></td>
+</tr>
+<tr class="row-odd"><td><p>60</p></td>
+<td><p>8</p></td>
+<td><p>0.18</p></td>
+</tr>
+<tr class="row-even"><td><p>50</p></td>
+<td><p>4.2</p></td>
+<td><p>0.09</p></td>
+</tr>
+<tr class="row-odd"><td><p>40</p></td>
+<td><p>3</p></td>
+<td><p>0.07</p></td>
+</tr>
+<tr class="row-even"><td><p>35</p></td>
+<td><p>2.2</p></td>
+<td><p>0.06</p></td>
+</tr>
+<tr class="row-odd"><td><p>&lt; 30</p></td>
+<td><p>1.8</p></td>
+<td><p>0.05</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default" id="id30">
+<caption><span class="caption-number">表 3.4 </span><span class="caption-text">SM5对主机侧的风量散热要求（针对宽温芯片）</span><a class="headerlink" href="#id30" title="此表格的永久链接">¶</a></caption>
+<tbody>
+<tr class="row-odd"><td><p>入风口平均温度/℃</p></td>
+<td><p>进风口需求最低风速/CFM</p></td>
+<td><p>最小压降/inch H2O</p></td>
+</tr>
+<tr class="row-even"><td><p>70</p></td>
+<td><p>10</p></td>
+<td><p>0.17</p></td>
+</tr>
+<tr class="row-odd"><td><p>60</p></td>
+<td><p>5</p></td>
+<td><p>0.13</p></td>
+</tr>
+<tr class="row-even"><td><p>50</p></td>
+<td><p>2.8</p></td>
+<td><p>0.08</p></td>
+</tr>
+<tr class="row-odd"><td><p>40</p></td>
+<td><p>2.1</p></td>
+<td><p>0.05</p></td>
+</tr>
+<tr class="row-even"><td><p>35</p></td>
+<td><p>1.6</p></td>
+<td><p>0.04</p></td>
+</tr>
+<tr class="row-odd"><td><p>&lt; 30</p></td>
+<td><p>1.3</p></td>
+<td><p>0.02</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li><p>当使用SM5作为纯被动散热组件使用时，自身带的散热器无法满足散热需求，需要客户重新设计散热器以满足散热需求，参考散热器尺寸如下</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<ol class="loweralpha simple">
+<li><p>以最高环境温度70°为例</p></li>
+<li><p>纯被动散热温度可能达到极限,具有一定的风险,条件允许,建议采用主动散热设计</p></li>
+</ol>
+</div>
+<ul class="simple">
+<li><p>环境温度70度，需求的散热器最小尺寸约为：250(L)*200(W)*30(H）mm，其中齿高不能低于25mm，齿间距不能小于5mm</p></li>
+<li><p>散热器与芯片接触的地方不能使用导热垫，推荐使用导热硅脂或液态金属导热材料</p></li>
+<li><p>散热表面需要做增加辐射的表面处理(比如阳极氧化，喷涂石墨碳等等)</p></li>
+<li><p>散热器材质：除去普通的铝材散热材料外，建议与芯片接触的地方增加热管，VC等具有较高导热能力的材质为芯片快速均匀散热</p></li>
+</ul>
+</li>
+</ol>
+</section>
+</section>
+<section id="id4">
+<h2><a class="toc-backref" href="#id37" role="doc-backlink"><span class="section-number">3.3.4.3. </span>BSP常见问题</a><a class="headerlink" href="#id4" title="此标题的永久链接">¶</a></h2>
+<section id="id5">
+<h3><a class="toc-backref" href="#id38" role="doc-backlink"><span class="section-number">3.3.4.3.1. </span>日志文件太大怎么办</a><a class="headerlink" href="#id5" title="此标题的永久链接">¶</a></h3>
+<p>答：系统运行中的日志保存在/var/log目录下，包括用户态的syslog，内核态的kern.log等文件。系统默认有开启logrotate服务，触发周期为1天，当logrotate触发时，它会把当前的syslog等日志文件压缩，依次保存成syslog.1、syslog.2.gz、syslog.3.gz等等，序号最多到7。所以按这个机制，如果您在一天内频繁打印了太多日志，就有可能使得日志文件过大，占满磁盘空间。如果确实有打印大量日志的需求，sudo logrotate -f /etc/logrotate.conf可以强制触发一次logrotate，或者可以按照下图将logrotate的策略从daily改成类似“size 10M”这样，就可以把lograte改成按照日志文件大小来触发：</p>
+<img alt="../../_images/soc_log_too_large.png" src="../../_images/soc_log_too_large.png" />
+<p>但这里要注意的是，logroate是通过/etc/cron.daily/logrotate触发执行的，而只有当它执行时才会去检查上面这些规则文件， 所以如果只在上面配置文件里修改成hourly或者size 10M，并不能直接生效。需要首先sudo mv /etc/cron.daily/logrotate /etc/cron.hourly，让logrotate每小时执行一次，它才有机会去检查/etc/logrotate.conf文件，进而执行您修改后的更激进的设置。</p>
+</section>
+<section id="id6">
+<h3><a class="toc-backref" href="#id39" role="doc-backlink"><span class="section-number">3.3.4.3.2. </span>如何控制看门狗</a><a class="headerlink" href="#id6" title="此标题的永久链接">¶</a></h3>
+<p>基于BM1684芯片的产品在板上都会有一颗STM32 MCU，它的主要任务是给BM1684芯片上下电，然后顺便承担了其他一些功能，比如这里要介绍的看门狗。BM1684和STM32之间有一条I2C总线连接，BM1684做master，STM32做slave，BM1684通过发送I2C消息来做踢狗的动作。BM1684在每个CPU核上绑定一个线程，只有当所有线程都活着时才会周期性踢狗，即任何一个CPU核挂死都会引起看门狗超时，STM32会复位BM1684。
+可以通过如下命令来控制这个看门狗：</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>echo ‘enable’ &gt; /dev/bm-wdt-0</p></td>
+<td><p>启用看门狗功能</p></td>
+</tr>
+<tr class="row-even"><td><p>echo ‘disable’ &gt; /dev/bm-wdt-0</p></td>
+<td><p>禁用看门狗功能</p></td>
+</tr>
+<tr class="row-odd"><td><p>echo ‘auto’ &gt; /dev/bm-wdt-0</p></td>
+<td><p>启动内核线程自动周期性踢狗的动作</p></td>
+</tr>
+<tr class="row-even"><td><p>echo ‘manual’ &gt; /dev/bm-wdt-0</p></td>
+<td><p>关闭内核线程自动周期性踢狗的动作</p></td>
+</tr>
+<tr class="row-odd"><td><p>echo ‘kick’ &gt; /dev/bm-wdt-0</p></td>
+<td><p>手动触发一次踢狗</p></td>
+</tr>
+<tr class="row-even"><td><p>echo ‘timeout 30’ &gt; /dev/bm-wdt-0</p></td>
+<td><p>设置看门狗超时时间，超过这个时间没有收到踢狗消息，看门狗就复位BM1684</p></td>
+</tr>
+<tr class="row-odd"><td><p>echo ‘interval 20’ &gt; /dev/bm-wdt-0</p></td>
+<td><p>设置内核线程自动踢狗的周期</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="windowssdsd">
+<h3><a class="toc-backref" href="#id40" role="doc-backlink"><span class="section-number">3.3.4.3.3. </span>windows操作SD卡分区导致SD卡无法升级问题</a><a class="headerlink" href="#windowssdsd" title="此标题的永久链接">¶</a></h3>
+<p>答：</p>
+<p>串口log上可以看到：</p>
+<img alt="../../_images/soc_win_op_sd_serial.png" src="../../_images/soc_win_op_sd_serial.png" />
+<p>还有一种情况是用windows 分区不正确，串口log上会卡在SD init就没了：</p>
+<img alt="../../_images/soc_win_op_sd_init_failed.png" src="../../_images/soc_win_op_sd_init_failed.png" />
+<p>这两种情况需要：</p>
+<ul class="simple">
+<li><p>Ubuntu 系统可以使用disk工具/fdisk 添加新卷，然后格式成fat；</p></li>
+<li><p>Win10 需要用磁盘管理（也可用Diskgenius工具）删除卷再添加新卷，然后格式成fat。</p></li>
+</ul>
+<p>确保SD在SE5/SM5中使用 sudo fdisk -l 显示成：</p>
+<img alt="../../_images/soc_win_op_sd_fdisk_l.png" src="../../_images/soc_win_op_sd_fdisk_l.png" />
+<p>从v10.4.0版本之后的u-boot已经可以兼容这种SD卡文件系统，无需进行特别处理。</p>
+</section>
+<section id="bm1684-soc-mode">
+<h3><a class="toc-backref" href="#id41" role="doc-backlink"><span class="section-number">3.3.4.3.4. </span>不同规格的BM1684 Soc mode产品区别</a><a class="headerlink" href="#bm1684-soc-mode" title="此标题的永久链接">¶</a></h3>
+<p>答：为了适应不同算力需求的应用场景，BM1684 SoC mode产品提供了如下几种规格：</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"><p>DDR容量</p></th>
+<th class="head"><p>CPU频率</p></th>
+<th class="head"><p>TPU频率</p></th>
+<th class="head"><p>VPU / JPU / VPP 频率</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>16路产品</p></td>
+<td><p>总计12GB，其中
+TPU：4GB
+VPU：2GB
+VPP：3GB</p></td>
+<td><p>2.3GHz</p></td>
+<td><p>550MHz
+（0.62V）</p></td>
+<td><p>640MHz</p></td>
+</tr>
+<tr class="row-odd"><td><p>8路产品</p></td>
+<td><p>总计6GB，其中
+TPU：1.2GB
+VPU：1GB
+VPP：1.7GB</p></td>
+<td><p>2.3GHz</p></td>
+<td><p>330MHz
+（0.55V）</p></td>
+<td><p>400MHz
+（Video decoder/JPEG/VPP
+只有一半硬件单元）</p></td>
+</tr>
+<tr class="row-even"><td><p>4路产品</p></td>
+<td><p>总计4GB，其中
+TPU：1GB
+VPU：0.5GB
+VPP：0.7GB</p></td>
+<td><p>2.3GHz</p></td>
+<td><p>330MHz
+（0.55V）</p></td>
+<td><p>400MHz
+（Video decoder/JPEG/VPP
+只有一半硬件单元）</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ion-allocate-buffer-failed">
+<h3><a class="toc-backref" href="#id42" role="doc-backlink"><span class="section-number">3.3.4.3.5. </span>ion_allocate_buffer failed错误如何处理</a><a class="headerlink" href="#ion-allocate-buffer-failed" title="此标题的永久链接">¶</a></h3>
+<p>答：如果程序运行时打印了类似这种log：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>kernel: [4] ion alloc (3133440,2,0) dma_buf_fd failed fd:-24
+kernel: [4] ion_ioctl ion alloc failed, fd=-24, from yolov5s_demo
+run.sh[8326]: [ion_malloc:386] ioctl ION_IOC_ALLOC failed. [error=Too many open files].
+run.sh[8326]: [ion_allocate_buffer:132] ion_malloc failed!
+run.sh[8326]: [VDI] fail to vdi_allocate_dma_memory size=3133440
+run.sh[8326]: AllocateDecFrameBuffer:1081 fail to allocate frame buffer
+run.sh[8326]: [VDI] invalid buffer to free address = 0x0
+run.sh[8326]: InstIdx 3: BMVidDecSeqInitW5 failed Error code is 0xffffffff
+</pre></div>
+</div>
+<p>可见关键字“fd=-24”、“error=Too many open files”。这个是因为我们使用ION管理内存，而ION又依赖于dma_buf，后者会对每个分出来的buffer分配一个fd进行管理。系统对同时处在打开状态的fd总数是有限制的。</p>
+<p>如果有遇到这个问题，请执行ulimits -n，检查“open files”那一行是否为20480。如果不是的话，请再检查/etc/security/limits.conf文件，是否有如下两行：</p>
+<img alt="../../_images/soc_ulimits_n_open_files_nofile.png" src="../../_images/soc_ulimits_n_open_files_nofile.png" />
+<p>如果没有的话，请添加后重启，对在shell里敲命令启动的进程应该就会生效了。</p>
+<p>如果上述方法没有解决问题，请先通过ps命令获取业务进程ID，然后cat /proc/$pid/limits，检查“Max open files”那一行是否为20480，如果不是的话，请在直接启动您业务程序的shell脚本（比如上面log示例里的run.sh）开头添加“ulimit -n 20480”。重新运行业务，通过cat /proc/$pid/limits复核是否修改成功。</p>
+<p>如果以上方法都检查了没问题，那可能您的确申请了太多buf，可以通过上述方法继续增大max open files数量。但最大也不应超过cat /proc/sys/fs/file-max显示的数量。</p>
+</section>
+<section id="ip">
+<h3><a class="toc-backref" href="#id43" role="doc-backlink"><span class="section-number">3.3.4.3.6. </span>如何修改IP地址</a><a class="headerlink" href="#ip" title="此标题的永久链接">¶</a></h3>
+<p>答：SM5默认搭载的是Debian系统，双网口中的eth0默认是动态获取IP的（即DHCP），eth1是固定成了192.168.150.1。
+后者的配置是通过/etc/network/interfaces.d/eth1文件完成的，这个文件是我们对Debian原始网络配置唯一的修改。
+即：如果您删掉这个文件，那么eth1会变成跟eth0一样的DHCP获取IP；如果您想要把eth0也固定IP，就依样在/etc/network/interafces.d文件夹下创建一个eth0文件。
+重启后生效。注意最好不要把两个网卡配置成同一网段，可能会有奇奇怪怪的问题。</p>
+<p>如果SM5搭载的是Ubuntu系统，则配置文件在/etc/netplan/01-netcfg.yaml文件中，修改完后可以通过sudo netplan apply命令生效。
+更多详细配置信息，可以查询netplan工具的使用，与PC版Ubuntu系统是一样的。</p>
+</section>
+<section id="id7">
+<h3><a class="toc-backref" href="#id44" role="doc-backlink"><span class="section-number">3.3.4.3.7. </span>如何查看网口速率</a><a class="headerlink" href="#id7" title="此标题的永久链接">¶</a></h3>
+<p>答：使用ethtool eth0 查看网口速率等信息，如下：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">root</span><span class="nd">@BH0003</span><span class="o">-</span><span class="n">host</span><span class="p">:</span><span class="c1"># ethtool eth0</span>
+<span class="n">Settings</span> <span class="k">for</span> <span class="n">eth0</span><span class="p">:</span>
+   <span class="n">Supported</span> <span class="n">ports</span><span class="p">:</span> <span class="p">[</span> <span class="n">TP</span> <span class="n">MII</span> <span class="p">]</span>
+   <span class="n">Supported</span> <span class="n">link</span> <span class="n">modes</span><span class="p">:</span>   <span class="mi">10</span><span class="n">baseT</span><span class="o">/</span><span class="n">Half</span> <span class="mi">10</span><span class="n">baseT</span><span class="o">/</span><span class="n">Full</span>
+                           <span class="mi">100</span><span class="n">baseT</span><span class="o">/</span><span class="n">Half</span> <span class="mi">100</span><span class="n">baseT</span><span class="o">/</span><span class="n">Full</span>
+                           <span class="mi">1000</span><span class="n">baseT</span><span class="o">/</span><span class="n">Full</span>
+   <span class="n">Supported</span> <span class="n">pause</span> <span class="n">frame</span> <span class="n">use</span><span class="p">:</span> <span class="n">No</span>
+   <span class="n">Supports</span> <span class="n">auto</span><span class="o">-</span><span class="n">negotiation</span><span class="p">:</span> <span class="n">Yes</span>
+   <span class="n">Supported</span> <span class="n">FEC</span> <span class="n">modes</span><span class="p">:</span> <span class="n">Not</span> <span class="n">reported</span>
+   <span class="n">Advertised</span> <span class="n">link</span> <span class="n">modes</span><span class="p">:</span>  <span class="mi">10</span><span class="n">baseT</span><span class="o">/</span><span class="n">Half</span> <span class="mi">10</span><span class="n">baseT</span><span class="o">/</span><span class="n">Full</span>
+                           <span class="mi">100</span><span class="n">baseT</span><span class="o">/</span><span class="n">Half</span> <span class="mi">100</span><span class="n">baseT</span><span class="o">/</span><span class="n">Full</span>
+                           <span class="mi">1000</span><span class="n">baseT</span><span class="o">/</span><span class="n">Full</span>
+   <span class="n">Advertised</span> <span class="n">pause</span> <span class="n">frame</span> <span class="n">use</span><span class="p">:</span> <span class="n">No</span>
+   <span class="n">Advertised</span> <span class="n">auto</span><span class="o">-</span><span class="n">negotiation</span><span class="p">:</span> <span class="n">Yes</span>
+   <span class="n">Advertised</span> <span class="n">FEC</span> <span class="n">modes</span><span class="p">:</span> <span class="n">Not</span> <span class="n">reported</span>
+   <span class="n">Link</span> <span class="n">partner</span> <span class="n">advertised</span> <span class="n">link</span> <span class="n">modes</span><span class="p">:</span>  <span class="mi">10</span><span class="n">baseT</span><span class="o">/</span><span class="n">Half</span> <span class="mi">10</span><span class="n">baseT</span><span class="o">/</span><span class="n">Full</span>
+                                       <span class="mi">100</span><span class="n">baseT</span><span class="o">/</span><span class="n">Half</span> <span class="mi">100</span><span class="n">baseT</span><span class="o">/</span><span class="n">Full</span>
+                                       <span class="mi">1000</span><span class="n">baseT</span><span class="o">/</span><span class="n">Full</span>
+   <span class="n">Link</span> <span class="n">partner</span> <span class="n">advertised</span> <span class="n">pause</span> <span class="n">frame</span> <span class="n">use</span><span class="p">:</span> <span class="n">Symmetric</span>
+   <span class="n">Link</span> <span class="n">partner</span> <span class="n">advertised</span> <span class="n">auto</span><span class="o">-</span><span class="n">negotiation</span><span class="p">:</span> <span class="n">Yes</span>
+   <span class="n">Link</span> <span class="n">partner</span> <span class="n">advertised</span> <span class="n">FEC</span> <span class="n">modes</span><span class="p">:</span> <span class="n">Not</span> <span class="n">reported</span>
+   <span class="n">Speed</span><span class="p">:</span> <span class="mi">1000</span><span class="n">Mb</span><span class="o">/</span><span class="n">s</span>
+   <span class="n">Duplex</span><span class="p">:</span> <span class="n">Full</span>
+   <span class="n">Port</span><span class="p">:</span> <span class="n">MII</span>
+   <span class="n">PHYAD</span><span class="p">:</span> <span class="mi">0</span>
+   <span class="n">Transceiver</span><span class="p">:</span> <span class="n">internal</span>
+   <span class="n">Auto</span><span class="o">-</span><span class="n">negotiation</span><span class="p">:</span> <span class="n">on</span>
+   <span class="n">Supports</span> <span class="n">Wake</span><span class="o">-</span><span class="n">on</span><span class="p">:</span> <span class="n">d</span>
+   <span class="n">Wake</span><span class="o">-</span><span class="n">on</span><span class="p">:</span> <span class="n">d</span>
+   <span class="n">Current</span> <span class="n">message</span> <span class="n">level</span><span class="p">:</span> <span class="mh">0x0000003f</span> <span class="p">(</span><span class="mi">63</span><span class="p">)</span>
+               <span class="n">drv</span> <span class="n">probe</span> <span class="n">link</span> <span class="n">timer</span> <span class="n">ifdown</span> <span class="n">ifup</span>
+   <span class="n">Link</span> <span class="n">detected</span><span class="p">:</span> <span class="n">yes</span>
+</pre></div>
+</div>
+<p>Speed: 1000Mb/s 为速率。如果没有ethtool工具，使用安装apt-get update;apt-get install ethtool</p>
+</section>
+<section id="k3s">
+<h3><a class="toc-backref" href="#id45" role="doc-backlink"><span class="section-number">3.3.4.3.8. </span>使用K3S遇到问题</a><a class="headerlink" href="#k3s" title="此标题的永久链接">¶</a></h3>
+<p>答：使用k3s，出现k3s管理的pods开机启动会CrashLoopBackOff，使用journalctl -u k3s查看日志，发现这个错误：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>kmod_search_moddep() could not open moddep file &#39;/lib/modules/4.9.38-bm1684-v10.3.0-00528-g8be6792/modules.dep.bin&#39;
+而盒子上是/lib/modules/4.9.38-bm1684-v7.3.0-00469-g49e7e2dd。
+</pre></div>
+</div>
+<img alt="../../_images/soc_k3s_err_could_not_open_moddep.png" src="../../_images/soc_k3s_err_could_not_open_moddep.png" />
+<p>此错误是由于使用部分升级的方式，升级了kernel。但是文件系统没有升级导致的不匹配。需使用sd卡刷机的方式全升级。</p>
+</section>
+<section id="se5qt">
+<h3><a class="toc-backref" href="#id46" role="doc-backlink"><span class="section-number">3.3.4.3.9. </span>SE5上使用QT输出图形界面</a><a class="headerlink" href="#se5qt" title="此标题的永久链接">¶</a></h3>
+<p>答：SE5上的HDMI输出并没有使用标准的framebuffer驱动，所以公版的QT并不能直接使用，请从https://github.com/sophon-ai-algo/sophon-qt 获取我们修改过的QT版本进行开发，此版本的QT可以正确输出到SE5的HDMI上。</p>
+</section>
+<section id="apt-updatepublic-key">
+<h3><a class="toc-backref" href="#id47" role="doc-backlink"><span class="section-number">3.3.4.3.10. </span>apt update时出现public key无效提示</a><a class="headerlink" href="#apt-updatepublic-key" title="此标题的永久链接">¶</a></h3>
+<p>答：如果在apt update时遇到如下错误：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">The</span> <span class="n">following</span> <span class="n">signatures</span> <span class="n">couldn</span><span class="s1">&#39;t be verified because the public key is not available: NO_PUBKEY 6AF0E1940624A220</span>
+</pre></div>
+</div>
+<p>可以参考如下步骤解决：</p>
+<ol class="arabic">
+<li><p>到OpenPGP Keyserver网站：<a class="reference external" href="https://keyserver.ubuntu.com/">https://keyserver.ubuntu.com/</a>，在文本框里输入错误提示里“NO_PUBKEY”后面那串字符，要加上“0x”前缀，形如“0x6AF0E1940624A220”，点击Search Key按钮，得到结果如下图</p>
+<img alt="../../_images/soc_apt_update_err_search_key.png" src="../../_images/soc_apt_update_err_search_key.png" />
+</li>
+<li><p>点击“pub”后面那个链接，如上图红框部分，得到对应的key，如下图：</p>
+<img alt="../../_images/soc_apt_update_err_public_key.png" src="../../_images/soc_apt_update_err_public_key.png" />
+</li>
+<li><p>复制此页面里的所有文本，保存成一个文件放到板子上，如pgp.key</p></li>
+<li><p>在板子上执行sudo apt-key add pgp.key，正常应该会得到一个“OK”提示。再重新执行sudo apt update即可。</p></li>
+</ol>
+</section>
+<section id="log">
+<h3><a class="toc-backref" href="#id48" role="doc-backlink"><span class="section-number">3.3.4.3.11. </span>上电后无log输出</a><a class="headerlink" href="#log" title="此标题的永久链接">¶</a></h3>
+<p>请检查核心板的LED指示灯是否有亮起，如果没有，请和硬件设计人员检查核心板供电。如果LED指示灯有亮起，请检查UART连接是否正常，可以尝试交换Tx/Rx，请留意UART为TTL电平，建议使用CP210x系列芯片的USB转接线。并请检查UART终端的软件设置：</p>
+<blockquote>
+<div><a class="reference internal image-reference" href="../../_images/image29.png"><img alt="../../_images/image29.png" src="../../_images/image29.png" style="width: 2.3125in; height: 1.875in;" /></a>
+</div></blockquote>
+<p>另外也请留意核心板是否有过热的情况。如果硬件正常， BM1684X 芯片的boot
+ROM一定会打印一些log出来。</p>
+<p>如果能看到log，但敲命令没反应，请把flow control设置为none。</p>
+<p>如果上电开机就自动进入了命令行（提示符#），请检查串口线连接是否妥当，PC上的串口设置中flow
+control是否为none。如果还是总出现这种情况，建议更换串口线和PC试试看。</p>
+</section>
+<section id="emmc">
+<h3><a class="toc-backref" href="#id49" role="doc-backlink"><span class="section-number">3.3.4.3.12. </span>eMMC上的文件系统损坏（“变砖”）</a><a class="headerlink" href="#emmc" title="此标题的永久链接">¶</a></h3>
+<p>BM1684X 的SD卡烧写功能是固化在boot
+ROM内的，因此即便eMMC上的文件系统损坏，您还是可以通过SD卡刷机功能重新烧录eMMC。</p>
+<p>如果您不想完全重新烧录，可以尝试进入recovery
+mode做一些修复尝试。步骤如下：</p>
+<ol class="arabic">
+<li><p>接上串口终端，在看到u-boot提示Hit any key to stop autoboot时按下回车</p></li>
+<li><p>进入u-boot的命令行模式，看到提示符bm1684#</p></li>
+<li><p>输入run recboot后回车</p></li>
+<li><p>可以看到一个简单的linux系统跑起来了，它是完全工作在ramdisk上的，故此您可以对eMMC上的分区做e2fsck等操作</p></li>
+<li><p>如果想要恢复出厂设置，您可以清空根文件系统的read-write部分（注意这会让您丢失除/system和/data目录下的全部东西）：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mdev<span class="w"> </span>-s
+mount<span class="w"> </span>/dev/mmcblk0p5<span class="w"> </span>/mnt
+rm<span class="w"> </span>-rf<span class="w"> </span>/mnt/*
+sync
+reboot<span class="w"> </span>-f
+</pre></div>
+</div>
+</li>
+<li><p>如果想要修正read-only分区里的内容：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mdev<span class="w"> </span>-s
+mount<span class="w"> </span>/dev/mmcblk0p4<span class="w"> </span>/mnt
+<span class="nb">cd</span><span class="w"> </span>/mnt
+<span class="c1"># 修改文件后：</span>
+sync
+reboot<span class="w"> </span>-f
+</pre></div>
+</div>
+</li>
+<li><p>如果想要恢复有问题的内核镜像：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mdev<span class="w"> </span>-s
+mount<span class="w"> </span>/dev/mmcblk0p1<span class="w"> </span>/mnt
+cp<span class="w"> </span>/mnt/emmcboot_backup.itb<span class="w"> </span>/mnt/emmcboot.itb
+<span class="c1"># emmcboot_backup.itb是原始镜像里就预装有的备份文件</span>
+sync
+reboot<span class="w"> </span>-f
+</pre></div>
+</div>
+</li>
+</ol>
+<p>如5.2节介绍，recovery
+mode存储于eMMC上的第二个分区，如果这个分区也有损坏就无法使用了。</p>
+</section>
+<section id="sd">
+<h3><a class="toc-backref" href="#id50" role="doc-backlink"><span class="section-number">3.3.4.3.13. </span>SD卡的兼容性</a><a class="headerlink" href="#sd" title="此标题的永久链接">¶</a></h3>
+<p>因为目前boot
+ROM的限制， BM1684X 仅支持使用MBR分区表，不支持GPT。您可以通过如下方式来检查是不是这种情况：</p>
+<p>将SD卡插到一台Ubuntu
+PC上，打开Disks应用，查看下图中Paritioning的信息，如果显示GUID Partition
+Table就是GPT分区表，显示Master Boot Record就是MBR分区表：</p>
+<a class="reference internal image-reference" href="../../_images/image30.png"><img alt="../../_images/image30.png" src="../../_images/image30.png" style="width: 4.56875in; height: 2.97431in;" /></a>
+<p>如果是GPT分区的，您把现有分区删光，重新建立分区，默认就会使用MBR分区表。</p>
+<p>因为目前u-boot的限制， BM1684X 不能使用那种没有分区表，直接放了一个FAT32文件系统的SD卡。您可以通过如下方式来检查是不是这种情况：</p>
+<p>将SD卡插到一台Ubuntu
+PC上，打开Disks应用，观察是否有下图所示删除分区的减号按钮，如果没有的话，则u-boot不能识别。</p>
+<a class="reference internal image-reference" href="../../_images/image31.png"><img alt="../../_images/image31.png" src="../../_images/image31.png" style="width: 5.54167in; height: 4.07292in;" /></a>
+<p>如何避免出现这种情况？这种SD卡通常发生在Windows上。如果您的SD卡因为某种原因发生了数据损坏，插到Windows
+PC提示需要格式化：</p>
+<a class="reference internal image-reference" href="../../_images/image32.png"><img alt="../../_images/image32.png" src="../../_images/image32.png" style="width: 3.00521in; height: 1.47636in;" /></a>
+<p>请不要直接在这里点格式化。请运行compmgmt.msc，打开计算机管理，选择磁盘管理，在右侧的磁盘列表中找到SD卡（分区类型显示为RAW），然后右键菜单选择删除卷：</p>
+<a class="reference internal image-reference" href="../../_images/image33.png"><img alt="../../_images/image33.png" src="../../_images/image33.png" style="width: 6.27083in; height: 4.20833in;" /></a>
+<p>删除卷后，SD卡会变为未分配状态：</p>
+<a class="reference internal image-reference" href="../../_images/image34.png"><img alt="../../_images/image34.png" src="../../_images/image34.png" style="width: 6.27083in; height: 2.90278in;" /></a>
+<p>此时再右键菜单选择新建简单卷，按照向导提示进行，注意文件系统类型选择FAT32，其余均保持默认设置即可。</p>
+<a class="reference internal image-reference" href="../../_images/image35.png"><img alt="../../_images/image35.png" src="../../_images/image35.png" style="width: 6.27083in; height: 4.93056in;" /></a>
+<p>如果您的卡已经存在这个问题，同样也用上述步骤，先删除卷，再新建简单卷即可。</p>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>注意这个操作会损坏您卡上的数据，请做好备份。</p>
+</div>
+</section>
+<section id="tftp">
+<h3><a class="toc-backref" href="#id51" role="doc-backlink"><span class="section-number">3.3.4.3.14. </span>使用tftp刷机</a><a class="headerlink" href="#tftp" title="此标题的永久链接">¶</a></h3>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>TODO: evb板子的网口在uboot下需要直连才能ping通</p>
+</div>
+<p>除了前文介绍的SD卡刷机方式之外。 BM1684X 的u-boot也支持通过以太网和tftp协议刷机。请注意tftp使用的刷机包与SD卡是不同的。</p>
+<p>首先需要搭建基础的网络环境：将 BM1684X 和一台PC机放在同一个路由器下（直连也可以）。此处假设路由器IP是192.168.0.1，PC机IP是192.168.0.2。在PC机上安装tftp
+server：如果是Ubuntu系统，apt-get install tftpd-hpa
+tftp-hpa，然后查看/etc/default/tftpd-hpa文件中的TFTP_DIRECTORY路径为何，将刷机包拷贝进去（您也可以修改这个路径配置，sudo
+service tftpd-hpa
+restart后即可生效）；如果是Windows系统，可以使用tftpd64.exe，图形界面，无需安装，同样需要将根目录指向刷机包所在位置。tftp
+server搭建好后，您可以用另一台PC先测试一下，避免网络、防火墙等配置问题。</p>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>推荐尽可能使用Ubuntu系统，Windows下的tftpd64对环境比较挑剔，在传输大文件时有时会不稳定，造成升级失败。</p>
+</div>
+<p>然后我们启动 BM1684X ：</p>
+<ol class="arabic">
+<li><p>接上串口终端，在看到u-boot提示Hit any key to stop autoboot时按下回车</p></li>
+<li><p>进入u-boot的命令行模式，看到提示符bm1684#</p></li>
+<li><p>输入：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">set</span><span class="w"> </span>ipaddr<span class="w"> </span><span class="m">192</span>.168.0.200
+<span class="nb">set</span><span class="w"> </span>gatewayip<span class="w"> </span><span class="m">192</span>.168.0.1
+<span class="nb">set</span><span class="w"> </span>serverip<span class="w"> </span><span class="m">192</span>.168.0.2
+tftp<span class="w"> </span>0x310000000<span class="w"> </span>boot.scr
+<span class="nb">source</span><span class="w"> </span>0x310000000
+</pre></div>
+</div>
+<p>此处，ipaddr是设置 BM1684X 的IP，注意不要冲突；serverip是tftp
+server所在PC机的IP；gatewayip是路由器的IP，如果 BM1684X 和PC机是直连的，则也写成PC机的IP即可。</p>
+</li>
+<li><p>正常的话您可以看到tftp开始下载和刷机了，一切结束后，和SD卡刷机一样会提示您reset BM1684X 。</p>
+<a class="reference internal image-reference" href="../../_images/image37.png"><img alt="../../_images/image37.png" src="../../_images/image37.png" style="width: 5.75in; height: 3.5625in;" /></a>
+</li>
+</ol>
+</section>
+<section id="id8">
+<h3><a class="toc-backref" href="#id52" role="doc-backlink"><span class="section-number">3.3.4.3.15. </span>文件系统变成只读的处理方法</a><a class="headerlink" href="#id8" title="此标题的永久链接">¶</a></h3>
+<p>如果进入Ubuntu后发现无法写入任何文件，敲mount命令后发现根目录被挂载成了只读的状态：</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>overlay<span class="w"> </span>on<span class="w"> </span>/<span class="w"> </span><span class="nb">type</span><span class="w"> </span>overlay<span class="w"> </span><span class="o">(</span>**ro**,relatime,lowerdir<span class="o">=</span>/media/root-ro,up<span class="w"> </span><span class="nv">perdir</span><span class="o">=</span>/media/root-rw/overlay,workdir<span class="o">=</span>/media/root-rw/overlay-workdir<span class="o">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>此时请检查开机的串口log是否有如下错误：</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span><span class="w"> </span><span class="m">3</span>.796601<span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="m">5</span><span class="o">]</span><span class="w"> </span>overlayfs:<span class="w"> </span>failed<span class="w"> </span>to<span class="w"> </span>create<span class="w"> </span>directory<span class="w"> </span>/media/root-rw/overlay-workdir/work<span class="w"> </span><span class="o">(</span>errno:<span class="w"> </span><span class="m">28</span><span class="o">)</span><span class="p">;</span><span class="w"> </span>mounting<span class="w"> </span>read-only
+</pre></div>
+</div>
+</div></blockquote>
+<p>再请检查df -h命令的输出是否可见第五分区被用光了：</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/dev/mmcblk0p5<span class="w"> </span><span class="m">25</span>.9G<span class="w"> </span><span class="m">5</span>.9G<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">100</span>%<span class="w"> </span>/media/root-rw
+</pre></div>
+</div>
+</div></blockquote>
+<p>若以上现象均吻合，请进入/media/root-rw/overlay目录，删除一些文件（通常是/home/linaro或者/var/log目录下，可以用du
+-h
+–max-depth=1命令来看一下），然后重启即可恢复正常。因为第五分区容量有限，如果用比较大的文件，建议存放到/data目录下，不要直接放在/home/linaro目录下。</p>
+</section>
+<section id="id9">
+<h3><a class="toc-backref" href="#id53" role="doc-backlink"><span class="section-number">3.3.4.3.16. </span>大容量存储需求</a><a class="headerlink" href="#id9" title="此标题的永久链接">¶</a></h3>
+<p>如果您有大容量存储的需求，可以考虑如下方案（以我们的参考底板为例）：</p>
+<ol class="arabic simple">
+<li><p>挂载NFS文件系统</p></li>
+</ol>
+<ol class="loweralpha">
+<li><p>准备一台Ubuntu PC机，与 BM1684X 放在同一个局域网内，在Ubuntu
+PC上做如下准备工作：</p>
+<ol class="lowerroman simple">
+<li><p>建立NFS文件系统的根目录，如/home/share/nfsroot</p></li>
+<li><p>安装NFS服务</p></li>
+</ol>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>nfs-kernel-server
+sudo<span class="w"> </span>vim<span class="w"> </span>/etc/exports
+<span class="c1"># 在最后添加一行：/home/share/nfsroot *(rw,sync,insecure,no_root_squash,no_subtree_check)</span>
+sudo<span class="w"> </span>/etc/init.d/rpcbind<span class="w"> </span>restart
+sudo<span class="w"> </span>/etc/init.d/nfs-kernel-server<span class="w"> </span>restart
+sudo<span class="w"> </span>exportfs<span class="w"> </span>-r
+</pre></div>
+</div>
+</div></blockquote>
+<ol class="lowerroman simple" start="3">
+<li><p>在本机测试是否配置成功，执行：</p></li>
+</ol>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>mount<span class="w"> </span>-t<span class="w"> </span>nfs<span class="w"> </span>localhost:/home/share/nfsroot<span class="w"> </span>/mnt
+</pre></div>
+</div>
+</div></blockquote>
+<p>正常应该没有任何报错，在/mnt下可以看到/home/share/nfsroot的内容</p>
+</li>
+<li><p>在 BM1684X 上执行，假定Ubuntu PC机的IP为192.168.1.100:</p>
+<ol class="lowerroman">
+<li><p>mount NFS目录到/mnt目录</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt<span class="w"> </span>update
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>nfs-common
+sudo<span class="w"> </span>mount<span class="w"> </span>-t<span class="w"> </span>nfs<span class="w"> </span>-o<span class="w"> </span>nolock<span class="w"> </span><span class="m">192</span>.168.1.100:/home/share/nfsroot<span class="w"> </span>/mnt
+</pre></div>
+</div>
+</li>
+<li><p>正常应该没有任何报错，在/mnt下可以看到Ubuntu
+PC机上/home/share/nfsroot的内容</p></li>
+</ol>
+</li>
+</ol>
+</section>
+<section id="id10">
+<h3><a class="toc-backref" href="#id54" role="doc-backlink"><span class="section-number">3.3.4.3.17. </span>如何修改内存布局</a><a class="headerlink" href="#id10" title="此标题的永久链接">¶</a></h3>
+<ol class="arabic simple">
+<li><p>参考  <a class="reference external" href="https://doc.sophgo.com/sdk-docs/v23.09.01-lts/docs_latest_release/docs/SophonSDK_doc/zh/html/appendix/2_mem_edit_tools.html">SoC模式内存修改工具</a> 修改内存。</p></li>
+<li><p>下文为原理参考</p></li>
+</ol>
+<p>BM1684X 的内存布局描述定义在device tree中，device
+tree会在编译后打包进板卡上的/boot/emmcboot.itb文件中。故如果您有bsp-sdk，可以直接修改板卡对应的device
+tree文件。如果您不想从源代码构建自己的镜像，我们也提供了两种方式修改板上现有的device
+tree。</p>
+<p>在开始修改之前，先介绍一下 BM1684X 的DDR设计，和device tree设计。</p>
+</section>
+<section id="product-ddr">
+<h3><a class="toc-backref" href="#id55" role="doc-backlink"><span class="section-number">3.3.4.3.18. </span>BM1684X 的DDR设计</a><a class="headerlink" href="#product-ddr" title="此标题的永久链接">¶</a></h3>
+<p>BM1684X 有4个
+channel，分别为DDR0A、DDR0B、DDR1和DDR2。其中DDR0A和DDR0B做了交织，以获得更大的带宽，故从软件的角度可以简化为DDR0、DDR1、DDR2三块内存区域。其中：</p>
+<ol class="arabic simple">
+<li><p>DDR0：主要给TPU使用，地址范围0x1_0000_0000 – 0x2_FFFF_FFFF</p></li>
+<li><p>DDR1：主要给Linux和VPU使用，地址范围0x3_0000_0000 – 0x3_FFFF_FFFFF</p></li>
+<li><p>DDR2：主要给VPP和JPU使用，地址范围0x4_0000_0000 – 0x4_FFFF_FFFF</p></li>
+</ol>
+<p>BM1684X 支持如下几种内存配置：</p>
+<ol class="arabic simple">
+<li><p>16GB内存：DDR0 8GB、DDR1 4GB、DDR2 4GB</p></li>
+<li><p>12GB内存：DDR0 4GB、DDR1 4GB、DDR2 4GB</p></li>
+<li><p>8GB内存：DDR0 4GB、DDR1 2GB、DDR2 2GB</p></li>
+</ol>
+<p>目前在售的 BM1684X 均为12GB内存的版本。此处要注意的是，每个DDR
+channel的起始地址是固定的，所以当内存小于16GB时，每个DDR
+channel从start_addr + size到下一个DDR channel的start_addr -
+1的地址区间没有对应的物理内存，不能使用。</p>
+<p>每个DDR
+channel上都有一些固定分配好的区域，不支持用户自行修改，具体如下：</p>
+<ol class="arabic simple">
+<li><p>DDR0：从0x1_0000_0000到0x1_0510_0000的空间分配给了ARM9使用</p></li>
+<li><p>DDR1：从0x3_0000_0000到0x3_1410_0000的空间分配给了Linux
+kernel的一些固定用途。从0x3_1410_0000开始还需要给Linux
+kernel预留一些空间，目前工具里预设为512MB。</p></li>
+</ol>
+<p>综上，可以让用户自行修改的主要有如下几个区域：</p>
+<ol class="arabic simple">
+<li><p>DDR0上的TPU区域</p></li>
+<li><p>DDR1上的VPU区域</p></li>
+<li><p>DDR2上的VPP/JPU区域</p></li>
+</ol>
+<p>用户可以根据自己的业务使用状况对上述三个区域进行调整，注意并不能跨DDR
+channel，比如TPU的区域，只能在DDR0上，并不能扩展到DDR1上。也即这三个区域的大小上限为每个DDR
+channel的实际物理内存大小减去前述的固定分配区域。除了这三个区域以外的内存，默认都交给Linux
+kernel进行管理，也即所谓系统内存。</p>
+<p>另外，可以不分配独立的VPU区域，VPU相关软件检查到这种情况后会自动去使用VPP/JPU区域。如果想要系统内存比较大，可以考虑这种方式。如果想要最大化利用DDR带宽，请保持独立的VPU区域。</p>
+</section>
+<section id="product-device-tree">
+<h3><a class="toc-backref" href="#id56" role="doc-backlink"><span class="section-number">3.3.4.3.19. </span>BM1684X 的device tree设计</a><a class="headerlink" href="#product-device-tree" title="此标题的永久链接">¶</a></h3>
+<p>BM1684X 的device tree源码采用了层级结构，源代码位于bsp-sdk/linux-bitmain/arch/arm64/boot/dts/bitmain下，修改时可以参考BM1684的实现，如标准版的BM1684使用的是bm1684_asic_modm.dts文件。可以看到它里面include了如下几个文件：</p>
+<p>#include “bm1684.dtsi” → BM1684 SoC芯片的硬件描述</p>
+<p>#include “bm1684_mm_12g.dtsi” → 对应12GB物理内存的布局描述</p>
+<p>#include “bm1684_asic_mod.dtsi” → BM1684板级的硬件描述</p>
+<p>BM1684X 使用单一软件包支持多种板卡产品，每张板卡都有自己对应的device
+tree文件来描述内存容量、外设选择等不同的配置。Bootloader会在开机时通过读取的板卡硬件型号，选用对应的device
+tree。所有的device
+tree文件都被打包到emmcboot.itb文件中，也即一个emmcboot.itb文件中，包含了一个kernel
+image，一个ramdisk，还有十多个板卡的device tree文件。</p>
+<p>emmcboot.itb使用its文件来描述打包进去的文件名和顺序，源码位于bsp-sdk/ramdisk/build/bm1684_asic/workspace/multi.its.base。在板卡上也存放了一份在/boot/multi.its。正常情况下/boot目录下的emmcboot.itb和multi.its文件是匹配的，除非曾经单独升级过某个文件。its文件是向前兼容的，即只会顺序在后面加入新的板卡文件，不会修改或替换前面旧有的。</p>
+</section>
+<section id="id11">
+<h3><a class="toc-backref" href="#id57" role="doc-backlink"><span class="section-number">3.3.4.3.20. </span>修改源代码</a><a class="headerlink" href="#id11" title="此标题的永久链接">¶</a></h3>
+<p>修改了device
+tree文件后，请参考6.3节修改kernel的描述，重新生成emmcboot.itb即可。为了方便操作，如果您不需要考虑多种板卡不同内存布局的话，您可以可以使用bsp-sdk/linux-bitmain/tools/mm_layout下的gen_mm_dts.py脚本（推荐Ubuntu
+20.04，python 2.7）来生成一套device tree格式的memoy
+layout描述文件。运行时会提示您提供如下信息：</p>
+<ol class="arabic simple">
+<li><p>物理内存大小</p></li>
+<li><p>TPU区域大小</p></li>
+<li><p>是否使用独立的VPU区域，是的话大小为多少</p></li>
+<li><p>VPP区域大小</p></li>
+</ol>
+<p>执行完毕后在output目录下会生成bm1684_mm_16g.dtsi（内存容量不同，文件名会变化），用它替换linux-source/arch/arm64/boot/dts/bitmain目录下的同名文件，重新编译kernel和emmcboot.itb即可。</p>
+</section>
+<section id="id12">
+<h3><a class="toc-backref" href="#id58" role="doc-backlink"><span class="section-number">3.3.4.3.21. </span>修改SoC预制的内存布局工具</a><a class="headerlink" href="#id12" title="此标题的永久链接">¶</a></h3>
+<p>如果您想直接修改当前板卡上的内存布局，请获取工具包 <a class="reference external" href="https://doc.sophgo.com/sdk-docs/v23.09.01-lts/docs_latest_release/docs/SophonSDK_doc/zh/html/appendix/2_mem_edit_tools.html">https://doc.sophgo.com/sdk-docs/v23.09.01-lts/docs_latest_release/docs/SophonSDK_doc/zh/html/appendix/2_mem_edit_tools.html</a></p>
+</section>
+<section id="id13">
+<h3><a class="toc-backref" href="#id59" role="doc-backlink"><span class="section-number">3.3.4.3.22. </span>板卡类型判断</a><a class="headerlink" href="#id13" title="此标题的永久链接">¶</a></h3>
+<p>BM1684X 的bootloader会通过若干条件组合判断自己的板卡类型：</p>
+<ol class="arabic simple">
+<li><p>读取MCU提供的板卡类型信息</p></li>
+<li><p>读取MCU提供的板卡硬件版本信息</p></li>
+<li><p>判断PCIe EP是否有连接到上位机</p></li>
+</ol>
+</section>
+<section id="ko">
+<h3><a class="toc-backref" href="#id60" role="doc-backlink"><span class="section-number">3.3.4.3.23. </span>开机后没有自动加载ko文件</a><a class="headerlink" href="#ko" title="此标题的永久链接">¶</a></h3>
+<p>BM1684X 上预装的ko主要在两个位置：一个是常规的/lib/modules/$(uname
+-r)/kernel目录，这个是一般Linux系统摆放ko文件的地方，通常kernel会自动按需加载其中的ko；另一个是/opt/sophon/libsophon-current/data下，这里摆放了 BM1684X 的VPU、JPU、TPU驱动的ko文件，开机时会通过一个自动执行脚本（/usr/sbin/bmrt_setup.sh）自动加载。</p>
+<p>如果开机后您发现某个/lib/modules下的驱动没有自动加载，比如fl2000.ko、smifb.ko之类，最常见的问题是您替换了/boot/emmcboot.itb，造成当前kernel的版本号，与/lib/modules目录下的名字不一致，于是kernel不能找到自己对应的ko文件。您可以尝试这样做：</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/lib/modules
+<span class="c1"># 查看当前目录下的文件夹名字，比如是5.4.202-bm1684</span>
+
+<span class="c1"># 通过uname -r检查当前kernel的版本号，比如是5.4.203-bm1684，与文件夹名字不一致</span>
+ln<span class="w"> </span>-s<span class="w"> </span><span class="m">5</span>.4.202-bm1684<span class="w"> </span><span class="k">$(</span>uname<span class="w"> </span>-r<span class="k">)</span>
+<span class="c1"># 即创建一个以当前kernel版本号为名字的软链接指向原来的文件夹</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>最后重启系统，如果新旧两版kernel的差异不大的话，驱动可以兼容，通常都可以自动加载驱动了。</p>
+</section>
+<section id="id14">
+<h3><a class="toc-backref" href="#id61" role="doc-backlink"><span class="section-number">3.3.4.3.24. </span>开机后自动运行业务</a><a class="headerlink" href="#id14" title="此标题的永久链接">¶</a></h3>
+<p>建议您创建一个开机自启动的服务来实现开机后自动运行您的业务应用。 BM1684X 开机后的一个核心服务是bmrt_setup，它包含如下三个关键文件：</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>/etc/systemd/system/bmrt_setup.service （服务描述文件）
+/etc/systemd/system/multi-user.target.wants/bmrt_setup.service（软链接）
+/usr/sbin/bmrt_setup.sh （执行文件）
+</pre></div>
+</div>
+</div></blockquote>
+<p>您可以参考它的写法。在这个服务中，我们加载了VPU、JPU、TPU等关键驱动，所以请把您的服务放在这个服务后面执行，或者在您的业务逻辑中等待驱动加载完成（可以使用systemd-analyze
+plot &gt;
+boot.svg生成一张启动详细信息矢量图，然后用图像浏览器或者网页浏览器打开查看所有服务的启动顺序和耗时）。</p>
+<p>如果是简单实验的话，您也可以把应用直接加在bmrt_setup.sh文件末尾，不要加&amp;，否则bmrt_setup.sh执行结束时您的程序也会被杀掉（可以用nohup搭配&amp;解决这个问题）。但这样还有一个问题是用printf打印的log只有当程序结束时才会输出到/var/log/syslog，如果程序是while(1)常驻的，就看不到log，暂解是用fprintf(stderr,
+“xxx”)来替代printf打印log。</p>
+</section>
+<section id="spi-flash">
+<h3><a class="toc-backref" href="#id62" role="doc-backlink"><span class="section-number">3.3.4.3.25. </span>使用串口更新SPI flash</a><a class="headerlink" href="#spi-flash" title="此标题的永久链接">¶</a></h3>
+<p>通常我们都是使用flash_update命令，或者SD卡、tftp刷机的方式来更新SPI
+flash。但是您在调试u-boot的过程中可能会遇到上述方式都失效的情况，这时可以考虑使用串口命令行来重刷SPI
+flash。</p>
+<p>您需要有一个支持以ymodem协议发送文件的串口终端工具，推荐使用TeraTerm或minicom。下文以Windows上使用TeraTerm为例。</p>
+<ol class="arabic">
+<li><p>请在上电前就在串口终端中按住F键</p></li>
+<li><p>给模组上电，正常您应该看到如下的打印效果：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>NOTICE:<span class="w">  </span>GPIO0:<span class="w"> </span><span class="m">0</span>
+PCIe<span class="w"> </span><span class="m">368645</span>
+NOTICE:<span class="w">  </span>BOOT:<span class="w"> </span><span class="m">7000000</span>/0/0
+NOTICE:<span class="w">  </span>Booting<span class="w"> </span>Trusted<span class="w"> </span>Firmware
+NOTICE:<span class="w">  </span>BL1:<span class="w"> </span>v2.5<span class="o">(</span>NOTICE:<span class="w">  </span>GPIO0:<span class="w"> </span><span class="m">0</span>
+PCIe<span class="w"> </span><span class="m">111258</span>
+NOTICE:<span class="w">  </span>BOOT:<span class="w"> </span><span class="m">7000000</span>/0/0
+NOTICE:<span class="w">  </span>Booting<span class="w"> </span>Trusted<span class="w"> </span>Firmware
+NOTICE:<span class="w">  </span>BL1:<span class="w"> </span>v2.5<span class="o">(</span>release<span class="o">)</span>:bm1686_rom_v6
+NOTICE:<span class="w">  </span>BL1:<span class="w"> </span>Built<span class="w"> </span>:<span class="w"> </span><span class="m">19</span>:08:47,<span class="w"> </span>Jan<span class="w"> </span><span class="m">24</span><span class="w"> </span><span class="m">2022</span>
+INFO:<span class="w">    </span>BL1:<span class="w"> </span>RAM<span class="w"> </span>0x10002000<span class="w"> </span>-<span class="w"> </span>0x1000d000
+<span class="c1"># NOTICE:  GPIO0: 0</span>
+PCIe<span class="w"> </span><span class="m">111256</span>
+NOTICE:<span class="w">  </span>BOOT:<span class="w"> </span><span class="m">7000000</span>/0/0
+NOTICE:<span class="w">  </span>Booting<span class="w"> </span>Trusted<span class="w"> </span>Firmware
+NOTICE:<span class="w">  </span>BL1:<span class="w"> </span>v2.5<span class="o">(</span>release<span class="o">)</span>:bm1686_rom_v6
+NOTICE:<span class="w">  </span>BL1:<span class="w"> </span>Built<span class="w"> </span>:<span class="w"> </span><span class="m">19</span>:08:47,<span class="w"> </span>Jan<span class="w"> </span><span class="m">24</span><span class="w"> </span><span class="m">2022</span>
+INFO:<span class="w">    </span>BL1:<span class="w"> </span>RAM<span class="w"> </span>0x10002000<span class="w"> </span>-<span class="w"> </span>0x1000d000
+<span class="c1"># fffffffffffffffffff</span>
+</pre></div>
+</div>
+</li>
+<li><p>这时您已经进入了boot
+ROM的命令行，请多敲几次回车，避免有非法的命令字符干扰</p></li>
+<li><p>输入ymodem 0x10100000，回车，应该可以看到如下效果：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># NOTICE:  GPIO0: 0</span>
+PCIe<span class="w"> </span><span class="m">111252</span>
+NOTICE:<span class="w">  </span>BOOT:<span class="w"> </span><span class="m">7000000</span>/0/0
+NOTICE:<span class="w">  </span>Booting<span class="w"> </span>Trusted<span class="w"> </span>Firmware
+NOTICE:<span class="w">  </span>BL1:<span class="w"> </span>v2.5<span class="o">(</span>release<span class="o">)</span>:bm1686_rom_v6
+NOTICE:<span class="w">  </span>BL1:<span class="w"> </span>Built<span class="w"> </span>:<span class="w"> </span><span class="m">19</span>:08:47,<span class="w"> </span>Jan<span class="w"> </span><span class="m">24</span><span class="w"> </span><span class="m">2022</span>
+INFO:<span class="w">    </span>BL1:<span class="w"> </span>RAM<span class="w"> </span>0x10002000<span class="w"> </span>-<span class="w"> </span>0x1000d000
+<span class="c1"># ffffffffffffffffffffffff</span>
+<span class="c1"># ymodem 0x10100000</span>
+C
+</pre></div>
+</div>
+</li>
+<li><p>此时请尽快在串口终端中使用ymodem协议发送spi_flash.bin文件：</p>
+<a class="reference internal image-reference" href="../../_images/image45.png"><img alt="../../_images/image45.png" src="../../_images/image45.png" style="width: 5.0625in; height: 3.20604in;" /></a>
+</li>
+<li><p>然后稍等片刻就应该可以看到文件开始传输了：</p>
+<a class="reference internal image-reference" href="../../_images/image46.png"><img alt="../../_images/image46.png" src="../../_images/image46.png" style="width: 2.5625in; height: 2.30729in;" /></a>
+</li>
+<li><p>等传输结束后可以看到串口有如下显示，如果有任何错误，或者传输文件大小与spi_flash.bin并不一致请重做1-6步：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># ymodem 0x10100000</span>
+CCxyzModem<span class="w"> </span>-<span class="w"> </span>CRC<span class="w"> </span>mode,<span class="w"> </span><span class="m">2</span><span class="o">(</span>SOH<span class="o">)</span>/985<span class="o">(</span>STX<span class="o">)</span>/0<span class="o">(</span>CAN<span class="o">)</span><span class="w"> </span>packets,<span class="w"> </span><span class="m">6</span><span class="w"> </span>retries
+<span class="c1">## Total Size      = 0x000f6074 = 1007732 Bytes</span>
+<span class="c1">#</span>
+</pre></div>
+</div>
+<p>记住此处打印的Total Size，下一步需要用到</p>
+</li>
+<li><p>此时输入spif 0x10100000 0x0 0xf6074，回车，稍等片刻就可以看到开始刷写SPI flash了：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># spif 0x10100000 0x0 0xf6074</span>
+INFO:<span class="w">    </span>SPI<span class="w"> </span>flash<span class="w"> </span>ID<span class="w"> </span>0x1860c8
+INFO:<span class="w">    </span>Start<span class="w"> </span>erasing<span class="w"> </span><span class="m">16</span><span class="w"> </span>sectors,<span class="w"> </span>each<span class="w"> </span><span class="m">65536</span><span class="w"> </span>bytes...
+<span class="nb">read</span><span class="w"> </span>flash:
+<span class="w">  </span><span class="m">0</span><span class="w">  </span>ff<span class="w"> </span>ff<span class="w"> </span>ff<span class="w"> </span>ff<span class="w"> </span>ff<span class="w"> </span>ff<span class="w"> </span>ff<span class="w"> </span>ff<span class="w">                        </span>........
+INFO:<span class="w">    </span>--program<span class="w"> </span>boot<span class="w"> </span>fw,<span class="w"> </span>page<span class="w"> </span>size<span class="w"> </span><span class="m">256</span>
+progress:<span class="w"> </span><span class="m">49</span>%
+</pre></div>
+</div>
+</li>
+<li><p>待刷写过程结束后可以看到：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>INFO:
+--program<span class="w"> </span>boot<span class="w"> </span>fw<span class="w"> </span>success
+<span class="nb">read</span><span class="w"> </span>flash:
+<span class="w">  </span><span class="m">0</span><span class="w">  </span>e0<span class="w"> </span><span class="m">3</span><span class="w"> </span>1f<span class="w"> </span>aa<span class="w"> </span>e1<span class="w"> </span><span class="m">3</span><span class="w"> </span>1f<span class="w"> </span>aa<span class="w">                          </span>........
+<span class="c1">#</span>
+</pre></div>
+</div>
+</li>
+<li><p>此时敲reset再回车，或者直接下电再上电，重启后就是使用您刚才烧录进入的bootloader版本了，可以通过u-boot打印的编译时间来确认。</p></li>
+</ol>
+</section>
+<section id="id15">
+<h3><a class="toc-backref" href="#id63" role="doc-backlink"><span class="section-number">3.3.4.3.26. </span>日志文件过大怎么办</a><a class="headerlink" href="#id15" title="此标题的永久链接">¶</a></h3>
+<p>系统运行中的日志保存在/var/log目录下，包括用户态的syslog，内核态的kern.log等文件。系统默认有开启logrotate服务，触发周期为1天，当logrotate触发时，它会把当前的syslog等日志文件压缩，依次保存成syslog.1.gz、syslog.2.gz、syslog.3.gz等等，序号最多到7。</p>
+<p>所以按这个机制，如果您在一天内频繁打印了太多日志，就有可能使得日志文件过大，占满磁盘空间。如果确实有打印大量日志的需求，sudo
+logrotate -f
+/etc/logrotate.conf可以强制触发一次logrotate，或者可以按照下图将logrotate的策略从daily改成类似size=10M这样，就可以把lograte改成按照日志文件大小来触发：</p>
+<blockquote>
+<div><a class="reference internal image-reference" href="../../_images/image91.jpeg"><img alt="../../_images/image91.jpeg" src="../../_images/image91.jpeg" style="width: 5.76in; height: 2.46in;" /></a>
+</div></blockquote>
+<dl>
+<dt>目前系统/etc/logrotate.d/rsyslog可能初始设置为size=300M：</dt><dd><a class="reference internal image-reference" href="../../_images/image50.png"><img alt="../../_images/image50.png" src="../../_images/image50.png" style="width: 7.56in; height: 2.13in;" /></a>
+</dd>
+</dl>
+<p>但这里要注意的是，logroate是通过/etc/cron.daily/logrotate触发执行的，而只有当它执行时才会去检查上面这些规则文件，
+所以如果只在上面配置文件里修改成hourly或者size
+10M，并不能直接生效。需要首先sudo mv /etc/cron.daily/logrotate
+/etc/cron.hourly，让logrotate每小时执行一次，它才有机会去检查/etc/logrotate.conf文件，进而执行您修改后的更激进的设置。</p>
+</section>
+<section id="id16">
+<h3><a class="toc-backref" href="#id64" role="doc-backlink"><span class="section-number">3.3.4.3.27. </span>如何修改自动挂载点</a><a class="headerlink" href="#id16" title="此标题的永久链接">¶</a></h3>
+<p>BM1684X 的磁盘挂载点文件是/etc/fstab，但您并不能通过直接编辑这个文件来修改开机自动挂载磁盘。原因是为了支持多种启动方式和分区方案， BM1684X 上/etc/fstab是在开机时由ramdisk中的启动脚本从/etc/fstab.xxxx等文件中选一个复制出来的。所以如果要修改挂载点的话，通常的配置下您需要去修改/etc/fstab.emmc.ro这个文件。</p>
+<p>而这个文件是位于read-only分区中，所以需要通过如下步骤修改：</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>mount<span class="w"> </span>-o<span class="w"> </span>remount,rw<span class="w"> </span>/dev/mmcblk0p4
+sudo<span class="w"> </span>cp<span class="w"> </span>/media/root-ro/etc/fstab.emmc.ro<span class="w"> </span>/media/root-ro/etc/fstab.emmc.ro.bak
+sudo<span class="w"> </span>vim<span class="w"> </span>/media/root-ro/etc/fstab.emmc.ro
+<span class="c1"># 修改完成后：</span>
+sudo<span class="w"> </span>reboot
+</pre></div>
+</div>
+</div></blockquote>
+<p>注意请一定在修改前备份文件，并请慎重进行修改，因为如果挂载失败可能造成进不了系统的问题。比如不建议在fstab写上U盘之类可能被移除的设备。如果一定要开机自动挂载可移除存储设备，请在fstab里加上nofail选项，如下示例。也可以考虑加一个开机自动运行的服务或者udev规则来实现。</p>
+<blockquote>
+<div><table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>/dev/sda1 /var/lib/docker ext4 defaults,nofail 0 0</p>
+<p>/dev/sda2 /var/lib/kubelet ext4 defaults,nofail 0 0</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p>如果一旦重启后出现问题，请参考9.2节的描述进入recovery mode做修正。</p>
+</section>
+<section id="id17">
+<h3><a class="toc-backref" href="#id65" role="doc-backlink"><span class="section-number">3.3.4.3.28. </span>如何判断异常重启的原因</a><a class="headerlink" href="#id17" title="此标题的永久链接">¶</a></h3>
+<p>在/root/.boot/目录下，有很多以时间命名的txt文件，格式为“月-日-时-分-秒”，表示某次开机的时间，如11-02-19-38-51.txt，可以用xxd命令显示它的内容，如：</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&gt;<span class="w"> </span>sudo<span class="w"> </span>-i
+&gt;<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>/root/.boot
+&gt;<span class="w"> </span>xxd<span class="w"> </span><span class="m">11</span>-02-19-38-51.txt
+<span class="w">  </span><span class="m">00000000</span>:<span class="w"> </span><span class="m">8200</span><span class="w"> </span><span class="m">0000</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>显示出的第一个字节，0x82，即为这次开机的原因。具体列表如下：</p>
+<blockquote>
+<div><p>0x0-0x7F：预留</p>
+<p>0x80：系统收到下电命令</p>
+<p>0x81：系统使用拉复位管脚的方式进行重启</p>
+<p>0x82：系统使用下电再上电的方式进行重启</p>
+<p>0x83：芯片过热重启</p>
+<p>0x84：看门狗超时重启</p>
+</div></blockquote>
+</section>
+</section>
+<section id="id18">
+<h2><a class="toc-backref" href="#id66" role="doc-backlink"><span class="section-number">3.3.4.4. </span>SM5参考方案</a><a class="headerlink" href="#id18" title="此标题的永久链接">¶</a></h2>
+<p>SM5作为一个半成品，需要客户进行二次开发，在BSP软件和外围设备上拥有很高的定制自由度，客户的需求也各有不同，所以在此我们提供一些参考方案，这些方案没有经过严格的产品化测试，客户可以酌情谨慎采用，集成到自己的方案中。请做好充足的测试后再进行实际产品的部署。</p>
+<section id="id19">
+<h3><a class="toc-backref" href="#id67" role="doc-backlink"><span class="section-number">3.3.4.4.1. </span>本地刷机方案</a><a class="headerlink" href="#id19" title="此标题的永久链接">¶</a></h3>
+<p>SM5模组提供了SD卡和tftp两种刷机方式，详见SM5指南。客户可以选择两种方式来定制自己的刷机包：</p>
+<ol class="arabic simple">
+<li><p>使用上面提到的BSP SDK来创建刷机包，这种拥有最大的自由度，但需要学习相关脚本的使用；</p></li>
+<li><p>将自己的程序提供给算能，由算能制作刷机包在模组出厂时刷好，这种比较适合大批量出货，不适合开发阶段频繁版本迭代；</p></li>
+</ol>
+<p>当然客户也可以选择只刷算能的官方通用刷机包，然后再通过网络等方式把自己的业务应用部署上去。</p>
+<p>在上述SD卡刷机包的基础上，这里再提供一种不依赖于SD卡的升级方案。这并不是一个完整的OTA方案，并不包含版本管理、分发等功能，仅仅只是提供拿到升级包后刷到SM5上这最后一公里的方案，客户仍然需要自行实现刷机包部署。也并不支持差分包的方式，主要只是为了方便把SD卡刷机包刷到SM5上。
+操作步骤如下：</p>
+<ol class="arabic">
+<li><p>首先并不是所有的SD卡刷机包都支持这种方式升级，建议先与技术支持确认。主要是两个限制：
+a. 刷机包里包含的脚本要支持这种方式
+b. 从SM5当在的版本，到刷机包里的版本，eMMC上的分区布局没有发生过变化</p></li>
+<li><p>请把SD卡刷机包里的全部文件丢到SM5的/data目录下，效果如下，建议最好能做一下md5校验，确保文件正确：</p>
+<blockquote>
+<div><img alt="../../_images/soc_ls_data.png" src="../../_images/soc_ls_data.png" />
+</div></blockquote>
+</li>
+<li><p>然后输入如下命令，请务必核对输入的字母，如果有问题了修复起来比较麻烦，最好写到一个脚本文件里来执行</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="o">-</span><span class="n">i</span>
+<span class="n">echo</span> <span class="o">-</span><span class="n">e</span> <span class="s2">&quot;boot-recovery</span><span class="se">\n</span><span class="s2">/DATA/&quot;</span> <span class="o">&gt;</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">mmcblk0p3</span>
+</pre></div>
+</div>
+</li>
+<li><p>然后读取一下看是否符合预期：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>cat /dev/mmcblk0p3
+预期要能看到：
+boot-recovery
+/DATA/
+然后按ctrl+c结束
+</pre></div>
+</div>
+</li>
+<li><p>最后重启系统，请注意不要直接拔电源，以免文件损坏：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sync</span>
+<span class="n">sudo</span> <span class="n">reboot</span>
+</pre></div>
+</div>
+</li>
+<li><p>正常情况下，重启后应该可以从串口log看到开始刷机了，此过程中请务必不要断电（SE5产品可以通过面板上的指示灯判断升级是否成功，请参考SE5产品手册；SM5产品只能通过串口log，或者等待几分钟后重新尝试ssh登入来确认）：</p>
+<blockquote>
+<div><img alt="../../_images/soc_brush.png" src="../../_images/soc_brush.png" />
+</div></blockquote>
+</li>
+<li><p>刷机完成后，SM5会自动重启，待重新进入系统后可以通过bm_version命令查看版本号，确认升级是否成功。请注意/data分区并不会被清除，里面的文件都会保存下来。</p></li>
+</ol>
+<p>如果过程中遇到问题，请参考SM5指南中关于recovery mode的介绍，通过串口终端进入recovery mode的命令行后，可以通过如下命令清除升级标记</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mdev</span> <span class="o">-</span><span class="n">s</span>
+<span class="n">dd</span> <span class="k">if</span><span class="o">=/</span><span class="n">dev</span><span class="o">/</span><span class="n">zero</span> <span class="n">of</span><span class="o">=/</span><span class="n">dev</span><span class="o">/</span><span class="n">mmcblk0p3</span> <span class="n">bs</span><span class="o">=</span><span class="mi">512</span> <span class="n">count</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">sync</span>
+<span class="n">reboot</span> <span class="o">-</span><span class="n">f</span>
+</pre></div>
+</div>
+<p>如果升级程序还没有清除eMMC上的数据，上述方式应该可以使您进入原来的系统。如果eMMC上的数据已经被破坏，甚至连recovery mode都进不去了，那么只能再通过SD卡刷机来恢复了。</p>
+</section>
+<section id="id20">
+<h3><a class="toc-backref" href="#id68" role="doc-backlink"><span class="section-number">3.3.4.4.2. </span>网络刷机方案</a><a class="headerlink" href="#id20" title="此标题的永久链接">¶</a></h3>
+<p>SM5指南上已经介绍了tftp刷机，但需要手工敲命令的方式，这里再提供一个便于自动化的方案：
+SM5的内核启动方式是u-boot去加载/boot目录下的boot.scr.emmc脚本，解析里面的命令，找到内核去启动。所以我们可以通过把tftp升级用的命令替换进这个脚本，让SM5一开机就自动进入tftp升级。只有当tftp升级成功完成时，才会把这个脚本刷回正常的启动脚本；如果升级失败，重启SM5就可以再次进行tftp升级。
+脚本内容如下：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">echo</span> <span class="s2">&quot;set serverip 10.0.0.3; dhcp 0x310000000 \$serverip:boot.scr; set reset_after 1; source 0x310000000&quot;</span> <span class="o">&gt;</span> <span class="n">boot</span><span class="o">.</span><span class="n">txt</span>
+<span class="c1"># 这里serverip要设置成tftp server的IP，SM5需要与这个server在同一个网关下</span>
+<span class="n">mkimage</span> <span class="o">-</span><span class="n">A</span> <span class="n">arm64</span> <span class="o">-</span><span class="n">O</span> <span class="n">linux</span> <span class="o">-</span><span class="n">T</span> <span class="n">script</span> <span class="o">-</span><span class="n">C</span> <span class="n">none</span> <span class="o">-</span><span class="n">a</span> <span class="mi">0</span> <span class="o">-</span><span class="n">e</span> <span class="mi">0</span> <span class="o">-</span><span class="n">n</span> <span class="s2">&quot;Distro Boot Script&quot;</span> <span class="o">-</span><span class="n">d</span> <span class="n">boot</span><span class="o">.</span><span class="n">txt</span> <span class="n">boot</span><span class="o">.</span><span class="n">scr</span><span class="o">.</span><span class="n">emmc</span>
+<span class="n">sudo</span> <span class="n">cp</span> <span class="o">./</span><span class="n">boot</span><span class="o">.</span><span class="n">scr</span><span class="o">.</span><span class="n">emmc</span> <span class="o">/</span><span class="n">boot</span>
+<span class="n">sudo</span> <span class="n">reboot</span>
+</pre></div>
+</div>
+</section>
+<section id="id21">
+<h3><a class="toc-backref" href="#id69" role="doc-backlink"><span class="section-number">3.3.4.4.3. </span>图形界面</a><a class="headerlink" href="#id21" title="此标题的永久链接">¶</a></h3>
+<p>SM5可以通过如下几种方式得到图形界面，有时可以用来方便在板上做一些开发工作或者快速原型验证：</p>
+<ol class="arabic simple">
+<li><p>通过PCIe连接SM750/768芯片的显卡</p></li>
+<li><p>通过USB连接FL2000芯片的HDMI dongle</p></li>
+<li><p>不连接外部显示设备，在另一台主机上通过VNC登录</p></li>
+</ol>
+<p>前两种连接外部显示设备的方案，可以通过如下方式来使能图形界面（建议使用xfce4，Debian 9仓库里的lxde可能会遇到拖拽窗口时死机的问题）：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>sudo apt update
+sudo apt install xfce4
+sudo reboot
+待重启后应该就可以看到图形界面了，通过USB键鼠即可操作，
+需要再通过如下命令关闭休眠机制，以免遇到唤醒问题
+xset s off -dpms
+</pre></div>
+</div>
+<p>两种方式相比，更推荐SM750/768的方案，CPU占用率低。FL2000方案会至少用掉一个CPU core来刷新图像。
+最后一种VNC的方式通过如下步骤来使能：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>sudo apt update
+sudo apt install xserver-xorg-video-dummy x11vnc xfce4
+sudo cp xorg.conf /etc/X11/
+sudo systemctl disable gfx-feeder
+sudo reboot
+sudo x11vnc -display :0 -auth /var/lib/lightdm/.Xauthority &amp;
+然后就可以在另一台主机上用$sm5_ip:0地址来VNC了
+</pre></div>
+</div>
+<p>上述用到的xorg.conf文件如下：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Section</span> <span class="s2">&quot;Device&quot;</span>
+    <span class="n">Identifier</span>  <span class="s2">&quot;Configured Video Device&quot;</span>
+    <span class="n">Driver</span>      <span class="s2">&quot;dummy&quot;</span>
+    <span class="n">VideoRam</span> <span class="mi">256000</span>
+<span class="n">EndSection</span>
+
+<span class="n">Section</span> <span class="s2">&quot;Monitor&quot;</span>
+    <span class="n">Identifier</span>  <span class="s2">&quot;Configured Monitor&quot;</span>
+    <span class="n">HorizSync</span> <span class="mf">5.0</span> <span class="o">-</span> <span class="mf">1000.0</span>
+    <span class="n">VertRefresh</span> <span class="mf">5.0</span> <span class="o">-</span> <span class="mf">200.0</span>
+    <span class="n">ModeLine</span> <span class="s2">&quot;1920x1080&quot;</span> <span class="mf">148.50</span> <span class="mi">1920</span> <span class="mi">2448</span> <span class="mi">2492</span> <span class="mi">2640</span> <span class="mi">1080</span> <span class="mi">1084</span> <span class="mi">1089</span> <span class="mi">1125</span> <span class="o">+</span><span class="n">Hsync</span> <span class="o">+</span><span class="n">Vsync</span>
+<span class="c1">#    Modeline &quot;1280x800&quot; 24.15 1280 1312 1400 1432 800 819 822 841</span>
+<span class="n">EndSection</span>
+
+<span class="n">Section</span> <span class="s2">&quot;Screen&quot;</span>
+    <span class="n">Identifier</span>  <span class="s2">&quot;Default Screen&quot;</span>
+    <span class="n">Monitor</span>     <span class="s2">&quot;Configured Monitor&quot;</span>
+    <span class="n">Device</span>      <span class="s2">&quot;Configured Video Device&quot;</span>
+    <span class="n">DefaultDepth</span> <span class="mi">24</span>
+    <span class="n">SubSection</span> <span class="s2">&quot;Display&quot;</span>
+    <span class="n">Depth</span> <span class="mi">24</span>
+    <span class="n">Modes</span> <span class="s2">&quot;1920x1080&quot;</span>
+<span class="c1">#    Modes &quot;1280x800&quot;</span>
+    <span class="n">EndSubSection</span>
+<span class="n">EndSection</span>
+</pre></div>
+</div>
+</section>
+<section id="perfetto">
+<h3><a class="toc-backref" href="#id70" role="doc-backlink"><span class="section-number">3.3.4.4.4. </span>用Perfetto工具分析性能</a><a class="headerlink" href="#perfetto" title="此标题的永久链接">¶</a></h3>
+<p>从2.3.1版本开始，SM5预装了Perfetto工具，可以通过如下步骤使用：</p>
+<ol class="arabic">
+<li><p>写一个Perfetto的配置文件，放到SM5上。配置文件描述了要抓取什么样的系统信息。可以参考下面的scheduling.cfg文件写法，这个配置文件会抓取系统进程调度的信息：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># One buffer allocated within the central tracing binary for the entire trace,</span>
+<span class="c1"># shared by the two data sources below.</span>
+<span class="n">buffers</span> <span class="p">{</span>
+<span class="n">size_kb</span><span class="p">:</span> <span class="mi">20480</span>
+<span class="n">fill_policy</span><span class="p">:</span> <span class="n">DISCARD</span>
+<span class="p">}</span>
+
+<span class="c1"># Ftrace data from the kernel, mainly the process scheduling events.</span>
+<span class="n">data_sources</span> <span class="p">{</span>
+<span class="n">config</span> <span class="p">{</span>
+    <span class="n">name</span><span class="p">:</span> <span class="s2">&quot;linux.ftrace&quot;</span>
+    <span class="n">target_buffer</span><span class="p">:</span> <span class="mi">0</span>
+    <span class="n">ftrace_config</span> <span class="p">{</span>
+    <span class="n">ftrace_events</span><span class="p">:</span> <span class="s2">&quot;sched_switch&quot;</span>
+    <span class="n">ftrace_events</span><span class="p">:</span> <span class="s2">&quot;sched_waking&quot;</span>
+    <span class="n">ftrace_events</span><span class="p">:</span> <span class="s2">&quot;sched_wakeup_new&quot;</span>
+
+    <span class="n">ftrace_events</span><span class="p">:</span> <span class="s2">&quot;task_newtask&quot;</span>
+    <span class="n">ftrace_events</span><span class="p">:</span> <span class="s2">&quot;task_rename&quot;</span>
+
+    <span class="n">ftrace_events</span><span class="p">:</span> <span class="s2">&quot;sched_process_exec&quot;</span>
+    <span class="n">ftrace_events</span><span class="p">:</span> <span class="s2">&quot;sched_process_exit&quot;</span>
+    <span class="n">ftrace_events</span><span class="p">:</span> <span class="s2">&quot;sched_process_fork&quot;</span>
+    <span class="n">ftrace_events</span><span class="p">:</span> <span class="s2">&quot;sched_process_free&quot;</span>
+    <span class="n">ftrace_events</span><span class="p">:</span> <span class="s2">&quot;sched_process_hang&quot;</span>
+    <span class="n">ftrace_events</span><span class="p">:</span> <span class="s2">&quot;sched_process_wait&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1"># Resolve process commandlines and parent/child relationships, to better</span>
+<span class="c1"># interpret the ftrace events, which are in terms of pids.</span>
+<span class="n">data_sources</span> <span class="p">{</span>
+<span class="n">config</span> <span class="p">{</span>
+    <span class="n">name</span><span class="p">:</span> <span class="s2">&quot;linux.process_stats&quot;</span>
+    <span class="n">target_buffer</span><span class="p">:</span> <span class="mi">0</span>
+<span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1"># 10s trace, but can be stopped prematurely.</span>
+<span class="n">duration_ms</span><span class="p">:</span> <span class="mi">10000</span>
+</pre></div>
+</div>
+<p>具体信息可以参考Perfetto的官方文档，<a class="reference external" href="https://perfetto.dev/docs/data-sources/cpu-scheduling">https://perfetto.dev/docs/data-sources/cpu-scheduling</a>，也可以在这里找到更多的配置文件参考：<a class="reference external" href="https://github.com/google/perfetto/tree/master/test/configs">https://github.com/google/perfetto/tree/master/test/configs</a>。</p>
+</li>
+<li><p>在SM5上执行sudo perfetto –txt -c scheduling.cfg -o scheduling.pftrace即开始抓取，当config文件中定义的duration_ms时间到后会自动结束，或ctrl+c杀掉perfetto进程也可以结束抓取。结束后会生成一个scheduling.pftrace文件。
+打开https://ui.perfetto.dev，点左边的Open trace file，选择上面生成的scheduling.pftrace文件即可。w键放大，s键缩小，a键左平移，d键右平移，点击进程或cpu的色块可以在下面看到具体的描述：</p>
+<img alt="../../_images/soc_pftrace.png" src="../../_images/soc_pftrace.png" />
+<p>如果想在应用程序里打点，跟上面的调度信息显示在同一个视图里，可以参考下面的写法，在你想要标记的段落开头调用atrace_begin_body(“foo_bar”)，结尾调用atrace_end_body。在配置文件中，增加一行 atrace_categories: “*”，比如加在scheduling.cfg中ftrace_config段落。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#include &lt;stdio.h&gt;</span>
+<span class="c1">#include &lt;stdlib.h&gt;</span>
+<span class="c1">#include &lt;string.h&gt;</span>
+<span class="c1">#include &lt;unistd.h&gt;</span>
+<span class="c1">#include &lt;fcntl.h&gt;</span>
+<span class="c1">#include &lt;errno.h&gt;</span>
+<span class="c1">#include &lt;sys/ioctl.h&gt;</span>
+<span class="c1">#include &lt;math.h&gt;</span>
+
+<span class="c1">#define ATRACE_MESSAGE_LENGTH 1024</span>
+
+<span class="nb">int</span> <span class="n">atrace_marker_fd</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+
+<span class="c1">#define WRITE_MSG(format_begin, format_end, name, value) { \</span>
+    <span class="n">char</span> <span class="n">buf</span><span class="p">[</span><span class="n">ATRACE_MESSAGE_LENGTH</span><span class="p">];</span>     \
+    <span class="nb">int</span> <span class="n">pid</span> <span class="o">=</span> <span class="n">getpid</span><span class="p">();</span> \
+    <span class="nb">int</span> <span class="nb">len</span> <span class="o">=</span> <span class="n">snprintf</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span> <span class="n">sizeof</span><span class="p">(</span><span class="n">buf</span><span class="p">),</span> <span class="n">format_begin</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="n">format_end</span><span class="p">,</span> <span class="n">pid</span><span class="p">,</span> \
+        <span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">);</span> \
+    <span class="k">if</span> <span class="p">(</span><span class="nb">len</span> <span class="o">&gt;=</span> <span class="p">(</span><span class="nb">int</span><span class="p">)</span> <span class="n">sizeof</span><span class="p">(</span><span class="n">buf</span><span class="p">))</span> <span class="p">{</span> \
+        <span class="o">/*</span> <span class="n">Given</span> <span class="n">the</span> <span class="n">sizeof</span><span class="p">(</span><span class="n">buf</span><span class="p">),</span> <span class="ow">and</span> <span class="nb">all</span> <span class="n">of</span> <span class="n">the</span> <span class="n">current</span> <span class="nb">format</span> <span class="n">buffers</span><span class="p">,</span> \
+        <span class="o">*</span> <span class="n">it</span> <span class="ow">is</span> <span class="n">impossible</span> <span class="k">for</span> <span class="n">name_len</span> <span class="n">to</span> <span class="n">be</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="k">if</span> <span class="nb">len</span> <span class="o">&gt;=</span> <span class="n">sizeof</span><span class="p">(</span><span class="n">buf</span><span class="p">)</span><span class="o">.</span> <span class="o">*/</span> \
+        <span class="nb">int</span> <span class="n">name_len</span> <span class="o">=</span> <span class="n">strlen</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="nb">len</span> <span class="o">-</span> <span class="n">sizeof</span><span class="p">(</span><span class="n">buf</span><span class="p">))</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> \
+        <span class="o">/*</span> <span class="n">Truncate</span> <span class="n">the</span> <span class="n">name</span> <span class="n">to</span> <span class="n">make</span> <span class="n">the</span> <span class="n">message</span> <span class="n">fit</span><span class="o">.</span> <span class="o">*/</span> \
+        <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;Truncated name in </span><span class="si">%s</span><span class="s2">: </span><span class="si">%s</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">__FUNCTION__</span><span class="p">,</span> <span class="n">name</span><span class="p">);</span> \
+        <span class="nb">len</span> <span class="o">=</span> <span class="n">snprintf</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span> <span class="n">sizeof</span><span class="p">(</span><span class="n">buf</span><span class="p">),</span> <span class="n">format_begin</span> <span class="s2">&quot;</span><span class="si">%.*s</span><span class="s2">&quot;</span> <span class="n">format_end</span><span class="p">,</span> <span class="n">pid</span><span class="p">,</span> \
+            <span class="n">name_len</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">);</span> \
+    <span class="p">}</span> \
+    <span class="n">write</span><span class="p">(</span><span class="n">atrace_marker_fd</span><span class="p">,</span> <span class="n">buf</span><span class="p">,</span> <span class="nb">len</span><span class="p">);</span> \
+<span class="p">}</span>
+<span class="n">void</span> <span class="n">atrace_begin_body</span><span class="p">(</span><span class="n">const</span> <span class="n">char</span><span class="o">*</span> <span class="n">name</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">WRITE_MSG</span><span class="p">(</span><span class="s2">&quot;B|</span><span class="si">%d</span><span class="s2">|&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="n">void</span> <span class="n">atrace_end_body</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">WRITE_MSG</span><span class="p">(</span><span class="s2">&quot;E|</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="n">static</span> <span class="n">void</span> <span class="n">atrace_init_once</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">atrace_marker_fd</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;/sys/kernel/tracing/trace_marker&quot;</span><span class="p">,</span> <span class="n">O_WRONLY</span> <span class="o">|</span> <span class="n">O_CLOEXEC</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">atrace_marker_fd</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="o">//</span> <span class="k">try</span> <span class="n">debugfs</span>
+        <span class="n">atrace_marker_fd</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;/sys/kernel/debug/tracing/trace_marker&quot;</span><span class="p">,</span> <span class="n">O_WRONLY</span> <span class="o">|</span> <span class="n">O_CLOEXEC</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">atrace_marker_fd</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;trace_marker file not found</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nb">int</span> <span class="n">main</span><span class="p">(</span><span class="nb">int</span> <span class="n">argc</span><span class="p">,</span> <span class="n">char</span> <span class="n">const</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span>
+<span class="p">{</span>
+    <span class="nb">int</span> <span class="n">i</span><span class="p">;</span>
+
+    <span class="n">atrace_init_once</span><span class="p">();</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">atrace_marker_fd</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">atrace_marker_fd</span><span class="p">;</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">atrace_begin_body</span><span class="p">(</span><span class="s2">&quot;user_foo_bar&quot;</span><span class="p">);</span>
+        <span class="n">usleep</span><span class="p">(</span><span class="mi">500</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">);</span>
+        <span class="n">atrace_end_body</span><span class="p">();</span>
+        <span class="n">usleep</span><span class="p">(</span><span class="mi">500</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="n">close</span><span class="p">(</span><span class="n">atrace_marker_fd</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>用perfetto抓取trace后，就可以找到你的tag叠加到时间轴上显示了，如下面user_foo_bar标记：</p>
+<img alt="../../_images/soc_user_foo_bar.png" src="../../_images/soc_user_foo_bar.png" />
+<p>如果想在内核态驱动里打点，可以参考如下的做法：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>#include &lt;linux/trace_events.h&gt;
+在想要标记的段落开头调用atrace_begin_body(&quot;foo_bar&quot;)，结尾调用atrace_end_body
+</pre></div>
+</div>
+<p>在配置文件中，增加一行 atrace_categories: “*”，比如加在scheduling.cfg中ftrace_config段落。用perfetto抓取trace后，效果跟上面用户态的一样。</p>
+</li>
+</ol>
+</section>
+<section id="id22">
+<h3><a class="toc-backref" href="#id71" role="doc-backlink"><span class="section-number">3.3.4.4.5. </span>提高业务程序的实时性</a><a class="headerlink" href="#id22" title="此标题的永久链接">¶</a></h3>
+<p>答：如果您的业务对实时性比较敏感，您可以考虑使用如下几种优化的方式：</p>
+<ol class="arabic">
+<li><p>Linux内核使用虚拟内存，对用户空间的内存（包括栈、代码段、数据段以及使用函数malloc或mmap动态分配的内存）使用惰性分配的策略，
+如果实时进程访问的虚拟页没有映射到物理页，那么会触发页错误异常，影响实时性。所以需要尽量避免频繁申请释放内存，malloc出来的内存
+可以先做一次memset再送进实时性敏感的流程</p></li>
+<li><p>对于有明显周期性的实时性敏感业务，可以考虑使用dealine调度器：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>struct sched_attr attr;
+
+ memset(&amp;attr, 0, sizeof(attr));
+ attr.size = sizeof(attr);
+ attr.sched_policy = SCHED_DEADLINE;//设置调度类型
+ attr.sched_runtime = 700000000;//设置runtime，纳秒
+ attr.sched_deadline = attr.sched_period = 2000000000;//设置deadline和period，纳秒
+ ret = sched_setattr(0, &amp;attr, flags);
+ if (ret &lt; 0) {
+     perror(&quot;sched_setattr failed&quot;);
+     exit(-1);
+ }
+</pre></div>
+</div>
+</li>
+<li><p>打开内核抢占，在linux-linaro-stable/arch/arm64/configs/bitmain_bm1684_asic_defconfig文件末尾新增：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>   # CONFIG_PREEMPT_NONE is not set
+   # CONFIG_PREEMPT_VOLUNTARY is not set
+   CONFIG_PREEMPT=y
+
+重新编译内核并替换到板子上重启后，输入uname -a,应该显示：
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Linux bm1684 4.9.38-bm1684-v10.4.0-00550-g4ad0f96b7016-dirty #4 SMP PREEMPT Thu Mar 10 08:56:25 CST 2022 aarch64 GNU/Linux
+（默认非抢占内核显示：Linux bm1684 4.9.38-bm1684-v10.4.0-00550-g4ad0f96b7016-dirty #5 SMP Thu Mar 10 09:44:04 CST 2022 aarch64 GNU/Linux）
+</pre></div>
+</div>
+</li>
+<li><p>将某几个CPU核从系统隔离出来，然后将实时性敏感人物绑定到这些核上，可以尽量避免这些任务被系统的其它事物干扰。以CPU5和6为例，大致有如下步骤：</p>
+<ol class="arabic">
+<li><p>修改u-boot的内核启动参数，增加“isolcpus=5,6”字段，这样除了最基础的一些系统任务外，调度器不会主动把任务分配到这两个CPU上。可以通过如下命令确认</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cat</span> <span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">devices</span><span class="o">/</span><span class="n">system</span><span class="o">/</span><span class="n">cpu</span><span class="o">/</span><span class="n">isolated</span>
+</pre></div>
+</div>
+</li>
+<li><p>修改irqbalance的规则文件（/etcdefault/irqbalance）：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>IRQBALANCE_BANNED_CPUS=&quot;E0&quot; （原值为80，因为我们默认将PCIe的中断单独绑定到了CPU7上）
+</pre></div>
+</div>
+<p>重启后生效，可以通过如下命令观察效果：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cat</span> <span class="o">/</span><span class="n">proc</span><span class="o">/</span><span class="n">interrupts</span>
+</pre></div>
+</div>
+</li>
+<li><p>通过taskset -cp 5,6 $pid命令将制定的进程绑定到这两个CPU上，设置完后要等到下次这个进程被调度执行时才会生效。如果是多线程，
+每个线程的ID要单独设置（可以通过ps -T查看）。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ps</span> <span class="o">-</span><span class="n">o</span> <span class="n">pid</span><span class="p">,</span><span class="n">spid</span><span class="p">,</span><span class="n">psr</span><span class="p">,</span><span class="n">stat</span><span class="p">,</span><span class="n">comm</span> <span class="o">-</span><span class="n">A</span> <span class="n">可以在PSR列显示进程最近一次执行时所在的CPU</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</li>
+</ol>
+</section>
+<section id="g">
+<h3><a class="toc-backref" href="#id72" role="doc-backlink"><span class="section-number">3.3.4.4.6. </span>4G模块方案</a><a class="headerlink" href="#g" title="此标题的永久链接">¶</a></h3>
+<p>请参考：<a class="reference external" href="https://developer.sophgo.com/thread/606.html">https://developer.sophgo.com/thread/606.html</a></p>
+</section>
+<section id="id23">
+<h3><a class="toc-backref" href="#id73" role="doc-backlink"><span class="section-number">3.3.4.4.7. </span>5G模块方案</a><a class="headerlink" href="#id23" title="此标题的永久链接">¶</a></h3>
+<p>请参考：<a class="reference external" href="https://developer.sophgo.com/thread/606.html">https://developer.sophgo.com/thread/606.html</a></p>
+</section>
+<section id="id24">
+<h3><a class="toc-backref" href="#id74" role="doc-backlink"><span class="section-number">3.3.4.4.8. </span>如何增加板类型</a><a class="headerlink" href="#id24" title="此标题的永久链接">¶</a></h3>
+<p>答：客户使用我们发布的BSP SDK开发，新增板类型时可以参考本节操作：</p>
+<ol class="arabic">
+<li><p>客户修改控制单板PCB版本和BOM版本的硬件电阻。MCU代码会采集电压值确定硬件的版本，并将该值写入到指定地址，让BM1684可以获取</p></li>
+<li><p>由于当前arm-trusted-firmware部分代码未开源，需要联系我们提供适配新的PCB版本和BOM版本的bl2.bin。获取后替换bsp-sdk/install/soc_bm1684_asic/prebuilt/bl2.bin</p></li>
+<li><p>修改BSP SDK中的u-boot目录下代码，在bsp-sdk/u-boot/include/configs/bm1684-asic.h中增加新的板类型，
+然后修改bsp-sdk/u-boot/board/bitmain/bm1684/vexpress64.c中的pcb_info数组和dtb_mapping数组，增加该pcb对应的板类型及该板类型在u-boot中使用的dtb，如下图所示</p>
+<img alt="../../_images/soc_add_board_type_git_diff.png" src="../../_images/soc_add_board_type_git_diff.png" />
+</li>
+<li><p>修改BSP SDK中的linux-linaro-stable目录下代码，新增对应的dts，并修改makefile。以增加SA5 16G DDR板类型为例，
+在bsp-sdk/linux-linaro-stable/arch/arm64/boot/dts/bitmain目录下新增bm1684_asic_hds_drank.dts文件，内容为相应的配置</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#include &quot;bm1684.dtsi&quot;</span>
+<span class="c1">#include &quot;bm1684_mm_16g.dtsi&quot;</span>
+<span class="c1">#include &quot;bm1684_asic_hds.dtsi&quot;</span>
+</pre></div>
+</div>
+<p>然后在bsp-sdk/linux-linaro-stable/arch/arm64/boot/dts/bitmain/Makefile目录新增bm1684_asic_hds_drank.dts的编译选项，如下图所示</p>
+<img alt="../../_images/soc_add_board_type_git_diff_makefile.png" src="../../_images/soc_add_board_type_git_diff_makefile.png" />
+</li>
+<li><p>修改BSP SDK中的bsp-sdk/ramdisk/build/bm1684_asic/workspace/multi.its.base，新增dts的fdt和config描述。如下图所示，在红色框上面，绿色部分为新增代码。</p>
+<img alt="../../_images/soc_add_board_type_git_diff_fdt_config.png" src="../../_images/soc_add_board_type_git_diff_fdt_config.png" />
+</li>
+</ol>
+</section>
+<section id="rootfs">
+<h3><a class="toc-backref" href="#id75" role="doc-backlink"><span class="section-number">3.3.4.4.9. </span>定制化rootfs</a><a class="headerlink" href="#rootfs" title="此标题的永久链接">¶</a></h3>
+<p>答：</p>
+<ol class="arabic">
+<li><p>x86环境安装qemu-user-static</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">qemu</span><span class="o">-</span><span class="n">user</span><span class="o">-</span><span class="n">static</span>
+</pre></div>
+</div>
+</li>
+<li><p>准备arm linux根文件系统
+arm linux根文件系统可以直接下载干净的版本（从我们gitee获取） 或者从运行的arm单板上进行备份获取。
+arm单板上备份根文件系统命令：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">tar</span> <span class="o">-</span><span class="n">cvpzf</span> <span class="n">rootfs</span><span class="o">.</span><span class="n">tgz</span> <span class="o">--</span><span class="n">exclude</span><span class="o">=/</span><span class="n">proc</span> <span class="o">--</span><span class="n">exclude</span><span class="o">=/</span><span class="n">mnt</span> <span class="o">--</span><span class="n">exclude</span><span class="o">=/</span><span class="n">sys</span> <span class="o">--</span><span class="n">exclude</span><span class="o">=/</span><span class="n">rootfs</span><span class="o">.</span><span class="n">tgz</span> <span class="o">/</span>
+</pre></div>
+</div>
+<p>解压根文件系统命令：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tar</span> <span class="o">-</span><span class="n">xvpfz</span> <span class="n">rootfs</span><span class="o">.</span><span class="n">tgz</span> <span class="o">-</span><span class="n">C</span> <span class="o">./</span><span class="n">rootfs</span>
+</pre></div>
+</div>
+</li>
+<li><p>构建虚拟机</p>
+<p>创建rootfs目录，在rootfs下执行根文件系统解压命令，解压完成后，copy qemu执行命令到arm文件系统中</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">cp</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">qemu</span><span class="o">-</span><span class="n">arm</span><span class="o">-</span><span class="n">static</span> <span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span> <span class="n">sudo</span> <span class="n">cp</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">qemu</span><span class="o">-</span><span class="n">aarch64</span><span class="o">-</span><span class="n">static</span> <span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span>
+</pre></div>
+</div>
+<p>在rootfs录下创建proc、sys、host目录
+在rootfs所在目录下创建ch-mount.sh文件</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>#!/bin/bash
+
+function mnt() {
+    echo &quot;MOUNTING&quot;
+    sudo mount -t proc /proc ${2}proc
+    sudo mount -t sysfs /sys ${2}sys
+    sudo mount -o bind /dev ${2}dev
+    sudo mount -o bind /run ${2}run
+    sudo mount --bind / ${2}host
+    #sudo mount -vt tmpfs shm ${2}dev/shm
+    #sudo mount -t /dev/shm ${2}dev/shm
+    sudo chroot ${2}
+}
+
+function umnt() {
+    echo &quot;UNMOUNTING&quot;
+    sudo umount ${2}proc
+    sudo umount ${2}sys
+    #sudo umount ${2}dev/shm
+    sudo umount ${2}dev
+    sudo umount ${2}run
+    sudo umount ${2}host
+}
+
+
+if [ &quot;$1&quot; == &quot;-m&quot; ] &amp;&amp; [ -n &quot;$2&quot; ] ;
+then
+    mnt $1 $2
+elif [ &quot;$1&quot; == &quot;-u&quot; ] &amp;&amp; [ -n &quot;$2&quot; ];
+then
+    umnt $1 $2
+else
+    echo &quot;&quot;
+    echo &quot;Either 1&#39;st, 2&#39;nd or both parameters were missing&quot;
+    echo &quot;&quot;
+    echo &quot;1&#39;st parameter can be one of these: -m(mount) OR -u(umount)&quot;
+    echo &quot;2&#39;nd parameter is the full path of rootfs directory(with trailing &#39;/&#39;)&quot;
+    echo &quot;&quot;
+    echo &quot;For example: ch-mount -m /media/sdcard/&quot;
+    echo &quot;&quot;
+    echo 1st parameter : ${1}
+    echo 2nd parameter : ${2}
+</pre></div>
+</div>
+<p>执行ch-mount.sh，创建虚拟机</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="o">./</span><span class="n">ch</span><span class="o">-</span><span class="n">mount</span><span class="o">.</span><span class="n">sh</span> <span class="o">-</span><span class="n">m</span> <span class="n">rootfs</span><span class="o">/</span>
+</pre></div>
+</div>
+<p>虚拟机准备完毕，可以在虚拟的arm环境上进行相应的操作，创建用户、编译arm版本、安装软件……</p>
+</li>
+<li><p>卸载虚拟机
+在虚拟机环境中执行exit退出。然后执行命令卸载挂载的相关文件。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="o">./</span><span class="n">ch</span><span class="o">-</span><span class="n">mount</span><span class="o">.</span><span class="n">sh</span> <span class="o">-</span><span class="n">u</span> <span class="n">rootfs</span><span class="o">/</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="efusespacc">
+<h3><a class="toc-backref" href="#id76" role="doc-backlink"><span class="section-number">3.3.4.4.10. </span>使用eFuse和SPACC进行加解密</a><a class="headerlink" href="#efusespacc" title="此标题的永久链接">¶</a></h3>
+<p>答：BM1684芯片内的eFuse的基础使用请参考SM5手册的3.6节。这里仅介绍其中一个特殊的secure key区域。用户可以在secure key和其副本区域分别烧写同一个密钥，然后在地址1中的bit[0]和bit[1]烧写1以使能secure key功能，这样之后软件将不再能从secure key区域读出密钥原文，这个密钥只能被SPACC硬件模块用作AES、DES加解密之用。以上操作都是不可逆的，即secure key无法被改写，这个功能也无法被关闭。</p>
+<p>因为早期硬件上的一个小问题，欲使用此功能的话，请先做如下检查：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#在板子上执行</span>
+<span class="n">sudo</span> <span class="n">busybox</span> <span class="n">devmem</span> <span class="mh">0x50010004</span>
+<span class="c1">#返回值是个16进制字串，如0x00018A05</span>
+<span class="c1">#只看最后一位数字，如果是1，则可以正常使用此功能，</span>
+<span class="c1">#如果是5，需要对板子做一下rework，请联系技术支持返厂修改</span>
+</pre></div>
+</div>
+<p>在烧写时，如果先烧写了secure key enable bit，则secure key区域马上变成不能被读出（总是读出为0，但仍可以写入）。如果先烧写了secure key，此时它仍可以被读出，直到烧写secure key enable bit后才变成不能被读出。</p>
+<p>Secure Key在eFuse中的字节序如下，我们以128bit的AES key举例。现有一128bit的AES key如下：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mh">0x00</span> <span class="mh">0x01</span> <span class="mh">0x02</span> <span class="mh">0x03</span> <span class="mh">0x10</span> <span class="mh">0x11</span> <span class="mh">0x12</span> <span class="mh">0x13</span> <span class="mh">0x20</span> <span class="mh">0x21</span> <span class="mh">0x22</span> <span class="mh">0x23</span> <span class="mh">0x30</span> <span class="mh">0x31</span> <span class="mh">0x32</span> <span class="mh">0x33</span>
+</pre></div>
+</div>
+<p>在eFuse中的存储顺序为:</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>地址</p></td>
+<td><p>内容(HEX)</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>0x03020100</p></td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p>0x13121110</p></td>
+</tr>
+<tr class="row-even"><td><p>4</p></td>
+<td><p>0x23222120</p></td>
+</tr>
+<tr class="row-odd"><td><p>5</p></td>
+<td><p>0x33323230</p></td>
+</tr>
+</tbody>
+</table>
+<p>如果想要使用底层接口编程读写eFuse（这个并不是必须的，也可以直接使用SPACC提供的接口，详见后面SPACC的部分），打开/dev/bm_efuse节点，通过如下两个ioctl对eFuse原始数据进行读写。ioctl参数为一个结构体，其中addr即为0到127的eFuse地址，val用于存放读取和写入的32bit值：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#define EFUSE_IOCTL_READ    _IOWR(&#39;y&#39;, 0x20, struct efuse_ioctl_data)</span>
+<span class="c1">#define EFUSE_IOCTL_WRITE   _IOWR(&#39;y&#39;, 0x21, struct efuse_ioctl_data)</span>
+
+<span class="n">struct</span> <span class="n">efuse_ioctl_data</span> <span class="p">{</span>
+    <span class="n">uint32_t</span> <span class="n">addr</span><span class="p">;</span>
+    <span class="n">uint32_t</span> <span class="n">val</span><span class="p">;</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>读取：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;/dev/bm_efuse&quot;</span><span class="p">,</span> <span class="n">O_RDWR</span><span class="p">);</span>
+<span class="n">struct</span> <span class="n">efuse_ioctl_data</span> <span class="n">data</span><span class="p">;</span>
+<span class="nb">int</span> <span class="n">ret</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="n">data</span><span class="o">.</span><span class="n">addr</span> <span class="o">=</span> <span class="n">address</span><span class="p">;</span>
+<span class="n">ret</span> <span class="o">=</span> <span class="n">ioctl</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">EFUSE_IOCTL_READ</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">data</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">ret</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">ERR</span><span class="p">(</span><span class="s2">&quot;EFUSE_IOCTL_READ fail,errno=0x</span><span class="si">%x</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">errno</span><span class="p">);</span>
+    <span class="n">close</span><span class="p">(</span><span class="n">file</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">ret</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="n">close</span><span class="p">(</span><span class="n">file</span><span class="p">);</span>
+<span class="k">return</span> <span class="n">data</span><span class="o">.</span><span class="n">val</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>写入：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;/dev/bm_efuse&quot;</span><span class="p">,</span> <span class="n">O_RDWR</span><span class="p">);</span>
+<span class="n">struct</span> <span class="n">efuse_ioctl_data</span> <span class="n">data</span><span class="p">;</span>
+<span class="nb">int</span> <span class="n">ret</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="n">data</span><span class="o">.</span><span class="n">addr</span> <span class="o">=</span> <span class="n">address</span><span class="p">;</span>
+<span class="n">data</span><span class="o">.</span><span class="n">val</span> <span class="o">=</span> <span class="n">val</span><span class="p">;</span>
+<span class="n">ret</span> <span class="o">=</span> <span class="n">ioctl</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">EFUSE_IOCTL_WRITE</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">data</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">ret</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">ERR</span><span class="p">(</span><span class="s2">&quot;EFUSE_IOCTL_WRITE fail ,errno=0x</span><span class="si">%x</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">errno</span><span class="p">);</span>
+
+<span class="n">close</span><span class="p">(</span><span class="n">file</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>SPACC是BM1684芯片内置的一个硬件加速模块，支持AES、DES、SM4和SHA1、SHA256、Base64。这里介绍SPACC搭配eFuse使用的一个特殊功能：客户可以在eFuse的secure key区域烧录一把密钥，这把密钥写入后是不能再被软件读出的，只能被SPACC用作加解密运算。结合客户自定义ID使用，可以用作产品授权等功能。以下是eFuse和SPACC结合使用时的API。</p>
+<ol class="arabic">
+<li><p>查看secure key使能状态和客户自定义ID</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#查看secure key使能状态</span>
+<span class="n">sudo</span> <span class="n">cat</span> <span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">devices</span><span class="o">/</span><span class="n">platform</span><span class="o">/</span><span class="mf">50028000.</span><span class="n">efuse</span><span class="o">/</span><span class="n">secure</span><span class="o">-</span><span class="n">key</span>
+
+<span class="c1">#查看客户自定义ID</span>
+<span class="n">sudo</span> <span class="n">cat</span> <span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">devices</span><span class="o">/</span><span class="n">platform</span><span class="o">/</span><span class="mf">50028000.</span><span class="n">efuse</span><span class="o">/</span><span class="n">uid</span>
+</pre></div>
+</div>
+</li>
+<li><p>烧写secure key和客户自定义ID
+为方便使用，烧写secure key和客户自定义ID，可以不适用前述的RAW API，而是使用下面的nvmem接口，重启后生效：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#切换到root用户</span>
+<span class="n">sudo</span> <span class="o">-</span><span class="n">i</span>
+
+<span class="c1">#解锁eFuse烧录限制</span>
+<span class="n">echo</span> <span class="mi">0</span> <span class="o">&gt;</span> <span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">devices</span><span class="o">/</span><span class="n">platform</span><span class="o">/</span><span class="mf">50028000.</span><span class="n">efuse</span><span class="o">/</span><span class="n">nvmem</span><span class="o">-</span><span class="n">lock</span>
+
+<span class="c1">#烧录key</span>
+<span class="n">echo</span> <span class="mi">000102030405060708090</span><span class="n">a0b0c0d0e0f111213141516171819101a1b1c1d1e1f</span> <span class="o">&gt;</span> <span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">devices</span><span class="o">/</span><span class="n">platform</span><span class="o">/</span><span class="mf">50028000.</span><span class="n">efuse</span><span class="o">/</span><span class="n">secure</span><span class="o">-</span><span class="n">key</span>
+
+<span class="c1">#烧录客户自定义ID</span>
+<span class="n">echo</span> <span class="mi">0123456789</span><span class="n">abcdef0123456789abcdef</span> <span class="o">&gt;</span> <span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">devices</span><span class="o">/</span><span class="n">platform</span><span class="o">/</span><span class="mf">50028000.</span><span class="n">efuse</span><span class="o">/</span><span class="n">uid</span>
+</pre></div>
+</div>
+<p>如您的key为128bit长度，可仅烧写128bit，如：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">echo</span> <span class="mi">000102030405060708090</span><span class="n">a0b0c0d0e0f</span> <span class="o">&gt;</span> <span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">devices</span><span class="o">/</span><span class="n">platform</span><span class="o">/</span><span class="mf">50028000.</span><span class="n">efuse</span><span class="o">/</span><span class="n">secure</span><span class="o">-</span><span class="n">key</span>
+</pre></div>
+</div>
+<p>客户自定义ID可烧录少于128bit的任意长度，如烧录4byte ID：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">echo</span> <span class="mi">01234567</span> <span class="o">&gt;</span> <span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">devices</span><span class="o">/</span><span class="n">platform</span><span class="o">/</span><span class="mf">50028000.</span><span class="n">efuse</span><span class="o">/</span><span class="n">uid</span>
+</pre></div>
+</div>
+</li>
+<li><p>如何使用SPACC
+SPACC已经集成到Linux AF_ALG Crypto Framework中，关于如何使用Linux Crypto Framework，可参考 <a class="reference external" href="https://www.kernel.org/doc/html/v4.10/crypto/userspace-if.html">Linux Crypto Framework</a> 。代码可参考 <a class="reference external" href="https://github.com/smuellerDD/libkcapi">libkcapi</a> ，也可直接使用libkcapi。
+如需使用secure key加密，请在调用socket函数时，将salg_name写成带有secure key后缀的cipher名称，如：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">struct</span> <span class="n">sockaddr_alg</span> <span class="n">sa</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="o">.</span><span class="n">salg_family</span> <span class="o">=</span> <span class="n">AF_ALG</span><span class="p">,</span>
+        <span class="o">.</span><span class="n">salg_type</span> <span class="o">=</span> <span class="s2">&quot;skcipher&quot;</span><span class="p">,</span>
+        <span class="o">.</span><span class="n">salg_name</span> <span class="o">=</span> <span class="s2">&quot;cbc(aes)&quot;</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>更改为</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">struct</span> <span class="n">sockaddr_alg</span> <span class="n">sa</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="o">.</span><span class="n">salg_family</span> <span class="o">=</span> <span class="n">AF_ALG</span><span class="p">,</span>
+        <span class="o">.</span><span class="n">salg_type</span> <span class="o">=</span> <span class="s2">&quot;skcipher&quot;</span><span class="p">,</span>
+        <span class="o">.</span><span class="n">salg_name</span> <span class="o">=</span> <span class="s2">&quot;cbc(aes-secure-key)&quot;</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>如您使用libkcapi，请在调用初始化函数时，将ciphername参数设置为带有secure-key后缀的cipher类型，如：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">kcapi_cipher_init</span><span class="p">(</span><span class="o">&amp;</span><span class="n">handle</span><span class="p">,</span><span class="s2">&quot;cbc(aes)&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>更改为：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">kcapi_cipher_init</span><span class="p">(</span><span class="o">&amp;</span><span class="n">handle</span><span class="p">,</span><span class="s2">&quot;cbc(aes-secure-key)&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="SE9_faq.html" class="btn btn-neutral float-left" title="3.3.3. SE9使用问题" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../devices_PCIE.html" class="btn btn-neutral float-right" title="3.4. 智算卡常见问题" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2022, SOPHGO.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="前往官网"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="前往文档中心"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="页面顶部"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="页面底部"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>本页二维码</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

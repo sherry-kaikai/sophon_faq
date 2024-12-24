@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SOPHON设备和SDK使用常见问题及解答 &mdash; SOPHON and SDK FAQ master
+ 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="1. 声明" href="0_disclaimer.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="#" class="icon icon-home"> SOPHON and SDK FAQ
+          </a>
+              <div class="version">
+                master
+
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="0_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_basic_concept.html">2. 基础概念常见问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_device_usages.html">3. 设备使用常见问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_converter_quantization.html">4. 模型转换及量化常见问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_multimedia.html">5. 多媒体用户常见问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6_program_optimization.html">6. 程序开发常见问题</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">SOPHON and SDK FAQ</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home"></a> &raquo;</li>
+      <li>SOPHON设备和SDK使用常见问题及解答</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">返回文档中心</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="sophonsdk">
+<h1>SOPHON设备和SDK使用常见问题及解答<a class="headerlink" href="#sophonsdk" title="此标题的永久链接">¶</a></h1>
+<div class="line-block">
+<div class="line"><strong>发布记录</strong></div>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 25%" />
+<col style="width: 55%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>版本</p></td>
+<td><p>发布日期</p></td>
+<td><p>说明</p></td>
+</tr>
+<tr class="row-even"><td><p>V0.1.0</p></td>
+<td><p>2022.05.12</p></td>
+<td><p>第一次发布。</p></td>
+</tr>
+</tbody>
+</table>
+<div class="toctree-wrapper compound" id="mastertoc">
+<p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="0_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_basic_concept.html">2. 基础概念常见问题</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="1_basic_concept.html#id2">2.1. 名词解释</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_basic_concept.html#id3">2.2. 算丰系列产品有哪些硬件形态？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_basic_concept.html#id4">2.3. 算丰系列产品的内存概念？</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="1_basic_concept.html#se5">2.3.1. SE5 内存映射分区表(参考)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="1_basic_concept.html#se9">2.3.2. SE9 内存映射分区表(参考)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="1_basic_concept.html#se5se7">2.3.3. SE5、SE7各个内存间数据搬运速度说明</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="1_basic_concept.html#id6">2.4. 算丰系列芯片的基本架构？</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="1_basic_concept.html#x">2.4.1. BM1684、BM1684X 的基本架构？</a></li>
+<li class="toctree-l3"><a class="reference internal" href="1_basic_concept.html#a2">2.4.2. BM1688、CV186AH 的基本架构？</a></li>
+<li class="toctree-l3"><a class="reference internal" href="1_basic_concept.html#simd">2.4.3. SIMD 单指令数据流众核底层架构？</a></li>
+<li class="toctree-l3"><a class="reference internal" href="1_basic_concept.html#dtcm">2.4.4. 什么是DTCM？</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="3_device_usages.html">3. 设备使用常见问题</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="devices/environment.html">3.1. 环境配置常见问题</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="devices/environment.html#id2">3.1.1. 开发环境配置常见问题</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="devices/environment.html#x-sdk">3.1.1.1. BM1684、BM1684X 如何安装和使用SDK？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="devices/environment.html#docker">3.1.1.2. 如何在docker容器内使用宿主机上的显示设备显示图像？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="devices/environment.html#abi0abi1">3.1.1.3. 关于ABI0和ABI1版本的问题？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="devices/environment.html#centos7-6gcc-6-5bm-opencv">3.1.1.4. 在CentOS7.6上使用gcc 6.5编译程序链接BM-OpenCV库时报找不到符号链接的错误</a></li>
+<li class="toctree-l4"><a class="reference internal" href="devices/environment.html#pythonbm-opencv">3.1.1.5. 如何在开发环境中的Python环境下使用我们提供的BM-OpenCV?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="devices/environment.html#centosubuntudockersail">3.1.1.6. CentOS宿主机上在官方ubuntu开发docker中使用sail模块报找不到符号错误？</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="devices/environment.html#id5">3.1.2. 运行环境配置常见问题</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="devices/environment.html#id6">3.1.2.1. 有哪些环境变量需要手动配置？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="devices/environment.html#id7">3.1.2.2. 处理器无法正常工作怎么办？</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="devices/common_commands.html">3.2. 设备版本、状态、bmodel模型信息如何获取？</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="devices/common_commands.html#sdk">3.2.1. 固件版本和SDK版本如何查看？</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="devices/common_commands.html#x-sdk">3.2.1.1. 基于 BM1684、BM1684X 的设备如何查看固件版本、SDK信息？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="devices/common_commands.html#a2-soc-sdk">3.2.1.2. 基于 BM1688、CV186AH 的 SoC 设备如何查看固件版本、SDK版本信息？</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="devices/common_commands.html#id3">3.2.2. 如何获取设备状态信息？</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="devices/common_commands.html#id4">3.2.2.1. bm-smi等设备管理工具</a></li>
+<li class="toctree-l4"><a class="reference internal" href="devices/common_commands.html#pcie">3.2.2.2. PCIe设备状态信息常用命令？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="devices/common_commands.html#id5">3.2.2.3. SoC设备状态信息常用命令？</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="devices/common_commands.html#id7">3.2.3. bmodel模型信息如何查看？</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="devices/common_commands.html#tpu-model">3.2.3.1. tpu_model</a></li>
+<li class="toctree-l4"><a class="reference internal" href="devices/common_commands.html#bmrt-test">3.2.3.2. bmrt_test</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="devices/devices_SOC.html">3.3. 智算盒子（模组）常见问题</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="devices/SOC/soc_firmware_update.html">3.3.1. 刷机问题</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="devices/SOC/soc_firmware_update.html#devices">3.3.1.1. 手动升级 SE5、SM5、SE7、SM7、SE9、SM9 固件的方式</a></li>
+<li class="toctree-l4"><a class="reference internal" href="devices/SOC/soc_firmware_update.html#devices-sd">3.3.1.2. SE5、SM5、SE7、SM7、SE9、SM9 等设备如何使用SD卡刷新固件</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="devices/SOC/SE5_SE7_faq.html">3.3.2. SE5、SE7使用问题</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="devices/SOC/SE5_SE7_faq.html#se5">3.3.2.1. SE5支持的外围设备有哪些？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="devices/SOC/SE5_SE7_faq.html#se5micro-usb">3.3.2.2. SE5维护窗里的Micro-USB如何使用，如何通过串口进入系统？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="devices/SOC/SE5_SE7_faq.html#se7">3.3.2.3. SE7 如何通过串口进入系统？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="devices/SOC/SE5_SE7_faq.html#se9">3.3.2.4. SE9 如何通过串口进入系统？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="devices/SOC/SE5_SE7_faq.html#soc">3.3.2.5. 若系统故障，无法进入SoC的操作系统，该如何升级或恢复固件？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="devices/SOC/SE5_SE7_faq.html#pythonsail">3.3.2.6. 如何在Python中使用SAIL？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="devices/SOC/SE5_SE7_faq.html#se5openvpn">3.3.2.7. SE5安装openVPN？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="devices/SOC/SE5_SE7_faq.html#se5se7ip">3.3.2.8. 如何通过串口查询SE5、SE7的IP地址</a></li>
+<li class="toctree-l4"><a class="reference internal" href="devices/SOC/SE5_SE7_faq.html#id2">3.3.2.9. SE5经常自动重启，大约十几分钟到二十分钟左右重启一次？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="devices/SOC/SE5_SE7_faq.html#se5ubuntu">3.3.2.10. SE5是否可以刷Ubuntu系统？有没有版本要求？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="devices/SOC/SE5_SE7_faq.html#se5-apt">3.3.2.11. SE5盒子磁盘仍然有空间，但使用apt安装软件时或进行其他操作时，都会提示系统磁盘空间不足？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="devices/SOC/SE5_SE7_faq.html#se5se7se9ip">3.3.2.12. SE5、SE7、SE9盒子如何修改IP？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="devices/SOC/SE5_SE7_faq.html#id3">3.3.2.13. SE5盒子如何扩展存储空间？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="devices/SOC/SE5_SE7_faq.html#id4">3.3.2.14. 如何实现扩展硬盘的开机自动挂载？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="devices/SOC/SE5_SE7_faq.html#id5">3.3.2.15. 关于内核版本以及增加内核模块？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="devices/SOC/SE5_SE7_faq.html#se5-lsmod-br-netfilter">3.3.2.16. SE5盒子中使用卡刷后，使用lsmod查看内核模块，比之前多了br_netfilter，它的作用是什么？和之前没有的盒子有什么区别？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="devices/SOC/SE5_SE7_faq.html#k8s-plugin">3.3.2.17. k8s plugin 在哪里下载？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="devices/SOC/SE5_SE7_faq.html#socpythonopencv-sophon-opencv">3.3.2.18. SoC中python如何使用OpenCV？导入sophon-opencv？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="devices/SOC/SE5_SE7_faq.html#ffmpeg-vpu">3.3.2.19. 使用ffmpeg命令时报错，找不到vpu驱动怎么办？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="devices/SOC/SE5_SE7_faq.html#hdmi">3.3.2.20. 使用hdmi连接显示器，过一会儿不显示黑屏的问题</a></li>
+<li class="toctree-l4"><a class="reference internal" href="devices/SOC/SE5_SE7_faq.html#id6">3.3.2.21. SoC查看内存使用情况？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="devices/SOC/SE5_SE7_faq.html#id7">3.3.2.22. SE5盒子的配置方法</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="devices/SOC/SE9_faq.html">3.3.3. SE9使用问题</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="devices/SOC/SE9_faq.html#id2">3.3.3.1. SE9常用命令参考有哪些？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="devices/SOC/SE9_faq.html#id3">3.3.3.2. SE9如何加装存储？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="devices/SOC/SE9_faq.html#se94g-5glte">3.3.3.3. SE9如何加装4G/5G和LTE天线？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="devices/SOC/SE9_faq.html#se94g-5gwifisata">3.3.3.4. 在哪里添加SE9的4G/5G、WIFI、SATA模块？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="devices/SOC/SE9_faq.html#id4">3.3.3.5. SE9如何刷新固件？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="devices/SOC/SE9_faq.html#id5">3.3.3.6. SE9如何使用串口调试工具进行调试？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="devices/SOC/SE9_faq.html#id6">3.3.3.7. 如何连接SE9？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="devices/SOC/SE9_faq.html#se9ip">3.3.3.8. SE9如何修改IP？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="devices/SOC/SE9_faq.html#id7">3.3.3.9. 如何修改内存布局？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="devices/SOC/SE9_faq.html#id8">3.3.3.10. 如何制作SE9刷机包？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="devices/SOC/SE9_faq.html#id9">3.3.3.11. SE9盒子上有哪些服务，是做什么的？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="devices/SOC/SE9_faq.html#id10">3.3.3.12. SE9设备是否有看门狗？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="devices/SOC/SE9_faq.html#sn-mac">3.3.3.13. 如何查看SN/MAC？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="devices/SOC/SE9_faq.html#id11">3.3.3.14. 查看内存情况</a></li>
+<li class="toctree-l4"><a class="reference internal" href="devices/SOC/SE9_faq.html#sophon-ffmpegusb">3.3.3.15. 如何使用sophon-ffmpeg读取USB摄像头视频流？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="devices/SOC/SE9_faq.html#ffmpegalsa">3.3.3.16. 如何使用ffmpeg读取alsa音频？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="devices/SOC/SE9_faq.html#pythonsophon-opencv">3.3.3.17. 如何使用python版sophon-opencv？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="devices/SOC/SE9_faq.html#bm-imagecv-mat">3.3.3.18. 如何将bm_image转为cv.Mat？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="devices/SOC/SE9_faq.html#sophon-opencv">3.3.3.19. sophon-opencv的版本？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="devices/SOC/SE9_faq.html#sophon-ffmpeg">3.3.3.20. sophon-ffmpeg的版本？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="devices/SOC/SE9_faq.html#gpio">3.3.3.21. GPIO使用？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="devices/SOC/SE9_faq.html#id12">3.3.3.22. 继电器使用方法</a></li>
+<li class="toctree-l4"><a class="reference internal" href="devices/SOC/SE9_faq.html#can">3.3.3.23. CAN使用方法</a></li>
+<li class="toctree-l4"><a class="reference internal" href="devices/SOC/SE9_faq.html#id13">3.3.3.24. 485/232使用方法？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="devices/SOC/SE9_faq.html#tpu-mlir">3.3.3.25. 使用TPU-MLIR，设置混精度的层名后，混精度未生效？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="devices/SOC/SE9_faq.html#tpu-mlir-fp32-fp16-int8">3.3.3.26. 使用TPU-MLIR，FP32/FP16模型推理可以得到正确结果，INT8模型无法得到正确结果？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="devices/SOC/SE9_faq.html#id14">3.3.3.27. 使用TPU-MLIR，如何混精度？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="devices/SOC/SE9_faq.html#se9-8-8gse9-16-16g-se9-84g-se9-168g">3.3.3.28. 工厂发出的SE9-8 8G版本和SE9-16 16G版本，查询SE9-8的内存是4G，SE9-16的内存是8G。这是为什么？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="devices/SOC/SE9_faq.html#bmrt-test-bmodel-xxx-bmodel">3.3.3.29. 客户拿到盒子后，使用bmrt_test –bmodel xxx.bmodel报错</a></li>
+<li class="toctree-l4"><a class="reference internal" href="devices/SOC/SE9_faq.html#se9hdmi-ubuntu">3.3.3.30. SE9接上HDMI后，为什么没有出现ubuntu的桌面？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="devices/SOC/SE9_faq.html#se9-8bm-smitpu-tpu-p-currclk-450m-bmrt-test-se9-16">3.3.3.31. SE9-8设备使用bm-smi查看TPU频率(TPU_P Currclk)是450M，bmrt_test运行模型推理，较SE9-16速度慢的原因</a></li>
+<li class="toctree-l4"><a class="reference internal" href="devices/SOC/SE9_faq.html#se9sdk">3.3.3.32. SE9的SDK下载链接</a></li>
+<li class="toctree-l4"><a class="reference internal" href="devices/SOC/SE9_faq.html#id15">3.3.3.33. 如何查看模型属于单核模型还是双核模型？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="devices/SOC/SE9_faq.html#se9-8-cv186ah">3.3.3.34. 双核模型在SE9-8(CV186AH)上运行会如何？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="devices/SOC/SE9_faq.html#sophon-opencvsophon-ffmpeg">3.3.3.35. sophon-opencv和sophon-ffmpeg具体做了哪些硬件加速？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="devices/SOC/SE9_faq.html#docker">3.3.3.36. 使用docker搭建测试环境</a></li>
+<li class="toctree-l4"><a class="reference internal" href="devices/SOC/SE9_faq.html#bmcvbmcv-image-warp-perspective">3.3.3.37. 使用bmcv的bmcv_image_warp_perspective函数，有锯齿现象</a></li>
+<li class="toctree-l4"><a class="reference internal" href="devices/SOC/SE9_faq.html#opencv">3.3.3.38. 如何使用opencv在图片上写中文字符？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="devices/SOC/SE9_faq.html#ddr">3.3.3.39. 如何查看设备ddr内存总量？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="devices/SOC/SE9_faq.html#se9-sm9cpuddr">3.3.3.40. 如何查看SE9 SM9的cpu、ddr频率?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="devices/SOC/SE9_faq.html#sd">3.3.3.41. 如何判断SD卡刷机完成？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="devices/SOC/SE9_faq.html#id16">3.3.3.42. SD卡不能成功刷机？</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="devices/SOC/bm1684_soc_mode_faq.html">3.3.4. BSP问题</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="devices/SOC/bm1684_soc_mode_faq.html#bsp-sdk">3.3.4.1. BSP SDK</a></li>
+<li class="toctree-l4"><a class="reference internal" href="devices/SOC/bm1684_soc_mode_faq.html#sm5">3.3.4.2. SM5使用时过热的情况</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="devices/SOC/bm1684_soc_mode_faq.html#sm5mw-sm5">3.3.4.2.1. SM5MW（SM5）散热设计说明</a></li>
+<li class="toctree-l5"><a class="reference internal" href="devices/SOC/bm1684_soc_mode_faq.html#sm5w-sm5">3.3.4.2.2. SM5W（SM5）散热设计说明</a></li>
+<li class="toctree-l5"><a class="reference internal" href="devices/SOC/bm1684_soc_mode_faq.html#id3">3.3.4.2.3. SM5模块散热参考设计</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="devices/SOC/bm1684_soc_mode_faq.html#id4">3.3.4.3. BSP常见问题</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="devices/SOC/bm1684_soc_mode_faq.html#id5">3.3.4.3.1. 日志文件太大怎么办</a></li>
+<li class="toctree-l5"><a class="reference internal" href="devices/SOC/bm1684_soc_mode_faq.html#id6">3.3.4.3.2. 如何控制看门狗</a></li>
+<li class="toctree-l5"><a class="reference internal" href="devices/SOC/bm1684_soc_mode_faq.html#windowssdsd">3.3.4.3.3. windows操作SD卡分区导致SD卡无法升级问题</a></li>
+<li class="toctree-l5"><a class="reference internal" href="devices/SOC/bm1684_soc_mode_faq.html#bm1684-soc-mode">3.3.4.3.4. 不同规格的BM1684 Soc mode产品区别</a></li>
+<li class="toctree-l5"><a class="reference internal" href="devices/SOC/bm1684_soc_mode_faq.html#ion-allocate-buffer-failed">3.3.4.3.5. ion_allocate_buffer failed错误如何处理</a></li>
+<li class="toctree-l5"><a class="reference internal" href="devices/SOC/bm1684_soc_mode_faq.html#ip">3.3.4.3.6. 如何修改IP地址</a></li>
+<li class="toctree-l5"><a class="reference internal" href="devices/SOC/bm1684_soc_mode_faq.html#id7">3.3.4.3.7. 如何查看网口速率</a></li>
+<li class="toctree-l5"><a class="reference internal" href="devices/SOC/bm1684_soc_mode_faq.html#k3s">3.3.4.3.8. 使用K3S遇到问题</a></li>
+<li class="toctree-l5"><a class="reference internal" href="devices/SOC/bm1684_soc_mode_faq.html#se5qt">3.3.4.3.9. SE5上使用QT输出图形界面</a></li>
+<li class="toctree-l5"><a class="reference internal" href="devices/SOC/bm1684_soc_mode_faq.html#apt-updatepublic-key">3.3.4.3.10. apt update时出现public key无效提示</a></li>
+<li class="toctree-l5"><a class="reference internal" href="devices/SOC/bm1684_soc_mode_faq.html#log">3.3.4.3.11. 上电后无log输出</a></li>
+<li class="toctree-l5"><a class="reference internal" href="devices/SOC/bm1684_soc_mode_faq.html#emmc">3.3.4.3.12. eMMC上的文件系统损坏（“变砖”）</a></li>
+<li class="toctree-l5"><a class="reference internal" href="devices/SOC/bm1684_soc_mode_faq.html#sd">3.3.4.3.13. SD卡的兼容性</a></li>
+<li class="toctree-l5"><a class="reference internal" href="devices/SOC/bm1684_soc_mode_faq.html#tftp">3.3.4.3.14. 使用tftp刷机</a></li>
+<li class="toctree-l5"><a class="reference internal" href="devices/SOC/bm1684_soc_mode_faq.html#id8">3.3.4.3.15. 文件系统变成只读的处理方法</a></li>
+<li class="toctree-l5"><a class="reference internal" href="devices/SOC/bm1684_soc_mode_faq.html#id9">3.3.4.3.16. 大容量存储需求</a></li>
+<li class="toctree-l5"><a class="reference internal" href="devices/SOC/bm1684_soc_mode_faq.html#id10">3.3.4.3.17. 如何修改内存布局</a></li>
+<li class="toctree-l5"><a class="reference internal" href="devices/SOC/bm1684_soc_mode_faq.html#product-ddr">3.3.4.3.18. BM1684X 的DDR设计</a></li>
+<li class="toctree-l5"><a class="reference internal" href="devices/SOC/bm1684_soc_mode_faq.html#product-device-tree">3.3.4.3.19. BM1684X 的device tree设计</a></li>
+<li class="toctree-l5"><a class="reference internal" href="devices/SOC/bm1684_soc_mode_faq.html#id11">3.3.4.3.20. 修改源代码</a></li>
+<li class="toctree-l5"><a class="reference internal" href="devices/SOC/bm1684_soc_mode_faq.html#id12">3.3.4.3.21. 修改SoC预制的内存布局工具</a></li>
+<li class="toctree-l5"><a class="reference internal" href="devices/SOC/bm1684_soc_mode_faq.html#id13">3.3.4.3.22. 板卡类型判断</a></li>
+<li class="toctree-l5"><a class="reference internal" href="devices/SOC/bm1684_soc_mode_faq.html#ko">3.3.4.3.23. 开机后没有自动加载ko文件</a></li>
+<li class="toctree-l5"><a class="reference internal" href="devices/SOC/bm1684_soc_mode_faq.html#id14">3.3.4.3.24. 开机后自动运行业务</a></li>
+<li class="toctree-l5"><a class="reference internal" href="devices/SOC/bm1684_soc_mode_faq.html#spi-flash">3.3.4.3.25. 使用串口更新SPI flash</a></li>
+<li class="toctree-l5"><a class="reference internal" href="devices/SOC/bm1684_soc_mode_faq.html#id15">3.3.4.3.26. 日志文件过大怎么办</a></li>
+<li class="toctree-l5"><a class="reference internal" href="devices/SOC/bm1684_soc_mode_faq.html#id16">3.3.4.3.27. 如何修改自动挂载点</a></li>
+<li class="toctree-l5"><a class="reference internal" href="devices/SOC/bm1684_soc_mode_faq.html#id17">3.3.4.3.28. 如何判断异常重启的原因</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="devices/SOC/bm1684_soc_mode_faq.html#id18">3.3.4.4. SM5参考方案</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="devices/SOC/bm1684_soc_mode_faq.html#id19">3.3.4.4.1. 本地刷机方案</a></li>
+<li class="toctree-l5"><a class="reference internal" href="devices/SOC/bm1684_soc_mode_faq.html#id20">3.3.4.4.2. 网络刷机方案</a></li>
+<li class="toctree-l5"><a class="reference internal" href="devices/SOC/bm1684_soc_mode_faq.html#id21">3.3.4.4.3. 图形界面</a></li>
+<li class="toctree-l5"><a class="reference internal" href="devices/SOC/bm1684_soc_mode_faq.html#perfetto">3.3.4.4.4. 用Perfetto工具分析性能</a></li>
+<li class="toctree-l5"><a class="reference internal" href="devices/SOC/bm1684_soc_mode_faq.html#id22">3.3.4.4.5. 提高业务程序的实时性</a></li>
+<li class="toctree-l5"><a class="reference internal" href="devices/SOC/bm1684_soc_mode_faq.html#g">3.3.4.4.6. 4G模块方案</a></li>
+<li class="toctree-l5"><a class="reference internal" href="devices/SOC/bm1684_soc_mode_faq.html#id23">3.3.4.4.7. 5G模块方案</a></li>
+<li class="toctree-l5"><a class="reference internal" href="devices/SOC/bm1684_soc_mode_faq.html#id24">3.3.4.4.8. 如何增加板类型</a></li>
+<li class="toctree-l5"><a class="reference internal" href="devices/SOC/bm1684_soc_mode_faq.html#rootfs">3.3.4.4.9. 定制化rootfs</a></li>
+<li class="toctree-l5"><a class="reference internal" href="devices/SOC/bm1684_soc_mode_faq.html#efusespacc">3.3.4.4.10. 使用eFuse和SPACC进行加解密</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="devices/devices_PCIE.html">3.4. 智算卡常见问题</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="devices/devices_PCIE.html#sc5">3.4.1. SC5+在主机运行过热的情况</a></li>
+<li class="toctree-l3"><a class="reference internal" href="devices/devices_PCIE.html#id3">3.4.2. SC5安装</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="devices/devices_PCIE.html#id4">3.4.2.1. SC5快速安装指南</a></li>
+<li class="toctree-l4"><a class="reference internal" href="devices/devices_PCIE.html#pcie">3.4.2.2. PCIe模式驱动安装的步骤与注意事项？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="devices/devices_PCIE.html#id5">3.4.2.3. 内核更新与驱动重装</a></li>
+<li class="toctree-l4"><a class="reference internal" href="devices/devices_PCIE.html#gcc-make-linux-header">3.4.2.4. 编译驱动过程报gcc/make/linux header找不到的错误？</a></li>
+<li class="toctree-l4"><a class="reference internal" href="devices/devices_PCIE.html#id6">3.4.2.5. 驱动安装的其他注意事项？</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="devices/devices_PCIE.html#id7">3.4.3. PCIe卡无法被识别？</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="devices/devices_PCIE.html#x86">3.4.3.1. 在X86服务器主机上安装驱动及卸载驱动的方法:</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="devices/devices_PCIE.html#pcievpu">3.4.4. PCIe模式如何查看VPU内存分配情况？</a></li>
+<li class="toctree-l3"><a class="reference internal" href="devices/devices_PCIE.html#sophon">3.4.5. 如何判断机器上是否有SOPHON设备</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="devices/devices_server.html">3.5. 智算服务器常见问题</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="devices/devices_server.html#sg6">3.5.1. SG6服务器有两个网卡，但是有一个电口和两个光口，具体应该怎么连接？</a></li>
+<li class="toctree-l3"><a class="reference internal" href="devices/devices_server.html#sg6-10bmc">3.5.2. SG6-10的BMC密码忘记了，如何重置？</a></li>
+<li class="toctree-l3"><a class="reference internal" href="devices/devices_server.html#sg6-10">3.5.3. SG6-10的风扇噪音太高，怎样能把噪音降低？</a></li>
+<li class="toctree-l3"><a class="reference internal" href="devices/devices_server.html#sg6-1010-cpupcie-cpu">3.5.4. SG6-10在配置10张加速卡时，位于CPU后方两个半高PCIE槽位的加速卡温度偏高，如何能调高服务器CPU前部的两个风扇转速？</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="devices/forum_page.html">3.6. 论坛资料</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="4_converter_quantization.html">4. 模型转换及量化常见问题</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="4_converter_quantization.html#id3">4.1. 基本使用</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="4_converter_quantization.html#id4">4.1.1. 模型转换失败怎么办？</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_converter_quantization.html#id5">4.1.2. 是否支持模型的在线编译？</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="4_converter_quantization.html#fp32">4.2. fp32模型转换</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="4_converter_quantization.html#id6">4.2.1. fp32模型的输出和原始模型输出差异比较大怎么办？</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="4_converter_quantization.html#int8">4.3. int8模型量化</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="4_converter_quantization.html#int8fp32">4.3.1. int8的输出和fp32模型输出差异比较大怎么办？</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="5_multimedia.html">5. 多媒体用户常见问题</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/multimedia_troubleshooting.html">5.1. 多媒体问题排查手册</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/multimedia_troubleshooting.html#id3">5.1.1. 名词定义</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/multimedia_troubleshooting.html#ffmpeg">5.1.2. FFmpeg问题</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="multimedia/multimedia_troubleshooting.html#id4">5.1.2.1. ffmpeg拉流问题</a></li>
+<li class="toctree-l4"><a class="reference internal" href="multimedia/multimedia_troubleshooting.html#id5">5.1.2.2. ffmpeg解码问题</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="multimedia/multimedia_troubleshooting.html#ffmpeg-c">5.1.2.2.1. ffmpeg C++开发问题</a></li>
+<li class="toctree-l5"><a class="reference internal" href="multimedia/multimedia_troubleshooting.html#id6">5.1.2.2.2. ffmpeg 命令行问题</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="multimedia/multimedia_troubleshooting.html#id7">5.1.2.3. ffmpeg编码/转码问题</a></li>
+<li class="toctree-l4"><a class="reference internal" href="multimedia/multimedia_troubleshooting.html#id8">5.1.2.4. ffmpeg推流问题</a></li>
+<li class="toctree-l4"><a class="reference internal" href="multimedia/multimedia_troubleshooting.html#id9">5.1.2.5. ffmpeg综合问题</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/multimedia_troubleshooting.html#bmcv">5.1.3. BMCV问题</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/multimedia_troubleshooting.html#opencv">5.1.4. OpenCV问题</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="multimedia/multimedia_troubleshooting.html#id10">5.1.4.1. OpenCV拉流、解码</a></li>
+<li class="toctree-l4"><a class="reference internal" href="multimedia/multimedia_troubleshooting.html#id11">5.1.4.2. OpenCV图像处理</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/multimedia_troubleshooting.html#sail">5.1.5. SAIL问题</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="multimedia/multimedia_troubleshooting.html#sail-decoder">5.1.5.1. sail.Decoder解码</a></li>
+<li class="toctree-l4"><a class="reference internal" href="multimedia/multimedia_troubleshooting.html#sail-encoder">5.1.5.2. sail.Encoder编码</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/multimedia_troubleshooting.html#related-resources">5.1.6. Related Resources</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/Multimedia_FAQ.html">5.2. 多媒体客户常见问题</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#k">5.2.1. 4K图片的问题</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#opencv-cvmatbmimage-bmcv-image-vpp-convert">5.2.2. Opencv读取图片后，cvMat转为bmimage, 之后，调用bmcv_image_vpp_convert做缩放或者颜色空间转换，得到的图片不一致</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#opencv-imread">5.2.3. Opencv imread读取图片性能问题。</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#videowriter-write">5.2.4. VideoWriter.write性能问题，有些客户反应，存文件慢。</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#ffmpeg">5.2.5. Ffmpeg的阻塞问题</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#uploadmat-downloadmat">5.2.6. 关于什么时候调用uploadMat/downloadMat接口的问题。</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#opencvtimestamp">5.2.7. opencv下如何获取视频帧的timestamp？</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#sa3-opencvvideocapture5">5.2.8. SA3 opencv下videocapture经常5分钟左右断网的解决方案</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#rtsptimestamp">5.2.9. 如何获取rtsp中原来的timestamp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#id3">5.2.10. 如何判断视频花屏的原因</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#rtsp">5.2.11. 无法连接rtsp？</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#urlrtsp">5.2.12. 确认解码器是否能正常工作：（url为文件名或者rtsp连接地址）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#vppopencv">5.2.13. 确认解码器和vpp的OpenCV接口是否正常工作：</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#id4">5.2.14. 解码不正确或者无法解码的最终调试手段</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#id5">5.2.15. 判断rtsp是否正常工作</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#id6">5.2.16. 播放rtsp流出现断连情况验证</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#id7">5.2.17. 验证当前rtsp服务输出的视频是否有花屏</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#id8">5.2.18. 查看rtsp服务是否实时推流</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#cvqueryframeopencv">5.2.19. 对于cvQueryFrame等老的opencv接口支持状况</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#vppyuv">5.2.20. 对于VPP硬件不支持的YUV格式转换，采取什么样的软件方式最快？</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#opencvbgr-libyuv-opencvrgb">5.2.21. OpenCV中的BGR格式，在libyuv中对应的那个格式？OpenCV中的RGB格式呢？</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#libyuvjpeg">5.2.22. 若是采用libyuv处理JPEG方面的输出或者输入，需要注意什么事项？</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#ffmpeg-opencv-gb28181-url">5.2.23. ffmpeg&amp;opencv 支持 gb28181 协议，传入的url地址形式如下</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#opencvionmatdata-matsystem-memory">5.2.24. 现在opencv中默认是使用ION内存作为MAT的data空间，如何指定Mat对象基于system memory内存去创建使用？</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#ffmpeg-jpeg">5.2.25. FFMPEG JPEG 编码与转码应用示例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#ffmpeg-bitstream">5.2.26. 如何从FFMPEG的输入缓冲区中读取 bitstream?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#aviocontext-avio-avio-alloc-context-avformat-open-input-290ms-3ms">5.2.27. 从内存读取图片，用AVIOContext *avio =avio_alloc_context()，以及avformat_open_input()来初始化，发现初始化时间有290ms；但是如果从本地读取图片，只有3ms。为啥初始化时间要这么长？怎样减少初始化时间？</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#id9">5.2.28. 如何查看FFMPEG中支持的分离器的名称?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#ffmpeg-jpeg-bm">5.2.29. 如何在FFMPEG中查看解码器信息，例如查看jpeg_bm解码器信息?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#id10">5.2.30. 如何在FFMPEG中查看解码器信息，例如查看jpeg_bm编码器信息?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#id11">5.2.31. 如何在FFMPEG中查看编码器信息，例如查看jpeg_bm编码器信息?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#apijpeg">5.2.32. 调用API实现jpeg编码的应用示例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#ffmpegapijpegjpeg-bm">5.2.33. 调用FFMPEG的API实现静态jpeg图片解码时设置jpeg_bm解码器参数的应用示例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#id12">5.2.34. 调用FFMPEG的API实现动态jpeg图片解码时设置jpeg_bm解码器参数的应用示例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#bm168xh264-h265">5.2.35. BM168x解码性能对于H264/H265有差别吗？如果调整码率的话，最多可以解多少路呢？有没有对应的数据参考？</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#bm168x">5.2.36. 是否可以通过抽帧来提高BM168x的解码路数</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#avi-f4v-mov-3gp-mp4-ts-asf-flv-mkvh264-h265">5.2.37. 是否支持avi, f4v, mov, 3gp, mp4, ts, asf, flv, mkv封装格式的H264/H265视频解析？</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#png-jpg-bmp-jpeg">5.2.38. 是否支持png, jpg, bmp, jpeg等图像格式</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#valgrind">5.2.39. Valgrind内存检查为什么有那么多警告，影响到应用的调试了</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#opencvvideo-write-heap2">5.2.40. 使用opencv的video write编码，提示物理内存(heap2)分配失败</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#bm-opencvimread-jpegopencvimread-jpeg">5.2.41. Bm_opencv的imread jpeg解码结果和原生opencv的imread jpeg结果不同，有误差</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#vpu-jpu">5.2.42. 如何查看vpu/jpu的内存、使用率等状态</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#id13">5.2.43. 视频支持32路甚至更多的时候，报视频内存不够使用，如何优化内存使用空间</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#opencvmat">5.2.44. Opencv中mat是如何分配设备内存和系统内存的？</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#id15">5.2.45. ffmpeg中做图像格式/大小变换导致视频播放时回退或者顺序不对的情况处理办法</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#id17">5.2.46. 启动设备首次执行某个函数慢，重启进程再次运行正常</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#opencv-mat-terminate-called-after-throwing-an-instance-of-cv-exception-what-opencv-4-1-0-matrix-cpp-452-error-215-assertion-failed-u-0-in-function-creat">5.2.47. Opencv mat创建失败，提示“terminate called after throwing an instance of ‘cv::Exception’ what(): OpenCV(4.1.0) …… matrix.cpp:452: error: (-215:Assertion failed) u != 0 in function ‘creat’”</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#opencvbm-image-memory-allocated-by-user-no-device-memory-assigned-not-support-bmcv">5.2.48. opencv转bm_image的时候，报错“Memory allocated by user, no device memory assigned. Not support BMCV!”</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#opencvmatdata-mat-mat">5.2.49. Opencv用已有Mat的内存data，宽高去创建新的Mat后，新Mat保存的图像数据错行，显示不正常</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#socffmpegavframedata-0-3-copycopy20mscopy1-3ms">5.2.50. 在soc模式下客户用ffmpeg解码时拿到AVframe将data[0-3] copy到系统内存发现copy时间是在20ms左右而相同数据量在系统内存两块地址copy只需要1-3ms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#opencv-videocapture-maybe-grab-ends-normally-retry-count-513">5.2.51. 在opencv VideoCapture 解码视频时提示: maybe grab ends normally, retry count = 513</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#vpu-decregisterframebuffer-failed-error-code-is-0x3-allocate-frame-buffer">5.2.52. [问题分析]客户反馈碰到如下错误提示信息”VPU_DecRegisterFrameBuffer failed Error code is 0x3”, 然后提示Allocate Frame Buffer内存失败。</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#soc-opencv8uc1-mat-mat8uc3">5.2.53. SOC模式下，opencv在使用8UC1 Mat的时候报错，而当Mat格式为8UC3的时候，同样的程序完全工作正常。</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#bmcv-image-vpp-convert-padding-32-vpp-not-support-scaling-ratio-greater-than-32">5.2.54. 调用 bmcv_image_vpp_convert_padding 接口时，报缩放比例超过32倍的错：“vpp not support: scaling ratio greater than 32”。</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#vpu-decgetoutputinfo-decode-fail-framdidx-xxx-error-0x00000000-reason-0x00400000-reasonext-0x00000000-reason">5.2.55. [问题分析]程序提示“VPU_DecGetOutputInfo decode fail framdIdx xxx error(0x00000000) reason(0x00400000), reasonExt(0x00000000)”是可能什么问题，这里reason的具体数值可能不同</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#coreidx-0-instidx-0-vpu-interrupt-wait-timeout">5.2.56. [问题分析]程序提示“coreIdx 0 InstIdx 0: VPU interrupt wait timeout”，这是怎么回事?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#tcp-ffmpegav-read-frame">5.2.57. 采用TCP传输码流的时候如果码流服务器停止推流，ffmpeg阻塞在av_read_frame</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#ffmpeg-jpeg-bmjpeg-error-dma-buffer-size-5242880-is-less-than-input-data-size-xxxxxxx">5.2.58. [问题分析]当用ffmpeg jpeg_bm解码超大JPEG图片的时候，有时候会报“ERROR:DMA buffer size(5242880) is less than input data size(xxxxxxx)”，如何解决？</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#bmcv-image-vpp-basic-csc-type-t-csc-type-csc-matrix-t-matrix">5.2.59. 调用 bmcv_image_vpp_basic 接口时，csc_type_t, csc_type 和 csc_matrix_t* matrix该如何填？</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#bm-imag-bm-image-destroy">5.2.60. [问题分析]不同线程对同一个bm_imag调用 bm_image_destroy 时，程序崩溃。</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#mat-mat">5.2.61. 如何跨进程传递Mat信息，使不同进程间零拷贝地共享Mat中的设备内存数据？</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#id18">5.2.62. 申请设备内存失败， 错误返回-24。</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#bm-image-createbm-image-alloc-dev-membm-image-attach">5.2.63. bm_image_create、bm_image_alloc_dev_mem、bm_image_attach相关疑问。</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#bm-image-destroybm-image-detach">5.2.64. bm_image_destroy、bm_image_detach相关疑问。</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#bmcv-tobmibm-create-image-bm-image-destroy">5.2.65. 在bmcv::toBMI之前是否需要调用bm_create_image，如果调用，在最后使用bm_image_destroy会不会引起内存泄露？</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#opencvimwritebmcv-image-jpeg-enc">5.2.66. 使用opencv的imwrite编码的结果和使用bmcv_image_jpeg_enc编码的结果有质量差异（色彩饱和度）。</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#ffmpeg-pcie-sophon-idx">5.2.67. 使用ffmpeg 在pcie模式下进行编解码 使用过滤器 要注意指定sophon_idx。</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/multimedia_general_faq.html">5.3. 多媒体客户常见问题（补充）</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/multimedia_general_faq.html#cv-matbm-image">5.3.1. cv::Mat如何转换为bm_image？</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/multimedia_general_faq.html#hostbgr-planar-cv-mathostbgr-packed-cv-mat">5.3.2. 如何将host上的bgr planar cv::Mat变成host上的BGR packed cv::Mat？</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/multimedia_general_faq.html#nv12-bm-image">5.3.3. 使用NV12原始数据，创建bm_image的注意事项？</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/multimedia_general_faq.html#opencv-contrib">5.3.4. 是否可以提供OpenCV contrib库？</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/multimedia_general_faq.html#bmcv-bm-image">5.3.5. BMCV相关接口，输入和输出可以使同一个bm_image吗？</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/multimedia_general_faq.html#cv-bmcv-resize-bmcv-image-resize-cv-resizecpu-matcpu-1cv-hal-resize-bmcv-hwresize-cv-bmcv-resizecv-resize">5.3.6. cv::bmcv::resize 看代码底层调用的是bmcv_image_resize，cv::resize用的是cpu吗，处理的是mat中cpu内存中的那部分数据吗？还有1个cv::hal::resize, bmcv::hwResize，这些是什么关系啊。cv::bmcv::resize和cv::resize 是否支持输入和输出是同一个对象，原地进行转换呢？</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/multimedia_general_faq.html#bm-opencvgb28181">5.3.7. 关于BM-OpenCV中GB28181接口，说的是接国标流是吧？本身支持转国标流功能吗？</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/multimedia_general_faq.html#id4">5.3.8. 如何进行编解码性能测试？是否有参考程序？</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/multimedia_general_faq.html#bm1684x">5.3.9. BM1684X芯片的编解码性能数据是怎样的？</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/multimedia_general_faq.html#bm1684x322">5.3.10. BM1684X编解码性能是同时支持32路解码和2路编码吗？内存大小和内存带宽会不会成为瓶颈？</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/multimedia_general_faq.html#vpp">5.3.11. 解码会占用多少内存？使用vpp进行图像处理，最大可能会消耗多少内存？</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/multimedia_general_faq.html#hwcchwnchw-1684x">5.3.12. 前处理时图片数据格式转换需要HWC转CHW和NCHW， 1684X是否相关接口可以使用？</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/multimedia_general_faq.html#id5">5.3.13. 硬编的画面输出是绿屏</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/multimedia_general_faq.html#id6">5.3.14. 解码器卡住</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/multimedia_general_faq.html#bmcv-image-vpp-resize-padding-vpp-input-image-param-err">5.3.15. 使用bmcv_image_vpp_resize_padding时报错提示”vpp input image param err”？</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/multimedia_general_faq.html#bmcvopencv-cvtcolor-subtract-bitwise-and-findcontours">5.3.16. bmcv库中是否有和OpenCV相对应的 cvtColor、 subtract、 bitwise_and、 findContours 等这几个方法？</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/multimedia_general_faq.html#soccv-matcv-mat">5.3.17. SoC模式使用cv::Mat的数据地址初始化另外一个cv::Mat时有可能会出现乱码？</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/multimedia_general_faq.html#soccv-mat">5.3.18. SoC模式对cv::Mat的内存进行操作</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/multimedia_general_faq.html#sophon-gate-gate-webserver-py-sophonface">5.3.19. Sophon gate 人脸应用中gate_webserver.py 的 sophonface  是如何导入的？</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/multimedia_general_faq.html#opencvimreadjpg">5.3.20. OpenCV的imread接口读取进来的JPG图片尺寸问题</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/multimedia_general_faq.html#bm-imagecv-mat">5.3.21. 如何将bm_image转为cv.Mat?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/multimedia_general_faq.html#rtspffmpegopencv-sail-decoder">5.3.22. rtsp流使用ffmpeg和opencv可以正常解码，但是使用sail.Decoder无法正常解码</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="6_program_optimization.html">6. 程序开发常见问题</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="program_develop/program_opt.html">6.1. 程序优化常见问题</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_develop/program_opt.html#id2">6.1.1. 前后处理加速</a></li>
+<li class="toctree-l3"><a class="reference internal" href="program_develop/program_opt.html#id3">6.1.2. 模型编译</a></li>
+<li class="toctree-l3"><a class="reference internal" href="program_develop/program_opt.html#id4">6.1.3. 推理加速</a></li>
+<li class="toctree-l3"><a class="reference internal" href="program_develop/program_opt.html#bmlang">6.1.4. bmlang开发</a></li>
+<li class="toctree-l3"><a class="reference internal" href="program_develop/program_opt.html#id5">6.1.5. 流程优化</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="program_develop/sophon-demo-faq.html">6.2. SOPHON DEMO 常见问题</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_develop/sophon-demo-faq.html#id2">6.2.1. 1 环境安装相关问题</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="program_develop/sophon-demo-faq.html#id3">6.2.1.1. 1.1 sophon-demo涉及的开发和运行环境安装可以参考相关文档。</a></li>
+<li class="toctree-l4"><a class="reference internal" href="program_develop/sophon-demo-faq.html#socsd">6.2.1.2. 1.2 SoC模式下如何使用SD卡刷更新固件</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="program_develop/sophon-demo-faq.html#id4">6.2.2. 2 模型导出相关问题</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="program_develop/sophon-demo-faq.html#pytorchjit-trace">6.2.2.1. 2.1 Pytorch模型如何进行jit.trace</a></li>
+<li class="toctree-l4"><a class="reference internal" href="program_develop/sophon-demo-faq.html#onnx">6.2.2.2. 2.2 ONNX模型导出过程使用的算子集</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="program_develop/sophon-demo-faq.html#id5">6.2.3. 3 模型编译和量化相关问题</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="program_develop/sophon-demo-faq.html#tpu-nntc">6.2.3.1. 3.1 使用TPU-NNTC量化的相关问题</a></li>
+<li class="toctree-l4"><a class="reference internal" href="program_develop/sophon-demo-faq.html#tpu-nntc-resnet260">6.2.3.2. 3.2 使用TPU-NNTC编译大模型(如resnet260)耗时长</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="program_develop/sophon-demo-faq.html#id6">6.2.4. 4 算法移植相关问题</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="program_develop/sophon-demo-faq.html#sophon-opencvopencvbmcv">6.2.4.1. 4.1 Sophon OpenCV和原生OpenCV、BMCV的关系</a></li>
+<li class="toctree-l4"><a class="reference internal" href="program_develop/sophon-demo-faq.html#opencvpythonsophon-opencv">6.2.4.2. 4.2 基于OpenCV的Python例程如何调用Sophon OpenCV进行加速</a></li>
+<li class="toctree-l4"><a class="reference internal" href="program_develop/sophon-demo-faq.html#opencvc-sophon-opencvopencv">6.2.4.3. 4.3 基于OpenCV的C++例程使用Sophon OpenCV还是原生OpenCV</a></li>
+<li class="toctree-l4"><a class="reference internal" href="program_develop/sophon-demo-faq.html#c-ff-decodevid-reset-unlock-flock-failed">6.2.4.4. 4.4 C++例程使用ff_decode解码视频提示“vid reset unlock flock failed”，但不影响正常运行</a></li>
+<li class="toctree-l4"><a class="reference internal" href="program_develop/sophon-demo-faq.html#bm-free-device">6.2.4.5. 4.5 bm_free_device失败</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="program_develop/sophon-demo-faq.html#id7">6.2.5. 5 精度测试相关问题</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="program_develop/sophon-demo-faq.html#fp32-bmodel">6.2.5.1. 5.1 FP32 BModel的推理结果与原模型的推理结果不一致</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="program_develop/sophon-demo-faq.html#id8">6.2.6. 6 性能测试相关问题</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="program_develop/sophon-demo-faq.html#fp32-bmodelbm1684xbm1684">6.2.6.1. 6.1 部分FP32 BModel的BM1684X性能低于BM1684</a></li>
+<li class="toctree-l4"><a class="reference internal" href="program_develop/sophon-demo-faq.html#opencv-pythonint8bmodelfp32bmodel">6.2.6.2. 6.2 基于opencv-python的例程int8bmodel推理时间没有比fp32bmodel快</a></li>
+<li class="toctree-l4"><a class="reference internal" href="program_develop/sophon-demo-faq.html#id9">6.2.6.3. 6.3 sophon-demo能否用于性能压测</a></li>
+<li class="toctree-l4"><a class="reference internal" href="program_develop/sophon-demo-faq.html#readme">6.2.6.4. 6.4 测试性能相比README下降</a></li>
+<li class="toctree-l4"><a class="reference internal" href="program_develop/sophon-demo-faq.html#id10">6.2.6.5. 6.5 性能测试表格的作用</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="program_develop/sophon-demo-faq.html#id11">6.2.7. 7 其他问题</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="program_develop/sophon-demo-faq.html#unkown-cmake-command-add-compile-definitions">6.2.7.1. 7.1 编译时出现<code class="docutils literal notranslate"><span class="pre">Unkown</span> <span class="pre">CMake</span> <span class="pre">command</span> <span class="pre">&quot;add_compile_definitions&quot;.</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="program_develop/sophon-demo-faq.html#id12">6.2.7.2. 7.2 有些图片的数据重叠到一起，有的图片框上面没数据，有些图片没有框</a></li>
+<li class="toctree-l4"><a class="reference internal" href="program_develop/sophon-demo-faq.html#bm-ion-alloc-failed">6.2.7.3. 7.3 程序运行时出现<code class="docutils literal notranslate"><span class="pre">bm_ion_alloc</span> <span class="pre">failed</span></code>等报错</a></li>
+<li class="toctree-l4"><a class="reference internal" href="program_develop/sophon-demo-faq.html#id13">6.2.7.4. 7.4 刚开机首次执行某个函数慢(比如解码)，重启进程再次运行程序，时间正常</a></li>
+<li class="toctree-l4"><a class="reference internal" href="program_develop/sophon-demo-faq.html#scripts-download-sh">6.2.7.5. 7.5 运行下载脚本<code class="docutils literal notranslate"><span class="pre">scripts/download.sh</span></code>报错</a></li>
+<li class="toctree-l4"><a class="reference internal" href="program_develop/sophon-demo-faq.html#pycocotoolspip-requireddependencyexception-jpeg">6.2.7.6. 7.6 pycocotools等包通过pip安装失败，报错中含有<code class="docutils literal notranslate"><span class="pre">RequiredDependencyException:</span> <span class="pre">jpeg</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="program_develop/sophon-demo-faq.html#id14">6.2.7.7. 7.7 解码超过一定路数开始报错，但是设备内存没有满</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="program_develop/sophon-stream-faq.html">6.3. SOPHON STREAM 常见问题</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="program_develop/sophon-stream-faq.html#can-not-find-element-maker-name-xxx">6.3.1. 1. 初始化阶段报错<code class="docutils literal notranslate"><span class="pre">Can</span> <span class="pre">not</span> <span class="pre">find</span> <span class="pre">element</span> <span class="pre">maker,</span> <span class="pre">name:</span> <span class="pre">xxx</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="program_develop/sophon-stream-faq.html#fatal-error-boost-version-hpp-no-such-file-or-directory">6.3.2. 2. 编译报错<code class="docutils literal notranslate"><span class="pre">fatal</span> <span class="pre">error:</span> <span class="pre">boost/version.hpp:</span> <span class="pre">No</span> <span class="pre">such</span> <span class="pre">file</span> <span class="pre">or</span> <span class="pre">directory</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="program_develop/sophon-stream-faq.html#undefined-symbol-zn5boost6system15system-categoryev">6.3.3. 3. 交叉编译之后在盒子上运行报错 <code class="docutils literal notranslate"><span class="pre">undefined</span> <span class="pre">symbol:</span> <span class="pre">_ZN5boost6system15system_categoryEv</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="program_develop/sophon-stream-faq.html#lib-aarch64-linux-gnu-libc-so-6-version-glibc-2-33-not-found">6.3.4. 4. 交叉编译之后在盒子上运行报错<code class="docutils literal notranslate"><span class="pre">/lib/aarch64-linux-gnu/libc.so.6:</span> <span class="pre">version</span> <span class="pre">'GLIBC_2.33'</span> <span class="pre">not</span> <span class="pre">found</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="program_develop/sophon-stream-faq.html#tpu-kernel">6.3.5. 5. 编译阶段报错<code class="docutils literal notranslate"><span class="pre">找不到tpu_kernel相关定义</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="program_develop/sophon-stream-faq.html#error-while-loading-shared-libraries-libxxx-so-cannot-open-shared-object-file-no-such-file-or-directory">6.3.6. 6. 交叉编译之后在盒子上运行报错<code class="docutils literal notranslate"><span class="pre">error</span> <span class="pre">while</span> <span class="pre">loading</span> <span class="pre">shared</span> <span class="pre">libraries:</span> <span class="pre">libxxx.so:</span> <span class="pre">cannot</span> <span class="pre">open</span> <span class="pre">shared</span> <span class="pre">object</span> <span class="pre">file:</span> <span class="pre">No</span> <span class="pre">such</span> <span class="pre">file</span> <span class="pre">or</span> <span class="pre">directory</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="program_develop/sophon-stream-faq.html#lframework-livslogger">6.3.7. 7. 编译阶段报错<code class="docutils literal notranslate"><span class="pre">找不到-lframework、-livslogger</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="program_develop/sophon-stream-faq.html#bm-check-error-bm-check-ret-fail">6.3.8. 8. 运行报错<code class="docutils literal notranslate"><span class="pre">[BM_CHECK][error]</span> <span class="pre">BM_CHECK_RET</span> <span class="pre">fail</span></code>，详细报错如下：</a></li>
+<li class="toctree-l3"><a class="reference internal" href="program_develop/sophon-stream-faq.html#id2">6.3.9. 9. 有的图片没有识别/检测结果</a></li>
+<li class="toctree-l3"><a class="reference internal" href="program_develop/sophon-stream-faq.html#id3">6.3.10. 10. 推流失败</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="program_develop/sophon-pipeline-faq.html">6.4. SOPHON PIPELINE 常见问题及解答</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="0_disclaimer.html" class="btn btn-neutral float-right" title="1. 声明" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2022, SOPHGO.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="前往官网"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="前往文档中心"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="页面顶部"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="页面底部"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>本页二维码</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>5. 多媒体用户常见问题 &mdash; SOPHON and SDK FAQ master
+ 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="5.1. 多媒体问题排查手册" href="multimedia/multimedia_troubleshooting.html" />
+    <link rel="prev" title="4. 模型转换及量化常见问题" href="4_converter_quantization.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> SOPHON and SDK FAQ
+          </a>
+              <div class="version">
+                master
+
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="0_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_basic_concept.html">2. 基础概念常见问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_device_usages.html">3. 设备使用常见问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_converter_quantization.html">4. 模型转换及量化常见问题</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">5. 多媒体用户常见问题</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/multimedia_troubleshooting.html">5.1. 多媒体问题排查手册</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/Multimedia_FAQ.html">5.2. 多媒体客户常见问题</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/multimedia_general_faq.html">5.3. 多媒体客户常见问题（补充）</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="6_program_optimization.html">6. 程序开发常见问题</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SOPHON and SDK FAQ</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">5. </span>多媒体用户常见问题</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/5_multimedia.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">返回文档中心</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1><span class="section-number">5. </span>多媒体用户常见问题<a class="headerlink" href="#id1" title="此标题的永久链接">¶</a></h1>
+<div class="admonition tip">
+<p class="admonition-title">小技巧</p>
+<ol class="arabic simple">
+<li><p>本篇FAQ内容包含《<a class="reference external" href="https://doc.sophgo.com/sdk-docs/v23.09.01-lts/docs_latest_release/docs/sophon-mw/faq/html/index.html">多媒体客户常见问题手册</a>》所有内容，可以省去重复查找</p></li>
+<li><p>多媒体开发手册：《<a class="reference external" href="https://doc.sophgo.com/docs/3.0.0/docs_latest_release/multimedia_guide/html/index.html">多媒体用户开发手册</a> 》</p></li>
+</ol>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="multimedia/multimedia_troubleshooting.html">5.1. 多媒体问题排查手册</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/multimedia_troubleshooting.html#id3">5.1.1. 名词定义</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/multimedia_troubleshooting.html#ffmpeg">5.1.2. FFmpeg问题</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/multimedia_troubleshooting.html#id4">5.1.2.1. ffmpeg拉流问题</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/multimedia_troubleshooting.html#id5">5.1.2.2. ffmpeg解码问题</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="multimedia/multimedia_troubleshooting.html#ffmpeg-c">5.1.2.2.1. ffmpeg C++开发问题</a></li>
+<li class="toctree-l4"><a class="reference internal" href="multimedia/multimedia_troubleshooting.html#id6">5.1.2.2.2. ffmpeg 命令行问题</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/multimedia_troubleshooting.html#id7">5.1.2.3. ffmpeg编码/转码问题</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/multimedia_troubleshooting.html#id8">5.1.2.4. ffmpeg推流问题</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/multimedia_troubleshooting.html#id9">5.1.2.5. ffmpeg综合问题</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/multimedia_troubleshooting.html#bmcv">5.1.3. BMCV问题</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/multimedia_troubleshooting.html#opencv">5.1.4. OpenCV问题</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/multimedia_troubleshooting.html#id10">5.1.4.1. OpenCV拉流、解码</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/multimedia_troubleshooting.html#id11">5.1.4.2. OpenCV图像处理</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/multimedia_troubleshooting.html#sail">5.1.5. SAIL问题</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/multimedia_troubleshooting.html#sail-decoder">5.1.5.1. sail.Decoder解码</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multimedia/multimedia_troubleshooting.html#sail-encoder">5.1.5.2. sail.Encoder编码</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/multimedia_troubleshooting.html#related-resources">5.1.6. Related Resources</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="multimedia/Multimedia_FAQ.html">5.2. 多媒体客户常见问题</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#k">5.2.1. 4K图片的问题</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#opencv-cvmatbmimage-bmcv-image-vpp-convert">5.2.2. Opencv读取图片后，cvMat转为bmimage, 之后，调用bmcv_image_vpp_convert做缩放或者颜色空间转换，得到的图片不一致</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#opencv-imread">5.2.3. Opencv imread读取图片性能问题。</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#videowriter-write">5.2.4. VideoWriter.write性能问题，有些客户反应，存文件慢。</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#ffmpeg">5.2.5. Ffmpeg的阻塞问题</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#uploadmat-downloadmat">5.2.6. 关于什么时候调用uploadMat/downloadMat接口的问题。</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#opencvtimestamp">5.2.7. opencv下如何获取视频帧的timestamp？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#sa3-opencvvideocapture5">5.2.8. SA3 opencv下videocapture经常5分钟左右断网的解决方案</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#rtsptimestamp">5.2.9. 如何获取rtsp中原来的timestamp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#id3">5.2.10. 如何判断视频花屏的原因</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#rtsp">5.2.11. 无法连接rtsp？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#urlrtsp">5.2.12. 确认解码器是否能正常工作：（url为文件名或者rtsp连接地址）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#vppopencv">5.2.13. 确认解码器和vpp的OpenCV接口是否正常工作：</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#id4">5.2.14. 解码不正确或者无法解码的最终调试手段</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#id5">5.2.15. 判断rtsp是否正常工作</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#id6">5.2.16. 播放rtsp流出现断连情况验证</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#id7">5.2.17. 验证当前rtsp服务输出的视频是否有花屏</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#id8">5.2.18. 查看rtsp服务是否实时推流</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#cvqueryframeopencv">5.2.19. 对于cvQueryFrame等老的opencv接口支持状况</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#vppyuv">5.2.20. 对于VPP硬件不支持的YUV格式转换，采取什么样的软件方式最快？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#opencvbgr-libyuv-opencvrgb">5.2.21. OpenCV中的BGR格式，在libyuv中对应的那个格式？OpenCV中的RGB格式呢？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#libyuvjpeg">5.2.22. 若是采用libyuv处理JPEG方面的输出或者输入，需要注意什么事项？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#ffmpeg-opencv-gb28181-url">5.2.23. ffmpeg&amp;opencv 支持 gb28181 协议，传入的url地址形式如下</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#opencvionmatdata-matsystem-memory">5.2.24. 现在opencv中默认是使用ION内存作为MAT的data空间，如何指定Mat对象基于system memory内存去创建使用？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#ffmpeg-jpeg">5.2.25. FFMPEG JPEG 编码与转码应用示例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#ffmpeg-bitstream">5.2.26. 如何从FFMPEG的输入缓冲区中读取 bitstream?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#aviocontext-avio-avio-alloc-context-avformat-open-input-290ms-3ms">5.2.27. 从内存读取图片，用AVIOContext *avio =avio_alloc_context()，以及avformat_open_input()来初始化，发现初始化时间有290ms；但是如果从本地读取图片，只有3ms。为啥初始化时间要这么长？怎样减少初始化时间？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#id9">5.2.28. 如何查看FFMPEG中支持的分离器的名称?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#ffmpeg-jpeg-bm">5.2.29. 如何在FFMPEG中查看解码器信息，例如查看jpeg_bm解码器信息?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#id10">5.2.30. 如何在FFMPEG中查看解码器信息，例如查看jpeg_bm编码器信息?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#id11">5.2.31. 如何在FFMPEG中查看编码器信息，例如查看jpeg_bm编码器信息?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#apijpeg">5.2.32. 调用API实现jpeg编码的应用示例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#ffmpegapijpegjpeg-bm">5.2.33. 调用FFMPEG的API实现静态jpeg图片解码时设置jpeg_bm解码器参数的应用示例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#id12">5.2.34. 调用FFMPEG的API实现动态jpeg图片解码时设置jpeg_bm解码器参数的应用示例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#bm168xh264-h265">5.2.35. BM168x解码性能对于H264/H265有差别吗？如果调整码率的话，最多可以解多少路呢？有没有对应的数据参考？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#bm168x">5.2.36. 是否可以通过抽帧来提高BM168x的解码路数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#avi-f4v-mov-3gp-mp4-ts-asf-flv-mkvh264-h265">5.2.37. 是否支持avi, f4v, mov, 3gp, mp4, ts, asf, flv, mkv封装格式的H264/H265视频解析？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#png-jpg-bmp-jpeg">5.2.38. 是否支持png, jpg, bmp, jpeg等图像格式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#valgrind">5.2.39. Valgrind内存检查为什么有那么多警告，影响到应用的调试了</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#opencvvideo-write-heap2">5.2.40. 使用opencv的video write编码，提示物理内存(heap2)分配失败</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#bm-opencvimread-jpegopencvimread-jpeg">5.2.41. Bm_opencv的imread jpeg解码结果和原生opencv的imread jpeg结果不同，有误差</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#vpu-jpu">5.2.42. 如何查看vpu/jpu的内存、使用率等状态</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#id13">5.2.43. 视频支持32路甚至更多的时候，报视频内存不够使用，如何优化内存使用空间</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#opencvmat">5.2.44. Opencv中mat是如何分配设备内存和系统内存的？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#id15">5.2.45. ffmpeg中做图像格式/大小变换导致视频播放时回退或者顺序不对的情况处理办法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#id17">5.2.46. 启动设备首次执行某个函数慢，重启进程再次运行正常</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#opencv-mat-terminate-called-after-throwing-an-instance-of-cv-exception-what-opencv-4-1-0-matrix-cpp-452-error-215-assertion-failed-u-0-in-function-creat">5.2.47. Opencv mat创建失败，提示“terminate called after throwing an instance of ‘cv::Exception’ what(): OpenCV(4.1.0) …… matrix.cpp:452: error: (-215:Assertion failed) u != 0 in function ‘creat’”</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#opencvbm-image-memory-allocated-by-user-no-device-memory-assigned-not-support-bmcv">5.2.48. opencv转bm_image的时候，报错“Memory allocated by user, no device memory assigned. Not support BMCV!”</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#opencvmatdata-mat-mat">5.2.49. Opencv用已有Mat的内存data，宽高去创建新的Mat后，新Mat保存的图像数据错行，显示不正常</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#socffmpegavframedata-0-3-copycopy20mscopy1-3ms">5.2.50. 在soc模式下客户用ffmpeg解码时拿到AVframe将data[0-3] copy到系统内存发现copy时间是在20ms左右而相同数据量在系统内存两块地址copy只需要1-3ms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#opencv-videocapture-maybe-grab-ends-normally-retry-count-513">5.2.51. 在opencv VideoCapture 解码视频时提示: maybe grab ends normally, retry count = 513</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#vpu-decregisterframebuffer-failed-error-code-is-0x3-allocate-frame-buffer">5.2.52. [问题分析]客户反馈碰到如下错误提示信息”VPU_DecRegisterFrameBuffer failed Error code is 0x3”, 然后提示Allocate Frame Buffer内存失败。</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#soc-opencv8uc1-mat-mat8uc3">5.2.53. SOC模式下，opencv在使用8UC1 Mat的时候报错，而当Mat格式为8UC3的时候，同样的程序完全工作正常。</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#bmcv-image-vpp-convert-padding-32-vpp-not-support-scaling-ratio-greater-than-32">5.2.54. 调用 bmcv_image_vpp_convert_padding 接口时，报缩放比例超过32倍的错：“vpp not support: scaling ratio greater than 32”。</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#vpu-decgetoutputinfo-decode-fail-framdidx-xxx-error-0x00000000-reason-0x00400000-reasonext-0x00000000-reason">5.2.55. [问题分析]程序提示“VPU_DecGetOutputInfo decode fail framdIdx xxx error(0x00000000) reason(0x00400000), reasonExt(0x00000000)”是可能什么问题，这里reason的具体数值可能不同</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#coreidx-0-instidx-0-vpu-interrupt-wait-timeout">5.2.56. [问题分析]程序提示“coreIdx 0 InstIdx 0: VPU interrupt wait timeout”，这是怎么回事?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#tcp-ffmpegav-read-frame">5.2.57. 采用TCP传输码流的时候如果码流服务器停止推流，ffmpeg阻塞在av_read_frame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#ffmpeg-jpeg-bmjpeg-error-dma-buffer-size-5242880-is-less-than-input-data-size-xxxxxxx">5.2.58. [问题分析]当用ffmpeg jpeg_bm解码超大JPEG图片的时候，有时候会报“ERROR:DMA buffer size(5242880) is less than input data size(xxxxxxx)”，如何解决？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#bmcv-image-vpp-basic-csc-type-t-csc-type-csc-matrix-t-matrix">5.2.59. 调用 bmcv_image_vpp_basic 接口时，csc_type_t, csc_type 和 csc_matrix_t* matrix该如何填？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#bm-imag-bm-image-destroy">5.2.60. [问题分析]不同线程对同一个bm_imag调用 bm_image_destroy 时，程序崩溃。</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#mat-mat">5.2.61. 如何跨进程传递Mat信息，使不同进程间零拷贝地共享Mat中的设备内存数据？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#id18">5.2.62. 申请设备内存失败， 错误返回-24。</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#bm-image-createbm-image-alloc-dev-membm-image-attach">5.2.63. bm_image_create、bm_image_alloc_dev_mem、bm_image_attach相关疑问。</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#bm-image-destroybm-image-detach">5.2.64. bm_image_destroy、bm_image_detach相关疑问。</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#bmcv-tobmibm-create-image-bm-image-destroy">5.2.65. 在bmcv::toBMI之前是否需要调用bm_create_image，如果调用，在最后使用bm_image_destroy会不会引起内存泄露？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#opencvimwritebmcv-image-jpeg-enc">5.2.66. 使用opencv的imwrite编码的结果和使用bmcv_image_jpeg_enc编码的结果有质量差异（色彩饱和度）。</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/Multimedia_FAQ.html#ffmpeg-pcie-sophon-idx">5.2.67. 使用ffmpeg 在pcie模式下进行编解码 使用过滤器 要注意指定sophon_idx。</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="multimedia/multimedia_general_faq.html">5.3. 多媒体客户常见问题（补充）</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/multimedia_general_faq.html#cv-matbm-image">5.3.1. cv::Mat如何转换为bm_image？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/multimedia_general_faq.html#hostbgr-planar-cv-mathostbgr-packed-cv-mat">5.3.2. 如何将host上的bgr planar cv::Mat变成host上的BGR packed cv::Mat？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/multimedia_general_faq.html#nv12-bm-image">5.3.3. 使用NV12原始数据，创建bm_image的注意事项？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/multimedia_general_faq.html#opencv-contrib">5.3.4. 是否可以提供OpenCV contrib库？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/multimedia_general_faq.html#bmcv-bm-image">5.3.5. BMCV相关接口，输入和输出可以使同一个bm_image吗？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/multimedia_general_faq.html#cv-bmcv-resize-bmcv-image-resize-cv-resizecpu-matcpu-1cv-hal-resize-bmcv-hwresize-cv-bmcv-resizecv-resize">5.3.6. cv::bmcv::resize 看代码底层调用的是bmcv_image_resize，cv::resize用的是cpu吗，处理的是mat中cpu内存中的那部分数据吗？还有1个cv::hal::resize, bmcv::hwResize，这些是什么关系啊。cv::bmcv::resize和cv::resize 是否支持输入和输出是同一个对象，原地进行转换呢？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/multimedia_general_faq.html#bm-opencvgb28181">5.3.7. 关于BM-OpenCV中GB28181接口，说的是接国标流是吧？本身支持转国标流功能吗？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/multimedia_general_faq.html#id4">5.3.8. 如何进行编解码性能测试？是否有参考程序？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/multimedia_general_faq.html#bm1684x">5.3.9. BM1684X芯片的编解码性能数据是怎样的？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/multimedia_general_faq.html#bm1684x322">5.3.10. BM1684X编解码性能是同时支持32路解码和2路编码吗？内存大小和内存带宽会不会成为瓶颈？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/multimedia_general_faq.html#vpp">5.3.11. 解码会占用多少内存？使用vpp进行图像处理，最大可能会消耗多少内存？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/multimedia_general_faq.html#hwcchwnchw-1684x">5.3.12. 前处理时图片数据格式转换需要HWC转CHW和NCHW， 1684X是否相关接口可以使用？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/multimedia_general_faq.html#id5">5.3.13. 硬编的画面输出是绿屏</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/multimedia_general_faq.html#id6">5.3.14. 解码器卡住</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/multimedia_general_faq.html#bmcv-image-vpp-resize-padding-vpp-input-image-param-err">5.3.15. 使用bmcv_image_vpp_resize_padding时报错提示”vpp input image param err”？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/multimedia_general_faq.html#bmcvopencv-cvtcolor-subtract-bitwise-and-findcontours">5.3.16. bmcv库中是否有和OpenCV相对应的 cvtColor、 subtract、 bitwise_and、 findContours 等这几个方法？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/multimedia_general_faq.html#soccv-matcv-mat">5.3.17. SoC模式使用cv::Mat的数据地址初始化另外一个cv::Mat时有可能会出现乱码？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/multimedia_general_faq.html#soccv-mat">5.3.18. SoC模式对cv::Mat的内存进行操作</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/multimedia_general_faq.html#sophon-gate-gate-webserver-py-sophonface">5.3.19. Sophon gate 人脸应用中gate_webserver.py 的 sophonface  是如何导入的？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/multimedia_general_faq.html#opencvimreadjpg">5.3.20. OpenCV的imread接口读取进来的JPG图片尺寸问题</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/multimedia_general_faq.html#bm-imagecv-mat">5.3.21. 如何将bm_image转为cv.Mat?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimedia/multimedia_general_faq.html#rtspffmpegopencv-sail-decoder">5.3.22. rtsp流使用ffmpeg和opencv可以正常解码，但是使用sail.Decoder无法正常解码</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="4_converter_quantization.html" class="btn btn-neutral float-left" title="4. 模型转换及量化常见问题" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="multimedia/multimedia_troubleshooting.html" class="btn btn-neutral float-right" title="5.1. 多媒体问题排查手册" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2022, SOPHGO.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="前往官网"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="前往文档中心"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="页面顶部"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="页面底部"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>本页二维码</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
